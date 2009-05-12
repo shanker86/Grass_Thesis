@@ -1,8 +1,0 @@
-\begin{tikzpicture}[scale=3]
-
-  \draw [fill=red!20!white] (1,1) -- ++(0,-2) -- ++(-2,0) -- ++(0,2) -- cycle;
-  \draw [fill=blue!20!white,opacity=0.4] (0,0) circle(2cm);
-  \node [font={\huge\sf}] (yo) at (0,0) {Yo, yo, home slice};
-  \draw[->,very thick, dashed] (yo) to [out=45,in=-45] (3,0);
-
-\end{tikzpicture}

@@ -1,7 +1,7 @@
-%\documentclass[12pt,twoside]{report}  % SANE PRINTING OUTPUT
 \documentclass[12pt]{report}   % SUBMISSION TO GRAD SCHOOL
+%\documentclass[12pt,twoside]{report}  % TWOSIDE DUPLEX OUTPUT
 \usepackage{setspace}
-\usepackage{BUTHESIS}
+\usepackage{buthesis}
 \usepackage{amsmath,amssymb,graphicx,amsfonts,amsthm}
 \usepackage{verbatim}
 \usepackage{epsfig}
@@ -9,10 +9,21 @@
 \usepackage{latexsym,amsfonts,amscd}
 \usepackage{changebar}
 \usepackage{enumerate}
+% Do you use TikZ?
+\usepackage{tikz}
+\usepackage{pgfmath}
+\usetikzlibrary{decorations}
+\usetikzlibrary{shadows}
 
-%%%%%%%%%%%%% Used only for example text
+% Used only for example text
 \usepackage{lipsum}
-%%%%%%%%%%%%% 
+
+\usepackage[footnotesize,bf]{caption}  % Reduces caption font sizes
+
+%%%%%%%%%%%%%%%%% Fancy chapter headings %%%%%%%%%%%%%%%%%%%
+\usepackage[Bjarne]{ThesisFncychap}
+\include{BjarneThesisTitles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %-----------------------------------------------------------------
 %% Control the fonts and formatting used in the table of contents, list of
@@ -27,22 +38,9 @@
 \setlength{\cftbeforefigskip}{-3.5ex}
 %-----------------------------------------------------------------
 
-\usepackage[footnotesize,bf]{caption}  % Reduces caption font sizes
 \dissertation % This *is* what you're writing, right?
 
-%%%%%%%%%%%%%%%%% Fancy chapter headings %%%%%%%%%%%%%%%%%%%
-\usepackage[Bjarne]{acn_fncychap}
-\include{acn_chapter_titles}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Do you use TikZ?
-\usepackage{tikz}
-\usepackage{pgfmath}
-\usetikzlibrary{decorations}
-\usetikzlibrary{shadows}
-\usepgflibrary{decorations.pathreplacing}
-\usepgflibrary{shapes.misc}
-
+% Information about the document
 %-----------------------------------------------------------------
 \title{
 How to Graduate With a Ph.D.

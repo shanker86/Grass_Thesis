@@ -38,54 +38,43 @@
 %                                     added support for duplex printing
 %                                     abstract title inline
 %                                     removed preface & acknowledges toc styles
-%     sometime           1.x     your name could be here
+%     12     May 2009    1.2     Akil Narayan
+%                                     cleaned up lots of deprecated/strange TeX stuff
+%                                     doublespace->setspace
+%                                     \cleardoublepages's for twoside 
+%                                     Spacing editing for various preliminary pages
+%                                    
 %
  
-%\typeout{BUTHESIS.STY, version 1.1 <26 Jul 1993>}
-%\typeout{ }
+\typeout{BUTHESIS.STY, version 1.2 <12 May 2009>}
  
-%\typeout{WARNING: Do NOT assume that this style will format your}
-%\typeout{document acceptable to the Graduate School. Read their}
-%\typeout{guidelines and compare your print-out to them.}
-%\typeout{ }
+\typeout{WARNING: Do NOT assume that this style will format your}
+\typeout{document acceptable to the Graduate School. Read their}
+\typeout{guidelines and compare your print-out to them.}
  
 %\typeout{If you find problems please contact Andrew Gilmartin at CIS.}
 %\typeout{ }
  
-%
 % This is where the margins for the thesis are set up.
-%
- 
+
 % Are we formating facing pages? Set the odd and even page margins approp.
- 
 \if@twoside
 	\typeout{WARNING: A thesis with different even and odd page margins is}
 	\typeout{not acceptable to the Graduate School. Use the "report" style}
 	\typeout{(and do not use the "twoside" style option) when preparing }
 	\typeout{your final print-out.}
 	\typeout{ }
-%	\oddsidemargin = 0.75in
-	\oddsidemargin = 0.50in
-%	\evensidemargin = 0.15in
 	\evensidemargin = 0.00in
+	\oddsidemargin = 0.50in
 \else
-%	\evensidemargin = 0.55in
-%	\oddsidemargin=0.95in
- \oddsidemargin = 0.5625in
- \evensidemargin = 0.5625in
+% \oddsidemargin = 0.5625in
+% \evensidemargin = 0.5625in
+ \oddsidemargin = 0.5in
+ \evensidemargin = 0.5in
 \fi
  
-% Set the top margin at 1" (0" past 1" standard start)
-%\topmargin = 0.1250in  %old way
-%\headheight = 0.0in    %old way
-%\headsep = 0.0in       %old way
-%\topmargin= 0pt
-
-%\advance \topmargin by -\headheight
-%\advance \topmargin by -\headsep
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% added by acn
+% Is this necessary?
 \pdfpagewidth 8.5in
 \pdfpageheight 11in 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,28 +84,23 @@
 \headsep = 0.375in 
  
 %and then remove space for the headers, if any.
- 
 %\advance \topmargin by -\headheight
 %\advance \topmargin by -\headsep
  
 % finally, specify the size of the block of text on the page.
- 
 % \textwidth   5.9in
- \textwidth  5.94in
+\textwidth  5.94in
 % \textheight 8.5in
 \textheight 9in
  
-%
 % These two parameters set the width of a margin note, and then set how far
 % it can appear from the edge of the text.
-%
 \marginparwidth = 0.6in
 \marginparsep = 0.15in
 
 % This parameter sets the distance from bottom of text to foot 
 \footskip = 0.55in
  
-%
 % If the user does {\em not} include the doublespace.sty file in the
 % options to the documentstyle command in their source file, then the
 % various \begin{singlespace}...\end{singlespace} commands in this style
@@ -125,7 +109,6 @@
 % does nothing.  This keeps the commands in this file from breaking, and
 % it also will not interfere in the case that the doublespace.sty file has
 % in face been included.
-%
 \@ifundefined{singlespace}%                    If there is no
 			  %                    singlespace environment 
 {\typeout{WARNING:YOU HAVE NOT INCLUDED THE setspace PACKAGE. THE OUTPUT WILL
@@ -142,7 +125,6 @@ NOT BE DOUBLE-SPACED PER REQUIRED SPECIFICATIONS}\newenvironment{singlespace}[0]
 % Set spacing between paragraphs + indentation
 \setlength{\parindent}{3.5ex}
 \setlength{\parskip}{3.5ex}
- 
 
 % Default values for various crucial values that the user needs to set
 % The first few are to hold the author of the document, it's title,
@@ -228,16 +210,12 @@ NOT BE DOUBLE-SPACED PER REQUIRED SPECIFICATIONS}\newenvironment{singlespace}[0]
 % this works. 
 %
 \def\buthesis@dottedline{\hrulefill}
- 
- 
 
 % This small macro is used simply to print a few lines that contain a block
 % of text with lines for signatures and dates.
 %
 \def\buthesis@siganddate{%               Begin signature and date block
 \vskip 2ex plus 1ex minus 1ex%           Skip a bit more
-%\begin{singlespace}%                     start single spacing
-%\singlespacing
 \par\noindent\hfill%                     Fill line
 \hbox to 3.5in{\buthesis@dottedline}%    draw a dotted line for the signature
 \par\noindent\hfill%                     Start the next paragraph and fill.
@@ -247,8 +225,6 @@ NOT BE DOUBLE-SPACED PER REQUIRED SPECIFICATIONS}\newenvironment{singlespace}[0]
 \hbox to 3.5in{\buthesis@dottedline}%    Finish with another dotted line
 \par\noindent\hfill%                     Start the next line and start to fill it
 \hbox to 3.5in{(Date)\hfil}%             Include Date marker (left justified)
-%\doublespacing
-%\end{singlespace}%                       Turn off single space
 }%                                       End the signature and date block
  
   
@@ -324,7 +300,6 @@ PROVIDENCE, RHODE ISLAND\\
 
 %\vfill%                                  yet another vfill glob
 \buthesis@month\ \buthesis@year%       Insert the month and year of the thesis
-%\end{singlespace}%                       Finish single spacing
 \end{center}%                            Finish centering text
 \end{titlepage}%                         Finish title page
 \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -412,7 +387,6 @@ by
 % This environment, surprisingly named `signature', is to be used to generate
 % a signature page.
 \newenvironment{signature}[0]{%          Start definition for \begin{signature}
-%\begin{singlespace}%                     Start single spacing
 \begin{center}%                          center the following text
 This \buthesis@documenttype\ by %
 \buthesis@author\ %                      include the name(s) of the author(s)
@@ -423,14 +397,9 @@ by \buthesis@department\ as satisfying the\\
 \end{center}%                            Finish centering said text.
 \thispagestyle{empty}%                   Make certain there are no headers or footers
 }
-%\mbox{ } \vspace*{.1in} 
-%\vskip 0.0ex plus 2ex minus 2ex}%        end beginning by skipping to start signatures
 {\vskip 10ex plus 5ex minus 5ex%         Start closing by skipping a bit
 \centerline{Approved by the Graduate Council}
-\buthesis@signatureblock{Sheila  %              Include a blank signature
-Bonde,
- Dean of the Graduate School}
-%\end{singlespace}%                       turn off single spacing
+\buthesis@signatureblock{Sheila Bonde, Dean of the Graduate School}
 \vfill\eject
 \clearpage{\pagestyle{empty}\cleardoublepage}
 }
