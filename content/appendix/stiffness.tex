@@ -1,0 +1,338 @@
+\label{app:stiffness}In this appendix we concentrate our efforts on deriving
+the stiffness result of Theorem \ref{thm:stiffness-brief}. For notational
+convenience, we define
+\[ \begin{array}{l}
+     \alpha \assign - \frac{1}{2},\hspace{0.5cm} \beta \assign s -
+     \frac{3}{2},\hspace{0.5cm}  \tilde{r}
+     \assign \frac{2 x}{x^2 + 1} = \tmop{sgn} (x) \sqrt{1 - r^2 (x)},
+     \hspace{0.5cm} \gamma =
+     s - 1\\
+     \\
+     k^{\vee} = \tmop{sgn} (k) (|k| - 1),\hspace{0.5cm} k^{\wedge} = \tmop{sgn} (k) (|k| +
+     1), \hspace{0.5cm} n \assign |k| - 1
+   \end{array} \]
+We start with (assuming $k \neq 0$):
+\[ \phi_k^{(s)} = \frac{2^{s / 2}}{(x - i)^s} \left[ \tilde{P}_{|k|}^{(\alpha,
+   \beta)} (r) + i \tilde{r} \tmop{sgn} (k) \tilde{P}_{|k| - 1}^{(\alpha + 1,
+   \beta + 1)} (r) \right] . \]
+From this, we can derive the relation
+\begin{equation}
+  \label{eq:phi-diff} \frac{\mathd \phi^{(s)}_k}{\mathd x} = \frac{- s}{x - i}
+  \phi_k^{(s)} + (1 + r) \frac{2^{s / 2}}{(x - i)^s}  \frac{\mathd
+  \Psi^{(\gamma)} (\theta)}{\mathd \theta} .
+\end{equation}
+Noting that
+\[ \frac{- s}{x - i} = - \frac{s}{2} \left[ \tilde{r} + i (1 + r) \right] = -
+   \frac{i \nonesep s}{2} \left[ 1 + e^{- i \theta} \right], \]
+then we can easily use the recurrence relations presented in Appendix
+\ref{app:recurrence} to prove the following lemma:
+
+\begin{lemma}
+  \label{lemma:stiff1}We have the representation:
+  \[ \begin{array}{lll}
+       \frac{- s}{(x - i)} \phi^{(s)}_k & = & \sum_{l \in \left\{ \pm
+       k^{\vee}, \pm k, \pm k^{\wedge} \right\}} \chi_l^{(s)} \phi_l^{(s)},
+     \end{array} \]
+  where
+  \[ \begin{array}{lll}
+       \chi^{(s)}_{\pm k^{\vee}} & = & - \frac{i \tmop{sgn} (k) s}{2 (2 n +
+       \alpha + \beta + 2)} \sqrt{\frac{(n + \alpha + 1) (n + \beta + 1)}{(2 n
+       + \alpha + \beta + 1) (2 n + \alpha + \beta + 3)}} \times\\
+       &  & \\
+       &  & \left( \sqrt{n + \alpha + \beta + 1} \pm \tmop{sgn} (k) \sqrt{n}
+       \right) \left( \sqrt{n + \alpha + \beta + 2} + \tmop{sgn} (k) \sqrt{n +
+       1} \right)\\
+       &  & \\
+       \chi_k^{(s)} & = & - \frac{i \nonesep s (\beta - \alpha) (\alpha +
+       \beta + 1)}{2 (2 n + \alpha + \beta + 2) (2 n + \alpha + \beta + 4)} -
+       \frac{i \nonesep s}{2}\\
+       &  & \\
+       \chi_{- k}^{(s)} & = & - \frac{i \nonesep s (\alpha - \beta)}{2 (2 n +
+       \alpha + \beta + 2) (2 n + \alpha + \beta + 4)} \left( 1 + 2 \tmop{sgn}
+       (k) \sqrt{(n + 1) (n + \alpha + \beta + 2)} \right)\\
+       &  & \\
+       \chi_{\pm k^{\wedge}}^{(s)} & = & - \frac{i \tmop{sgn} (k) \nonesep
+       s}{2 (2 n + \alpha + \beta + 4)} \sqrt{\frac{(n + \alpha + 2) (n +
+       \beta + 2)}{(2 n + \alpha + \beta + 3) (2 n + \alpha + \beta + 5)}}
+       \times\\
+       &  & \\
+       &  & \left( \tmop{sgn} (k) \sqrt{n + 2} \mp \sqrt{n + \alpha + \beta +
+       3} \right)  \left( \sqrt{n + \alpha + \beta + 2} - \tmop{sgn} (k)
+       \sqrt{n + 1} \right)
+     \end{array} \]
+\end{lemma}
+
+We now present the next lemma necessary for our stiffness matrix result.
+
+\begin{lemma}
+  \label{lemma:stiff2}We have
+  \[ \begin{array}{lll}
+       \frac{\mathd \Phi_k^{(s)} (x)}{\mathd x} & = & \sum_{l \in \left\{ \pm
+       k^{\vee}, \pm k, \pm k^{\wedge} \right\}} \sigma_l^{(s)} \Phi_l^{(s)},
+     \end{array} \]
+  with
+  
+  
+  \[ \begin{array}{lll}
+       \sigma^{(s)}_{\pm k^{\vee}} & = & i \tmop{sgn} (k) \frac{(n + \alpha +
+       \beta + 2)}{(2 n + \alpha + \beta + 2)} \sqrt{\frac{(n + \alpha + 1) (n
+       + \beta + 1)}{(2 n + \alpha + \beta + 1) (2 n + \alpha + \beta + 3)}}
+       \times\\
+       &  &  \left[ \sqrt{(n + \alpha + \beta + 1) (n + \alpha + \beta + 2)}
+       \pm \sqrt{n (n + 1)} \right]\\
+       &  & \\
+       \sigma_{\pm k}^{(s)} & = & i \tmop{sgn} (k) \left\{ \begin{array}{lll}
+         \sqrt{(n + 1) (n + \alpha + \beta + 2)}, &  & + k\\
+         &  & \\
+         \sqrt{(n + 1) (n + \alpha + \beta + 2)}  \frac{(\alpha - \beta)
+         (\alpha + \beta + 2)}{(2 n + \alpha + \beta + 2) (2 n + \alpha +
+         \beta + 4)} &  & - k
+       \end{array} \right.\\
+       &  & \\
+       \sigma_{\pm k^{\wedge}}^{(s)} & = & i \tmop{sgn} (k) \frac{(n + 1)}{(2
+       n + \alpha + \beta + 4)} \sqrt{\frac{(n + \alpha + 2) (n + \beta +
+       2)}{(2 n + \alpha + \beta + 3) (2 n + \alpha + \beta + 5)}} \times\\
+       &  &  \left[ \sqrt{(n + 1) (n + 2)} \pm \sqrt{(n + \alpha + \beta + 2)
+       (n + \alpha + \beta + 3)} \right]
+     \end{array} \]
+  
+\end{lemma}
+
+The above lemma states that the unweighted Wiener rational functions
+$\Phi_k^{(s)}$ have derivatives that admit sparse representations in the
+original basis functions. The proof will show that this is a property that is
+not shared by the generalized Fourier series functions.
+
+\begin{proof}
+  Our intermediate goal is to prove that the derivative of $\Psi_k^{(s - 1)}$
+  is a sparse combination of $\Psi_k^{(s)}$. Note that we can explicitly
+  calculate the expression
+  \begin{equation}
+    \label{eq:stiffproof1} \begin{array}{lll}
+      2 \frac{\mathd \Psi_k^{(s - 1)}}{\mathd \theta} & = & - \tilde{r}
+      \zeta_{|k|}^{(\alpha, \beta)}  \tilde{P}_{|k| - 1}^{(\alpha + 1, \beta +
+      1)} +\\
+      &  & \\
+      &  & i \tmop{sgn} (k) \left\{ \left[ b_{|k| - 1}^{(\alpha + 1, \beta +
+      1)} - \zeta_{|k| - 1}^{(\alpha + 1, \beta + 1)} \varepsilon_{|k| - 2,
+      0}^{(\alpha + 2, \beta + 2)}  \right]  \tilde{P}_{|k| - 2}^{(\alpha + 1,
+      \beta + 1)} + \right.\\
+      &  & \\
+      &  & \left[ a_{|k| - 1}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| -
+      1}^{(\alpha + 1, \beta + 1)} \varepsilon_{|k| - 2, 1}^{(\alpha + 2,
+      \beta + 2)}  \right]  \tilde{P}_{|k| - 1}^{(\alpha + 1, \beta + 1)} +\\
+      &  & \\
+      &  & \left. \left[ b_{|k|}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| -
+      1}^{(\alpha + 1, \beta + 1)} \varepsilon_{|k| - 2, 2}^{(\alpha + 2,
+      \beta + 2)}  \right]  \tilde{P}_{|k|}^{(\alpha + 1, \beta + 1)}
+      \right\},
+    \end{array}
+  \end{equation}
+  where we have used the Jacobi recurrence coefficients from the three-term
+  recurrence relation (\ref{eq:opoly3term-normal}), the derivative promotion
+  relation (\ref{eq:jac-dpromote}), and the promotion relation
+  (\ref{eq:jacform-abpn}). Note that we have omitted the tilde's on all the
+  recurrence coefficients; this is done to avoid burdensome notation, but one
+  must be cognizant that all of the recurrence coefficients that we use are
+  for the $L^2$-normalized Jacobi polynomials, not the monic ones. By
+  considering the form of the $\Psi_k^{(s)}$ functions presented in Theorem
+  \ref{thm:Psifunctions}, one can determine that the first term is already a
+  sparse combination of $\Psi_k^{(s)} (\theta)$ functions. However, the second
+  term in curly brackets require significant finesse. Our goal is to write
+  this term in curly brackets as a sum of two Jacobi polynomials
+  $\tilde{P}_n^{(\alpha, \beta + 1)}$. To do this, we aim to use the promotion
+  relation (\ref{eq:jacform-apn}). We have the following equalities for $n
+  \assign |k| - 1$
+  \[ \begin{array}{l}
+       \left[ b_{|k| - 1}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| - 1}^{(\alpha
+       + 1, \beta + 1)} \varepsilon_{|k| - 2, 0}^{(\alpha + 2, \beta + 2)} 
+       \right] =\\
+       \\
+       \hspace{3cm} - \frac{2 (n + \alpha + \beta + 2)}{2 n + \alpha + \beta +
+       2} \sqrt{\frac{n (n + \alpha + 1) (n + \beta + 1) (n + \alpha + \beta +
+       2)}{(2 n + \alpha + \beta + 1) (2 n + \alpha + \beta + 3)}},\\
+       \\
+       \left[ a_{|k| - 1}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| - 1}^{(\alpha
+       + 1, \beta + 1)} \varepsilon_{|k| - 2, 1}^{(\alpha + 2, \beta + 2)} 
+       \right] = \frac{(\beta - \alpha) (\alpha + \beta + 2 + 2 n (n + \alpha
+       + \beta + 3))}{(2 n + \alpha + \beta + 2) (2 n + \alpha + \beta +
+       4)},\\
+       \\
+       \left[ b_{|k|}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| - 1}^{(\alpha +
+       1, \beta + 1)} \varepsilon_{|k| - 2, 2}^{(\alpha + 2, \beta + 2)} 
+       \right] =\\
+       \\
+       \hspace{3cm} \frac{2 (n + 1)}{2 n + \alpha + \beta + 4} \sqrt{\frac{(n
+       + 1) (n + \alpha + 2) (n + \beta + 2) (n + \alpha + \beta + 3)}{(2 n +
+       \alpha + \beta + 3) (2 n + \alpha + \beta + 5)}} .
+     \end{array} \]
+  Rewriting the above expressions using the promotion recurrence constants
+  from (\ref{eq:jacform-apn}) gives us
+  \[ \begin{array}{l}
+       \left[ b_{|k| - 1}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| - 1}^{(\alpha
+       + 1, \beta + 1)} \varepsilon_{|k| - 2, 0}^{(\alpha + 2, \beta + 2)} 
+       \right] =\\
+       \\
+       \hspace{2cm} - \nu_{n, - 1}^{(\alpha, \beta + 1)} (n + \alpha + \beta +
+       2) \sqrt{\frac{2 (n + \alpha + 1) (n + \alpha + \beta + 2)}{(2 n +
+       \alpha + \beta + 2) (2 n + \alpha + \beta + 3)}},\\
+       \\
+       \left[ b_{|k|}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| - 1}^{(\alpha +
+       1, \beta + 1)} \varepsilon_{|k| - 2, 2}^{(\alpha + 2, \beta + 2)} 
+       \right] =\\
+       \\
+       \hspace{2cm} \nu_{n + 1, 0}^{(\alpha, \beta + 1)} (n + 1) \sqrt{\frac{2
+       (n + 1) (n + \beta + 2)}{(2 n + \alpha + \beta + 3) (2 n + \alpha +
+       \beta + 4)}} .
+     \end{array} \]
+  Some algebra allows us to show
+  \[ \begin{array}{l}
+       \left[ a_{|k| - 1}^{(\alpha + 1, \beta + 1)} - \zeta_{|k| - 1}^{(\alpha
+       + 1, \beta + 1)} \varepsilon_{|k| - 2, 1}^{(\alpha + 2, \beta + 2)} 
+       \right] =\\
+       \\
+       \hspace{2cm} \nu_{n, 0}^{(\alpha, \beta + 1)} (n + \alpha + \beta + 2)
+       \sqrt{\frac{2 (n + \alpha + 1) (n + \alpha + \beta + 2)}{(2 n + \alpha
+       + \beta + 2) (2 n + \alpha + \beta + 3)}}\\
+       \\
+       \hspace{2cm} - \nu_{n + 1, - 1}^{(\alpha, \beta + 1)} (n + 1)
+       \sqrt{\frac{2 (n + 1) (n + \beta + 2)}{(2 n + \alpha + \beta + 3) (2 n
+       + \alpha + \beta + 4)}} .
+     \end{array} \]
+  Using these last three expressions back in the expansion
+  (\ref{eq:stiffproof1}) allows us to use the promotion relation
+  (\ref{eq:jacform-apn}) to write
+  \[ \begin{array}{lll}
+       2 \frac{\mathd \Psi_k^{(s - 1)}}{\mathd \theta} & = & - \tilde{r}
+       \zeta_{|k|}^{(\alpha, \beta)}  \tilde{P}_{|k| - 1}^{(\alpha + 1, \beta
+       + 1)}\\
+       &  & \\
+       &  & + i \tmop{sgn} (k) \left\{ (n + \alpha + \beta + 2) \sqrt{\frac{2
+       (n + \alpha + 1) (n + \alpha + \beta + 2)}{(2 n + \alpha + \beta + 2)
+       (2 n + \alpha + \beta + 3)}}  \tilde{P}_{|k| - 1}^{(\alpha, \beta + 1)}
+       + \right.\\
+       &  & \\
+       &  & \left. (n + 1) \sqrt{\frac{2 (n + 1) (n + \beta + 2)}{(2 n +
+       \alpha + \beta + 3) (2 n + \alpha + \beta + 4)}} 
+       \tilde{P}_{|k|}^{(\alpha, \beta + 1)} \right\} .
+     \end{array} \]
+  To facilitate notation, define
+  \[ \begin{array}{lll}
+       f_{n, 0}^{(\alpha, \beta)} & \assign & (n + \alpha + \beta + 2) \mu_{n,
+       0}^{(\alpha + 1, \beta + 1)},\\
+       &  & \\
+       f_{n, 1}^{(\alpha, \beta)} & \assign & (n + 1) \mu_{n, 1}^{(\alpha + 1,
+       \beta + 1)} .
+     \end{array} \]
+  Our final step is now to use the three-term recurrence relation
+  (\ref{eq:opoly3term-normal}) along with the demotion relation
+  (\ref{eq:jacform-bdn}). Doing so, we obtain
+  \[ \begin{array}{lll}
+       2 (1 + r) \frac{\mathd \Psi_k^{(s - 1)}}{\mathd \theta} & = & -
+       \tilde{r} \zeta_{|k|}^{(\alpha, \beta)}  \left[ \sqrt{b_{|k|}^{(\alpha
+       + 1, \beta + 1)}} \tilde{P}_{|k|}^{(\alpha + 1, \beta + 1)} + \left(
+       a_{|k| - 1}^{(\alpha + 1, \beta + 1)} + 1 \right) \tilde{P}_{|k| -
+       1}^{(\alpha + 1, \beta + 1)} + \right.\\
+       &  & \\
+       &  & \left. \sqrt{b_{|k| - 1}^{(\alpha + 1, \beta + 1)}}
+       \tilde{P}_{|k| - 2}^{(\alpha + 1, \beta + 1)} \right] + i \tmop{sgn}
+       (k) \left\{ f_{n, 0}^{(\alpha, \beta)} \gamma_{n, 0}^{(\beta + 1,
+       \alpha)} \tilde{P}_{|k| - 1}^{(\alpha, \beta)} + \right.\\
+       &  & \\
+       &  & \left. + \left( f_{n, 0}^{(\alpha, \beta)} \gamma_{n, 1}^{(\beta
+       + 1, \alpha)} + f_{n, 1}^{(\alpha, \beta)} \gamma_{n + 1, 0}^{(\beta +
+       1, \alpha)} \right)  \tilde{P}_{|k|}^{(\alpha, \beta)} + f^{(\alpha,
+       \beta)}_{n, 1} \gamma_{n + 1, 1}^{(\beta + 1, \alpha)} \tilde{P}_{|k| +
+       1}^{(\alpha, \beta)} \right\} .
+     \end{array} \]
+  We can see from Theorem \ref{thm:Psifunctions} that $\tilde{r} 
+  \tilde{P}_n^{(\alpha + 1, \beta + 1)}$ and $\tilde{P}_n^{(\alpha, \beta)}$
+  are sparse combinations of $\Psi_k^{(s)} (\theta)$. Noting that
+  $\frac{\mathd}{\mathd x} \Phi_k^{(s)} = (1 + r) \frac{\mathd}{\mathd \theta}
+  \Psi_k^{(s - 1)}$ and making the connection $\Phi_k^{(s)} (x) \assign
+  \Psi_k^{(s - 1)} (\theta (x))$ proves the result.
+  
+  
+\end{proof}
+
+Putting the two lemmas together, we have
+
+\begin{theorem}
+  \label{thm:stiff-entries}The following equality holds:
+  \[ \frac{\mathd \phi_k^{(s)}}{\mathd x} = \sum_{l \in \left\{ \pm k^{\vee},
+     \pm k, \pm k^{\wedge} \right\}} \tau_l^{(s)} \phi_l^{(s)}, \]
+  where the constants $\tau_l^{(s)}$ are equal to
+  \[ \begin{array}{lll}
+       \tau_{k, \pm k^{\vee}} & = & \frac{i}{2} \sqrt{\frac{(n + \alpha + 1)
+       (n + \beta + 1)}{(2 n + \alpha + \beta + 1) (2 n + \alpha + \beta +
+       3)}} \times\\
+       &  & \\
+       &  & \left\{ \tmop{sgn} (k) \left( \sqrt{(n + \alpha + \beta + 1) (n +
+       \alpha + \beta + 2)} \pm \sqrt{n (n + 1)} \right) - \right.\\
+       &  & \\
+       &  & \left. \frac{\alpha + \beta + 2}{(2 n + \alpha + \beta + 2)}
+       \left( \sqrt{(n + 1) (n + \alpha + \beta + 1)} \pm \sqrt{n (n + \alpha
+       + \beta + 2)} \right) \right\}\\
+       &  & \\
+       \tau_{k, k} & = & i \tmop{sgn} (k) \sqrt{(n + 1) (n + \alpha + \beta +
+       2)} - \frac{i \nonesep s (\beta - \alpha) (\alpha + \beta + 1)}{2 (2 n
+       + \alpha + \beta + 2) (2 n + \alpha + \beta + 4)} - \frac{i \nonesep
+       s}{2}\\
+       &  & \\
+       \tau_{k, - k} & = & - \frac{i \nonesep s (\alpha - \beta)}{2 (2 n +
+       \alpha + \beta + 2) (2 n + \alpha + \beta + 4)}\\
+       &  & \\
+       \tau_{k, \pm k^{\wedge}} & = & \frac{i}{2} \sqrt{\frac{(n + \alpha + 2)
+       (n + \beta + 2)}{(2 n + \alpha + \beta + 3) (2 n + \alpha + \beta +
+       5)}} \times\\
+       &  & \\
+       &  & \left\{ - \frac{s}{2 n + \alpha + \beta + 4} \left[ \sqrt{(n + 2)
+       (n + \alpha + \beta + 2)} \pm \sqrt{(n + 1) (n + \alpha + \beta + 3)}
+       \right] + \right.\\
+       &  & \\
+       &  & \left. \tmop{sgn} (k) \left[ \sqrt{(n + 1) (n + 2)} \pm \sqrt{(n
+       + \alpha + \beta + 2) (n + \alpha + \beta + 3)} \right] \right\}
+     \end{array} \]
+  Clearly for $|k| = 1$ we have $\tau_{k, \pm k^{\vee}} = \tau_{k, 0}$ so
+  that, taking into account the different normalization constant in the
+  definition of $\phi_k^{(s)}$ for $k = 0$:
+  \[ \tau_{k, 0} = \frac{i}{\sqrt{2}} \sqrt{\frac{(\alpha + 1) (\beta +
+     1)}{(\alpha + \beta + 3)}} \left\{ \tmop{sgn} (k) \sqrt{(\alpha + \beta +
+     2)} - 1 \right\} \]
+  
+  
+  And for $k = 0$:
+  \[ \frac{\mathd \phi_0^{(s)}}{\mathd x} = - \frac{i \nonesep \sqrt{s -
+     \frac{1}{2}}}{2} \left[ \frac{1 + \sqrt{s}}{\sqrt{1 + s}} \phi_{-
+     1}^{(s)} + 2 \sqrt{s - \frac{1}{2}} \phi_0^{(s)} + \frac{1 -
+     \sqrt{s}}{\sqrt{1 + s}} \phi_1^{(s)} \right] \]
+\end{theorem}
+
+\begin{proof}
+  A combination of (\ref{eq:phi-diff}), and Lemmas \ref{lemma:stiff1}
+  and \ref{lemma:stiff2}.
+\end{proof}
+
+
+
+By doing some asymptotic analysis of the constants from Theorem
+\ref{thm:stiff-entries} we can show
+\[ \begin{array}{lll}
+     | \tau_{k, k} | & \leq & n + 2 s\\
+     &  & \\
+     | \tau_{k, - k} | + | \tau_{k, k^{\vee}} | + | \tau_{k, - k^{\vee}} | + |
+     \tau_{k, k^{\wedge}} | + | \tau_{k, - k^{\wedge}} | & \leq & 1 +
+     \frac{n}{2} + s + \frac{s}{2} + \frac{n}{2} + s + \frac{1}{2} +
+     \frac{s}{4}\\
+     &  & \\
+     & = & n + 3 s + 2
+   \end{array} \]
+Thus we can establish the following upper bound.
+
+\begin{theorem}
+  Let $S$ be the $N \times N$ stiffness matrix for the functions
+  $\phi_k^{(s)}$. Then
+  \[ \lambda_{\max} \left( S) \leq N + 5 s, \right. \]
+  where $\lambda_{\max} \left( \cdot \right)$ denotes the maximum eigenvalue
+  (in magnitude).
+\end{theorem}

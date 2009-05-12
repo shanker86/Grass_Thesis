@@ -1,0 +1,118 @@
+\label{app:odes}We list in this appendix various systems of differential
+equations that are frequently derived from the Jacobi differential equation.
+
+\section{Fourier Differential Equations}
+
+The `even' Fourier differential equation, a direct map of the Jacobi
+differential equation, is
+\begin{equation}
+  \label{eq:fourier-even-odes} \begin{array}{ll}
+    - \frac{\mathd}{\mathd \theta}  \left[ w_{\theta}^{(\gamma, \delta)}
+    \Theta' \right] - n (n + \gamma + \delta) w_{\theta}^{(\gamma, \delta)}
+    \Theta = 0, & \theta \in [0, \pi]\\
+    & \\
+    \Theta'' - \frac{\Theta'}{\sin (\theta)} \left[ (\gamma + \delta + 2) \cos
+    (\theta) + (\gamma - \delta) \right] \Theta' + n (n + \gamma + \delta)
+    \Theta = 0, & \theta \in [0 \pi]
+  \end{array}
+\end{equation}
+The solutions are the functions
+\[ \Theta_{e, n}^{(\gamma, \delta)} = P_n^{(\gamma - 1 / 2, \delta - 1 / 2)}
+   (\cos (\theta)), \]
+which are $L^2$-orthogonal under the weight $w_{\theta}^{(\gamma, \delta)}$.
+
+The `odd' Fourier differential equation is a map of the differential equation
+presented in lemma \ref{lemma:jacobi-functions} with $a = b = \frac{1}{2}$:
+\begin{equation}
+  \label{eq:fourier-odd-odes} \begin{array}{lll}
+    - \frac{\mathd}{\mathd \theta}  \left[ w_{\theta}^{(\gamma \delta)}
+    \Theta' \right] + \left[ \frac{(\gamma + \delta)}{2} (1 + \cos^2 (\theta))
+    + (\gamma - \delta) \cos (\theta) \right] \Theta -  & \\
+    \hspace{1cm} w_{\theta}^{(\gamma, \delta)}  \left[ n^2 + \left( n + \frac{1}{2} \right)
+    (\gamma + \delta + 2) \right] \Theta = 0,  & \theta \in [0, \pi]\\
+    & \\
+    - \Theta'' + \sin^3 (\theta) \left[ (\gamma - \delta) + (\gamma + \delta)
+    \cos (\theta) \right] \Theta' + & \\
+    \hspace{1cm}\sin^2 (\theta) \left[ \frac{(\gamma + \delta)}{2} (1 + \cos^2 (\theta)) +
+    (\gamma - \delta) \cos (\theta) \right] \Theta - & \\
+    \hspace{2cm} \left[ n^2 + \left( n +
+    \frac{1}{2} \right) (\gamma + \delta + 2) \right] \Theta = 0, &  \theta
+    \in [0, \pi]
+  \end{array}
+\end{equation}
+The solutions are the functions
+\[ \Theta_{o, n + 1}^{(\gamma, \delta)} = \sin (\theta) P_n^{(\gamma + 1 / 2,
+   \delta + 1 / 2)} (\cos (\theta)), \]
+which are $L^2$-orthogonal under the weight $w_{\theta}^{(\gamma, \delta)}$.
+
+\section{Rational function differential equations}
+
+\subsection{The Rational Jacobi polynomials $\widetilde{P \nonesep
+L}_n^{(s, t)}$}
+
+\label{app:odes-rat-pl}The rational Jacobi polynomials for the semi-infinite
+interval are introduced in Table \ref{tab:function-relations} and used in
+Section \ref{sec:numerical-pde-wave}. The map from the Jacobi interval $r \in
+[- 1, 1]$ to the half-strip $x \in [0, \infty]$ is given by
+\[ \begin{array}{lllllllll}
+     x & = & \frac{1 + r}{1 - r}, & \hspace{0.5cm}  & 1 - r & = & \frac{2}{x +
+     1}, &  & \\
+     &  &  &  &  &  &  & \hspace{0.5cm}  & \frac{\mathd r}{\mathd x} =
+     \frac{2}{(x + 1)^2} = \frac{1}{2} (1 - r)^2\\
+     r & = & \frac{x - 1}{x + 1}, &  & 1 + r & = & \frac{2 x}{x + 1}, &  & 
+   \end{array} \]
+Under this transformation, the Jacobi differential equation
+(\ref{eq:jacobi-differential-equation}) can be rewritten as
+\[ \left( x + 1 \right)^2 \xi'' + (x + 1) \left[ 3 + 2 \nonesep t - x \left(
+   2 s - 1 \right) \right] \xi' + n (n + 2 s + 2 t - 1) \xi = 0,
+   \hspace{0.5cm} s > \frac{1}{2}, t > - \frac{1}{2} . \]
+The equation in Sturn-Liouville format reads
+\[ - \frac{\mathd}{\mathd x} \left[ \left( \frac{2}{x + 1} \right)^{2 s - 3}
+   \left( \frac{2 x}{x + 1} \right)^{2 t + 1} \xi' \right] - \frac{n}{4}
+   \left( n + 2 s + 2 t - 2 \right) \left( \frac{2}{x + 1} \right)^{2 s}
+   \left( \frac{2 x}{x + 1} \right)^{2 t} \xi = 0. \]
+The solutions are the rational Jacobi polynomials
+\[ \widetilde{P \nonesep L}^{(s, t)}_n = \tilde{P}_n^{(2 s - 2, 2 t)} \left(
+   \frac{x - 1}{x + 1} \right), \]
+which are orthogonal under the weight
+\[ w_{\tmop{PL}}^{(s, t)} = \frac{1}{2} \left( \frac{2}{x + 1} \right)^{2 s}
+   \left( \frac{2 x}{x + 1} \right)^{2 t} . \]
+
+
+\subsection{The rational Jacobi polynomials $\widetilde{P \nonesep
+B}_n^{(s, t)}$}
+
+\label{app:odes-rat-pb}The rational Jacobi polynomials over the infinite line
+$\mathbbm{R}$ were introduced in Sections \ref{sec:intro-existing-rational}
+and \ref{sec:other-cheb}. The map from the Jacobi interval $r \in [- 1, 1]$ to
+the real line $x \in \mathbbm{R}$ is given by
+\[ \begin{array}{lllllllllllll}
+     r & = & \frac{x}{\sqrt{1 + x^2}}, &  & 1 - r & = & \frac{\sqrt{1 + x^2} -
+     x}{\sqrt{1 + x^2}}, &  &  &  &  &  & \\
+     &  &  &  &  &  &  & \hspace{0.5cm}  & \frac{\mathd r}{\mathd x} & = &
+     \frac{1}{(1 + x^2)^{3 / 2}} & = & (1 - r^2)^{3 / 2} .\\
+     x & = & \frac{r}{\sqrt{1 - r^2}}, & \hspace{0.5cm}  & 1 + r & = &
+     \frac{\sqrt{1 + x^2} + x}{\sqrt{1 + x^2}}, &  &  &  &  &  & 
+   \end{array} \]
+Under this transformation the Jacobi differential equation
+(\ref{eq:jacobi-differential-equation}) becomes
+\[ \left( 1 + x^2 \right)^2 \xi'' + (1 + x^2) \left[ 2 x - s - t + (t - s)
+   \sqrt{1 + x^2} \right] \xi' + n (n + s + t - 2) \xi = 0, \hspace{0.5cm} s,
+   t > \frac{1}{2} . \]
+The equation in Sturm-Liouville format reads
+\[ \begin{array}{l}
+     - \frac{\mathd}{\mathd x} \left[ \left( \frac{\sqrt{1 + x^2} - x}{\sqrt{1
+     + x^2}} \right)^{s - 2} \left( \frac{\sqrt{1 + x^2} + x}{\sqrt{1 + x^2}}
+     \right)^{t - 2} \xi \right] -\\
+     \\
+     \hspace{2cm} n (n + s + t - 2) \left( \frac{\sqrt{1 + x^2} - x}{\sqrt{1 +
+     x^2}} \right)^s \left( \frac{\sqrt{1 + x^2} + x}{\sqrt{1 + x^2}}
+     \right)^t \xi = 0
+   \end{array} \]
+The solutions are the rational Jacobi polynomials over the entire interval:
+\[ \widetilde{P \nonesep B}_n^{(s, t)} = \tilde{P}^{(s - 3 / 2, t - 3 / 2)}_n
+   \left( \frac{x}{\sqrt{1 + x^2}} \right), \]
+and are orthogonal under the weight
+\[ w_{\tmop{PB}}^{(s, t)} = \left( \frac{\sqrt{1 + x^2} - x}{\sqrt{1 + x^2}}
+   \right)^{s + 3 / 2} \left( \frac{\sqrt{1 + x^2} + x}{\sqrt{1 + x^2}}
+   \right)^{t + 3 / 2} \]

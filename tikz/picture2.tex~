@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+  \draw [fill=red!70!white,circular drop shadow={shadow scale=1.05},very
+  thick,rotate=45,opacity=0.3] (0,0) rectangle (3,2);
+
+
+  \draw [fill=blue!70!white,circular drop shadow={shadow scale=1.05},very
+  thick,rotate=135,opacity=0.3] (0,0) rectangle (3,2);
+  \draw [fill=orange!70!white,circular drop shadow={shadow scale=1.05},very
+  thick,rotate=225,opacity=0.3] (0,0) rectangle (3,2);
+  \draw [fill=green!70!white,circular drop shadow={shadow scale=1.05},very
+  thick,rotate=-45,opacity=0.3] (0,0) rectangle (3,2);
+\end{tikzpicture}
