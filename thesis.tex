@@ -79,7 +79,13 @@ How to Graduate With a Ph.D.
 
 \begin{abstract}
   \input{content/abstract}
-  \addtocounter{page}{-1}  % Do you want this page to exist in the numbering?
+  % Do you want this page to exist in the numbering?
+  \thispagestyle{empty}
+  \if@twoside
+    \addtocounter{page}{-2}  
+  \else
+    \addtocounter{page}{-1}
+  \fi
 \end{abstract}
 
 % Why double-space toc,lof, and lot?
