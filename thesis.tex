@@ -66,7 +66,6 @@ How to Graduate With a Ph.D.
   \director{Pierre-Simon Laplace, Ph.D., Advisor}
   \reader{Ruth Simmons, Ph.D., Reader}
   \reader{Gordon Gee, Ph.D., Reader}
-  \setcounter{page}{3} % You'd best augment this to suit your needs
 \end{signature}
 
 \begin{vita}
@@ -79,13 +78,14 @@ How to Graduate With a Ph.D.
 
 \begin{abstract}
   \input{content/abstract}
-  % Do you want this page to exist in the numbering?
   \thispagestyle{empty}
-  \if@twoside
-    \addtocounter{page}{-2}  
-  \else
-    \addtocounter{page}{-1}
-  \fi
+  % Do you want this page to exist in the numbering?
+%  \thispagestyle{empty}
+%  \if@twoside
+%    \addtocounter{page}{-2}  
+%  \else
+%    \addtocounter{page}{-1}
+%  \fi
 \end{abstract}
 
 % Why double-space toc,lof, and lot?
