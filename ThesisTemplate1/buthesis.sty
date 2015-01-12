@@ -1,0 +1,492 @@
+%
+% Welcome to the Brown University Thesis style (BUTHESIS) for LaTeX.
+%
+% If your questions are how to use this, then you need to see BUPHDSAM.TEX
+% BUMASSAM.TEX (Brown University MASters (or PHD) SAMple).  If you want
+% to understand the \TeX nical aspects of how this works, the following
+% code should be fairly well documented
+%
+%
+% Comments:
+%
+% First, don't assume everything here is laid out in a way that would win
+% prizes at a typography school.  I am {\em certain} that there's a great
+% deal of grotesque layout.
+%
+% Secondly, you may notice the \LaTeX commands \@afterindentfalse and
+% \@afterheading a few places in the text.  Well, when I put them in there,
+% I knew exactly what they did.  Now, I'm a bit fuzzy.  As I recall, the
+% \@afterindentfalse flag simply says 'don't indent', while the \@afterheading
+% command sets up \everypar so that on the first paragraph after the heading
+% it will not indent the first paragraph unless one has set \@afterindenttrue.
+%
+%
+% Possible Enhancements:
+%
+%   - Creating an Endnotes.sty file would probably be good someday.
+%   - it might also be nice to provide an argument to the abstract
+%     environment in the case that people frequently want to format
+%     the title of their document slightly differently there.
+%   - It would be nice to be able to list multiple authors if necessary
+%
+%
+% Creation History:
+%
+%     Date               Ver     Who
+%     19 January 1990    1.0     David John Burrowes
+%     26    July 1993    1.1     Andrew Gilmartin
+%                                     added support for duplex printing
+%                                     abstract title inline
+%                                     removed preface & acknowledges toc styles
+%     12     May 2009    1.2     Akil Narayan
+%                                     cleaned up lots of deprecated/strange TeX stuff
+%                                     doublespace->setspace
+%                                     \cleardoublepages's for twoside 
+%                                     Spacing editing for various preliminary pages
+%                                    
+%
+ 
+\typeout{BUTHESIS.STY, version 1.2 <12 May 2009>}
+ 
+\typeout{WARNING: Do NOT assume that this style will format your}
+\typeout{document acceptable to the Graduate School. Read their}
+\typeout{guidelines and compare your print-out to them.}
+ 
+%\typeout{If you find problems please contact Andrew Gilmartin at CIS.}
+%\typeout{ }
+ 
+% This is where the margins for the thesis are set up.
+
+% Are we formating facing pages? Set the odd and even page margins approp.
+\if@twoside
+	\typeout{WARNING: A thesis with different even and odd page margins is}
+	\typeout{not acceptable to the Graduate School. Use the "report" style}
+	\typeout{(and do not use the "twoside" style option) when preparing }
+	\typeout{your final print-out.}
+	\typeout{ }
+	\evensidemargin = 0.00in
+	\oddsidemargin = 0.50in
+\else
+% \oddsidemargin = 0.5625in
+% \evensidemargin = 0.5625in
+ \oddsidemargin = 0.5in
+ \evensidemargin = 0.5in
+\fi
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Is this necessary?
+\pdfpagewidth 8.5in
+\pdfpageheight 11in 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\topmargin = -0.59in
+\headheight = 0.250in
+\headsep = 0.375in 
+ 
+%and then remove space for the headers, if any.
+%\advance \topmargin by -\headheight
+%\advance \topmargin by -\headsep
+ 
+% finally, specify the size of the block of text on the page.
+% \textwidth   5.9in
+\textwidth  5.94in
+% \textheight 8.5in
+\textheight 9in
+ 
+% These two parameters set the width of a margin note, and then set how far
+% it can appear from the edge of the text.
+\marginparwidth = 0.6in
+\marginparsep = 0.15in
+
+% This parameter sets the distance from bottom of text to foot 
+\footskip = 0.55in
+ 
+% If the user does {\em not} include the doublespace.sty file in the
+% options to the documentstyle command in their source file, then the
+% various \begin{singlespace}...\end{singlespace} commands in this style
+% file will 'break'.  Thus, to prevent that, the command below
+% (\@ifundefined{singlespace}...) creates a singlespace environment that
+% does nothing.  This keeps the commands in this file from breaking, and
+% it also will not interfere in the case that the doublespace.sty file has
+% in face been included.
+\@ifundefined{singlespace}%                    If there is no
+			  %                    singlespace environment 
+{\typeout{WARNING:YOU HAVE NOT INCLUDED THE setspace PACKAGE. THE OUTPUT WILL
+NOT BE DOUBLE-SPACED PER REQUIRED SPECIFICATIONS}\newenvironment{singlespace}[0]{}{}}%         Then define an empty one
+{}%                                            else do nothing
+
+\@ifundefined{doublespacing}
+  {\newcommand{\doublespacing}{\renewcommand{\baselinestretch}{2}}}{}
+
+\@ifundefined{spacing}
+  {\newenvironment{spacing}[0]{\renewcommand{\baselinestretch}{2}}
+                                    {\renewcommand{\baselinestretch}{1}}}{}
+ 
+% Set spacing between paragraphs + indentation
+\setlength{\parindent}{3.5ex}
+\setlength{\parskip}{3.5ex}
+
+% Default values for various crucial values that the user needs to set
+% The first few are to hold the author of the document, it's title,
+% the degree that is to be conferred, and the department it is coming from.
+% All of these default to an `unspecified xxxx' in the text of the document,
+% and a message on the screen about the command to put in their text.
+
+\def\buthesis@author{Unspecified author%
+\typeout{! BUTHESIS warning:}%
+\typeout{You need the command \protect\author{your full name}\space before \protect\maketitle}%
+\typeout{in your file.  See section 2.2.2 of the LaTeX guide.}}
+\def\buthesis@title{Unspecified title%
+\typeout{! BUTHESIS warning:}%
+\typeout{You need the command \protect\title{the complete title}\space before \protect\maketitle}%
+\typeout{in your file.  See section 2.2.2 of the LaTeX guide.}}
+\def\buthesis@degree{Unspecified degree%
+\typeout{! BUTHESIS warning:}%
+\typeout{You need the command \protect\degree{your degree}\space before \protect\maketitle}%
+\typeout{in your file.  Similar to \protect\author\space as described in the LaTeX guide.}}
+\def\buthesis@department{Unspecified department%
+\typeout{! BUTHESIS warning:}%
+\typeout{You need the command \protect\department{the dept.} before \protect\maketitle}%
+\typeout{in your file.  Similar to \protect\author\space as described in the LaTeX guide.}}
+\def\buthesis@previousdegrees{Unspecified previous degree(s)%
+\typeout{! BUTHESIS warning:}%
+\typeout{You need the command \protect\previousdegrees{the degrees}\space before}%
+\typeout{\protect\maketitle\space in your file.  Similar to \protect\author\space (See LaTeX guide).}}
+
+% These are more default values.  The first two set us to assuming that the
+% document is a thesis and not a dissertation.  The second is basically a
+% boolean value that is set to 1 if the document is a thesis, and 0 otherwise
+% (this is used to choose whether to generate an authorization page or not).
+% After those, we assume that the month for the thesis date is May.
+% Then, we set the year to be what we guess it will need to be for the document
+% (this means that June 1989 to May 1990, for instance, all result in the date
+% 1990.  See the thesis and dissertation guidelines for a bit more info.
+% Finally, it is assumed that the date on the authorization page should be
+% today
+\def\buthesis@documenttype{thesis}
+\def\buthesis@thesisflag{1}
+\def\buthesis@month{May}
+\ifnum\month>5
+\def\buthesis@year{\advance\year by 1 \number\year \advance\year by -1}
+\else
+\def\buthesis@year{\number\year}
+\fi
+ 
+ 
+%
+% These create new definitions for the various values that the user must set.
+% The user calls these with appropriate arguments, and then these reset the
+% values above with these new values.  See above for a bit of description about
+% each.
+%
+\def\title#1{\gdef\buthesis@title{#1}}
+\def\author#1{\gdef\buthesis@author{#1}}
+\def\previousdegrees#1{\gdef\buthesis@previousdegrees{#1}}
+\def\degree#1{\gdef\buthesis@degree{#1}}
+\def\department#1{\gdef\buthesis@department{#1}}
+\def\thesismonth#1{\gdef\buthesis@month{#1}}
+\def\thesisyear#1{\gdef\buthesis@year{#1}}
+\def\dissertation{\gdef\buthesis@documenttype{dissertation}
+\gdef\buthesis@thesisflag{0}} 
+\def\thesis{\gdef\buthesis@documenttype{thesis} \gdef\buthesis@thesisflag{1}}
+ 
+ 
+
+% This command creates a new environment that is intended to enclose all of
+% the matter that comes before the main body of text.  This environment is
+% used primarily because it enforces the roman page numbering for this section.
+\newenvironment{preliminaries}[0]{\pagenumbering{roman}}{\vfill\eject\pagenumbering{arabic}}
+
+
+% This simply sets the headers to empty and the footers to only contain
+% the page number 
+%
+\pagestyle{plain}
+
+
+%
+% This small routine draws a dotted line in the hbox it is within when
+% it is called. See page 223 of the \TeX book if you want to learn how
+% this works. 
+%
+\def\buthesis@dottedline{\hrulefill}
+
+% This small macro is used simply to print a few lines that contain a block
+% of text with lines for signatures and dates.
+%
+\def\buthesis@siganddate{%               Begin signature and date block
+\vskip 2ex plus 1ex minus 1ex%           Skip a bit more
+\par\noindent\hfill%                     Fill line
+\hbox to 3.5in{\buthesis@dottedline}%    draw a dotted line for the signature
+\par\noindent\hfill%                     Start the next paragraph and fill.
+\hbox to 3.5in{\buthesis@author\hfill}%  include the name(s) of the author(s) (left justified)
+\vskip 0ex plus 1ex minus 1ex%           Skip some more
+\par\noindent\hfill%                     Start to fill the line
+\hbox to 3.5in{\buthesis@dottedline}%    Finish with another dotted line
+\par\noindent\hfill%                     Start the next line and start to fill it
+\hbox to 3.5in{(Date)\hfil}%             Include Date marker (left justified)
+}%                                       End the signature and date block
+ 
+  
+%
+% This macro creates an authorization page as defined by the masters
+% thesis rules.  It is included automatically by the titlepage command
+% if the document being produced is a thesis.
+%
+\def\buthesis@authorizationpage{%        Begin authorization page
+\thispagestyle{empty}%                   Make certain there are no headers or footers
+\addtocounter{page}{-1}%                 Decrement current page number by one so is as if this page doesn't exist
+\begin{center}%                          begin centering title
+{Authorization to lend and reproduce this thesis}%
+\end{center}%                            Finish centering it
+\vskip 6ex plus 3ex minus 3ex%           Skip
+\par\noindent%                           Start first paragraph w/o indent
+As the sole author of this thesis, I authorize Brown university to
+lend it to other institutions or individuals for the purpose of
+scholarly research.
+\buthesis@siganddate%                    Draw the signature and date
+\vskip 6ex plus 3ex minus 3ex%           Skip YET SOME MORE!!!
+\par\noindent%                           Start the next paragraph w/o indenting
+I further authorize Brown University to reproduce this thesis by
+photocopying or other means, in total or in part, at the request
+of other institutions or individuals for the purpose of scholarly research.
+\buthesis@siganddate%                    Include the signature and date
+\vfill\eject}%                           Finish off page
+ 
+ 
+%
+% This routine is used to generate the title page for the thesis or
+% dissertation. 
+% The format is based on the 1989-90 guidelines from the Brown University
+% Graduate School.  This format will {\em probably} not change significantly
+% in the near future.  Nonetheless, do not assume it is correct.  Get the
+% guidelines from the Graduate School and compare layout.
+% A note about the setting of \footnotesep: This is the parameter that sets how
+% much space comes before a footnote.  I have set this to
+% 0.75\baselineskip, which 
+% works for doublespace but not for single spacing.  That's OK for now.
+% the 0.75 
+% however is guesswork on my part.  On the whole, I can't say that I
+% know why this 
+% command works.  I only have some vague inklings.
+%
+ 
+\def\maketitle{%                         begin maketitle
+\ifnum\buthesis@thesisflag=1%            If this document is a thesis
+\buthesis@authorizationpage%               then generate the authorization page
+\fi%                                     end if
+\footnotesep = 0.75\baselineskip%        This makes the space between
+				%        footnotes be approximately
+				%        doublespaced!
+\begin{titlepage}%                       begin \LaTeX title page environment
+\null%                                   An empty hbox at the top
+     %                                   (allows following vfill to work)
+\vfill%                                  Insert a vfill
+\begin{center}%                          start centering the text
+{\Large\bf \buthesis@title}%             Insert the title in a Large
+			   %             bold faced style
+\vfill%                                  insert another glob of vfill glue
+by\\
+\buthesis@author\par%                    include the name(s) of the author(s),  and go to the next line
+\buthesis@previousdegrees%               show the listing of previous degrees
+\vfill%                                  put another glob of vfill glue in
+A dissertation submitted in partial fulfillment of the \\
+requirements for the degree of \buthesis@degree\\
+in \buthesis@department\ at Brown University\par
+\vfill%
+PROVIDENCE, RHODE ISLAND\\
+
+\vspace{.2in}
+
+%\vfill%                                  yet another vfill glob
+\buthesis@month\ \buthesis@year%       Insert the month and year of the thesis
+\end{center}%                            Finish centering text
+\end{titlepage}%                         Finish title page
+\clearpage{\pagestyle{empty}\cleardoublepage}
+}
+ 
+ 
+%
+% Routine to do the copyright page
+%
+\def\copyrightpage%                      Begin copyrightpage
+{\thispagestyle{empty}%                  Don't show headers or footers
+
+\vspace*{2in}
+
+\begin{center}%                          Begin centering the text
+\copyright $\;$ Copyright
+\buthesis@year $\;$ 
+by
+\buthesis@author
+\end{center}%                            Finish centering the text
+\vfill\eject%                            Fill up and finish off the page
+\clearpage{\pagestyle{empty}\cleardoublepage}
+}%                         		 End of doCopyrightPage
+
+
+% This flag-thing it initially set to 0 (think of it as False).  When
+% the \reader 
+% command is first issued, the command will add a line of text to the output
+% and then set this flag to 1 (True), thus preventing any further calls to
+% reader from adding the text again.
+% (I suspect that using a count variable would be more reasonable for this task
+% rather than a \def.  At the moment, however, that seems a small enough
+% problem
+% that I don't want to waste CIS' money researching how to do this. =(     )
+%
+\def\buthesis@anyreadersyet{0}
+ 
+% This command does the work of building the block that contains the lines
+% for the date and signature, as well as placing the name below the signature
+% line and of placing appropriate space around it.
+%
+\def\buthesis@signatureblock#1{%         Begin \buthesis@signatureblock
+			       %         command
+  \thispagestyle{plain}%show page number on the bottom
+  {\singlespacing
+    \vskip 3ex plus 3ex minus 3ex%         Add some glue before the signature line.
+    \par\noindent %                      Start a new paragraph with no indentation.
+    \hbox to 1.6in{Date\buthesis@dottedline}%  Create a 2" hbox which contains the date line
+    \hskip 0.6in %                            Skip half an inch
+    \hbox to 3.4in{\buthesis@dottedline}%    Create the line for a person's signature
+    \par\noindent %                           Start another un-indented paragraph
+    \hskip 2.2in %                      Skip 2.5" (to underneath signature line)
+    \hbox to 3.4in{\hss#1\hss}%create a 3.5" centered box and put the name in there
+    \par %                                    Finish off the paragraph
+    \doublespacing
+  }
+}%                                       End \buthesis@signatureblock command
+ 
+ 
+
+% The user of this macro package will call \reader whenever they have a new
+% reader to add to the signature page.  Thus, to include Carl Sagan as a
+% reader, one would simply say \reader{Carl Sagan}.  If an empty signature slot
+% is needed, one can just say \reader{}.
+% The beginning part of the code determines if \reader has already been called,
+% and if not, it will print a necessary line on the output.
+%
+\def\reader#1{%                          Define \reader
+\ifnum\buthesis@anyreadersyet=0%         If \reader has not been called, then
+\gdef\buthesis@anyreadersyet{1}%         set the flag to 1
+\vskip 10ex plus 5ex minus 5ex%          Insert some glue
+\centerline{Recommended to the Graduate Council}% insert the line of text
+\fi%                                     end if
+\buthesis@signatureblock{#1}%            Call routine to print dotted lines and the name
+}%                                       End of name definition
+ 
+ 
+
+% This routine is similar to \reader, except that it will never print any text
+% itself.
+\def\director#1{\buthesis@signatureblock{#1}}
+ 
+ 
+%
+% This environment, surprisingly named `signature', is to be used to generate
+% a signature page.
+\newenvironment{signature}[0]{%          Start definition for \begin{signature}
+\begin{center}%                          center the following text
+This \buthesis@documenttype\ by %
+\buthesis@author\ %                      include the name(s) of the author(s)
+is accepted in its present form \\
+by \buthesis@department\ as satisfying the\\
+\buthesis@documenttype\ requirement for the degree of
+\buthesis@degree.%
+\end{center}%                            Finish centering said text.
+\thispagestyle{empty}%                   Make certain there are no headers or footers
+\if@twoside % You'd best augment this to suit your needs
+  \setcounter{page}{5} 
+\else
+  \setcounter{page}{3} 
+\fi
+}
+{\vskip 10ex plus 5ex minus 5ex%         Start closing by skipping a bit
+\centerline{Approved by the Graduate Council}
+\buthesis@signatureblock{Sheila Bonde, Dean of the Graduate School}
+\vfill\eject
+\clearpage{\pagestyle{empty}\cleardoublepage}
+}
+ 
+% This is the definition of the vita environment.  Pretty simple, eh?
+%
+\newenvironment{vita}[0]%                Define the vita environment
+{\vspace*{2cm}
+{\large\bf\centerline{Vitae}}
+ \@afterindentfalse
+ \pagestyle{plain}
+ \addcontentsline{toc}{chapter}{Vitae}
+}
+{
+\clearpage{\pagestyle{empty}\cleardoublepage}
+}
+ 
+% This is the definition of the preface environment.
+%
+\newenvironment{preface}[0]%             Begin preface
+{\centerline{\bf Preface}%               Show the preface title
+\typeout{Preface}%                       Type message while TeX ing
+\addcontentsline{toc}{chapter}{Preface}% Add a table of contents line for the preface
+\renewcommand{\thesection}{\Roman{section}}%     make sections only show section number (no chapter number),
+\@afterindentfalse%                      turn off indenting
+\vskip 6ex PLUS 3ex minus 3ex\@afterheading}%     include blank space, and make no indenting work
+{\vfill\eject}%                          Finish off the page
+ 
+ 
+% This is the definition of the acknowledgments environment.
+%
+\newenvironment{acknowledgments}[0]%     Start acknowledgments
+{\vspace*{2cm}
+  {\large\bf \centerline{Acknowledgements}}
+  \@afterindentfalse
+  \pagestyle{plain}
+  \typeout{Acknowledgments}%               Type message while \TeXing
+  \renewcommand{\thesection}{\Roman{section}}%     Change format of section numbers
+  \addcontentsline{toc}{chapter}{Acknowledgments}% Add acknowledgments to the table of contents
+  \thispagestyle{plain}
+  \vskip 6ex plus 3ex minus 3ex\@afterheading
+}
+{
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+}
+ 
+ 
+% If the current major style (e.g. book, report, etc) already has an abstract
+% environment, then we will have to redefine it to our needs.  Otherwise, we
+% will have to define a completely new abstract environment.
+%
+\@ifundefined{abstract}%                 If there is no abstract environment
+{\newenvironment{abstract}[0]%              then define a new one
+{\buthesis@beginabstracttext}{\vfill\eject
+  \if@twoside
+    \addtocounter{page}{-2}  
+  \else
+    \addtocounter{page}{-1}
+  \fi
+  \clearpage{\pagestyle{empty}\cleardoublepage}}
+}%
+{\renewenvironment{abstract}[0]%         else, redefine the current one
+{\buthesis@beginabstracttext}{\vfill\eject
+\if@twoside
+    \addtocounter{page}{-2}  
+  \else
+    \addtocounter{page}{-1}
+  \fi
+  \clearpage{\pagestyle{empty}\cleardoublepage}}
+}
+ 
+ 
+
+% This routine has the code to produce the text at the beginning of the
+% abstract page.
+%
+\def\buthesis@beginabstracttext%
+{
+\begin{singlespace}%        single space said text.
+\noindent Abstract of ``\buthesis@title''
+by \buthesis@author, Ph.D.,
+Brown University, \buthesis@month\ \buthesis@year%
+\end{singlespace}%         turn off single spacing
+\@afterindentfalse%        keep the first line from being intended
+\vskip 0ex plus 3ex minus 3ex\@afterheading}%     Skip a bit

@@ -1,0 +1,178 @@
+\documentclass[12pt]{report}   % SUBMISSION TO GRAD SCHOOL
+%\documentclass[12pt,twoside]{report}  % TWOSIDE DUPLEX OUTPUT
+\usepackage{setspace}
+\usepackage{buthesis}
+\usepackage{amsmath,amssymb,graphicx,amsfonts,amsthm}
+\usepackage{verbatim}
+\usepackage{epsfig}
+\usepackage{wrapfig}
+\usepackage{latexsym,amsfonts,amscd}
+\usepackage{changebar}
+\usepackage{enumerate}
+% Do you use TikZ?
+\usepackage{tikz}
+%\usepackage{pgfmath}
+\usetikzlibrary{decorations}
+\usetikzlibrary{shadows}
+
+% Used only for example text
+\usepackage{lipsum}
+
+\usepackage[footnotesize,bf]{caption}  % Reduces caption font sizes
+
+%%%%%%%%%%%%%%%%% Fancy chapter headings %%%%%%%%%%%%%%%%%%%
+\usepackage[Bjarne]{ThesisFncychap}
+\include{BjarneThesisTitles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------
+%% Control the fonts and formatting used in the table of contents, list of
+%% figures, and list of tables
+\usepackage[titles]{tocloft}
+
+%% Aesthetic spacing redefines that look nicer to me than the defaults.
+\setlength{\cftbeforechapskip}{-1ex}
+\setlength{\cftbeforesecskip}{-3.5ex}
+\setlength{\cftbeforesubsecskip}{-3.5ex}
+\setlength{\cftbeforetabskip}{-3.5ex}
+\setlength{\cftbeforefigskip}{-3.5ex}
+%-----------------------------------------------------------------
+
+\dissertation % This *is* what you're writing, right?
+
+% Information about the document
+%-----------------------------------------------------------------
+\title{
+Hydrodynamic instability leading to \textit{Monami}
+}
+\author{Ravi Shanker Singh}
+\degree{Doctor of Philosophy}
+\department{Department of Physics}
+\previousdegrees{
+		B.Sc., Banaras Hindu University; Varansi, India, 2006\\ 
+		M.Sc.(Physics), Indian Institute of Technology-Bombay; Mumbai, India, 2008}	
+\thesismonth{May} \thesisyear{2014}
+%-----------------------------------------------------------------
+
+\begin{document}
+
+\doublespacing
+\begin{preliminaries}
+\maketitle
+
+\copyrightpage
+
+\begin{signature}
+  \director{Shreyas Mandre, Ph.D., Advisor}
+  \reader{J. Tang, Ph.D., Reader}
+  \reader{Tom Powers, Ph.D., Reader}
+\end{signature}
+
+\begin{vita}
+  %\input{content/vita}
+  %xzczxl;csd ;vdfsvl;sd
+\end{vita}
+
+\begin{acknowledgments}
+ % \input{content/acknowledgments}
+\end{acknowledgments}
+
+\begin{abstract}
+ % \input{content/abstract}
+  \thispagestyle{empty}
+  % Do you want this page to exist in the numbering?
+%  \thispagestyle{empty}
+%  \if@twoside
+%    \addtocounter{page}{-2}  
+%  \else
+%    \addtocounter{page}{-1}
+%  \fi
+\end{abstract}
+
+% Why double-space toc,lof, and lot?
+\begin{spacing}{1}
+  \tableofcontents
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+
+  \footnotesize
+  \fontsize{11.5pt}{12.5pt}\selectfont
+  \listoftables
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+
+  \listoffigures
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+  \normalsize
+\end{spacing}
+
+\end{preliminaries}
+
+\pagestyle{myheadings}
+
+%------------------------ CONTENT ------------------------%
+
+\chapter{Introduction}
+Seagrasses occupy less than $0.05\%$ of the ocean area, mostly in the littoral zones of freshwater and in large expanses of low lying coastal shore, but contribute directly to about $15\%$ of the total biomass production in the ocean. Seagrass meadows form an important part of marine environment by engineering a habitat which support thousands of sea species. Seagrass also plays an important role in geomorphological development of coastal zones by stabilizing sedimentation and minimizing soil erosion (French and Stoddart 1992). Seagrasses are also known to sequester $C O_2$, mix and recycle the nutrients necessary for life of its inhabitants. Further, under the adverse flow conditions, the seageass meadows are capable of redirecting flow over canopy, thus protecting the underlying inhabitants, root-rhizome complex from strong wave or current. Due to their effectiveness in performing these functions sea-grasses are considered to be one of
+the  the world's most valuable resources in protecting and proliferating active marine eco-systems.   
+%However these ecosystems are disappearing at an alarming rate (average $7\%$ since 1990).
+\newline 
+The primary requirement for active marine eco-systems are presence of sunlight and a mechanism to mix and transport the nutrients. Since sunlight can penetrate only near the surface of water, the sea-shores are ideal place for rich marine ecology. One of the other important factor in proliferating the marine ecology near the ocean shores is the presence of regular wave and tides which constantly stir the region, a mechanism which is not present in the lakes. Despite shallow average depth of lakes (e.g. average depth of Lake Erie is 18.6m and that of lake Chand is 4 m) with plenty of sunlight, it is not able to support a rich ecology as compared to the coastal shore due to absence of tidal mixing. The coastal oceans are about 10 times as productive as the lakes. Along with marshes and mangroves, seagrasses meadows rank highest in terms of biomass production.
+\newline
+%\newline
+The ability of seagrass meadows to engineer the habitat for effective ecosystems is directly related to its ability to influence hydrodynamic processes. This requires balance between
+two competing requirements such as flow should be sufficiently slow so that species don't get flushed along with the water, but not stagnant and thus allowing the nutrients and other material to be transported by the flow. It is widely believed that many systems including seagrass rely on flow for the transportation and mixing of nutrients, pollens, sperms etc. A simple estimate of mixing-strength in absence of any flow instability can be estimated to help us understand the importance of existence of flow instability. A typical seagrass patch extend from $10^2 m$ to $10^3 m$ with a typical flow speed of $0.1 m/s$ to $1 m/s$, indicating that any tracer particle carried by the flow would take about $\tau = 10^2-10^4 s$ to cross the patch. In the absence of any flow instability mean flow is horizontal and vertical transportation and mixing of material can happen only through turbulent diffusivity $\kappa =  0.1 U d$, where $ U \approx 1 cm/s$ is the mean flow in canopy, and $d \approx 1cm $ is characteristic length scale of plant such as its diameter or leave with. This estimate indicates that transportation of material above the grass bed can only penetrate about $\sqrt{\kappa \tau} = 3-30 mm $, compared to the canopy height of 10-100 cm. However in presence of flow instability even a modest $10\%$ conversion of horizontal flow to vertical velocity results in penetration length scale of about 10-1000 cm. Indeed, It is widely believed that the phenomenon of large amplitude coherent oscillation of marine grass, known as \textit{Monami} is a result of flow instability, much like coherent waves commonly observed on terrestrial grass field, known as \textit{Honami} in strong wind. While the two cases seems superficially similar, there are major difference such as atmospheric flow is essentially unbounded. Another major difference the two is the considerable difference of stiffness of canopies.
+\newline
+%from   assuming the plant diameter to be  exhibit rich set of dynamical behavior due to their interaction with the flow of water. The hydrodynamic processes resulting from these behavior are known to influence
+%number of environmental processes such as transportation and mixing of sediments, contaminants, dissolved oxygen etc. One such response of submerged grass
+%vegetation in response to unidirectional steady current is the large amplitude coherent oscillations, known as \textit{Monami}, which have been observed in laboratory(Ikedea, Nepf) as well as in observation of seagrass meadows in field studies (Kensworthy, Grizzle). Transportation and mixing of nutrients in dense canopies are known to be dominated by the phenomenon of \textit{Monami} which directly influences biomass production of marine plants as well as inhabitants of grass bed. 
+%Similar phenomenon of large amplitude coherent oscillations are also observed for terrestrial canopies which are known as \textit{Honami}. A crucial difference between the atmospheric and aquatic flow is that the atmospheric are essentially unbounded vertically.
+While considerable research is done to understand the phenomenon associated terrestrial canopies, research for the case of vegetation in water is not prevalent. The most notable of research work related to \textit{Monami} are laboratories study of open channel flow through flexible and rigid canopies(Nepf, Ikeda ), which shows existence of coherent eddies(refer to figure) propagating on canopy top. A systematic study on the topic attributed the excess presence of blue-muscel larvae on the tip of grass to the presence of large amplitude coherent waving of seagrass. Evidence of the effect of aquatic plants on unidirectional flow also emerges from the study of research groups interested in conveyance of water through vegetated canals (Kouwen 1992), the cycling of particulate and dissolved matter etc. 
+\newline The current explanation of \textit{Monami} is inspired by the work of Raupach for the case of terrestrial canopies. Existing explanation invokes the existence of strong shear near the canopy top due to different amount of drag experienced by the flow with in and above the canopy. This shear layer is assumed to become unstable to coherent vertices through a mechanism similar to 
+Kelvin-Helmholtz instability. Influence of these coherent eddies over sea grasses is manifested in their large amplitude synchronous oscillations.
+While shear model successfully predicts the frequency of mo-nami for number of experimental observations (Nepf paper), several aspects of existing theory remain unexplained. First, the assumption of instability of perturbation to shear layer through a mechanism of Kelvin-Helmholtz relies on absence of any interaction between the flow perturbation and drag, making shear layer a inconsistent theory. Second, classical free shear flow is known to be unstable for all the Reynolds number. On the contrary estimated critical Reynolds number for lab scale and field observation are much higher $\approx O(1000)$. These drawbacks of existing theory suggest that flow through vegetation requires further investigation for better understanding of phenomenon.
+\newline
+In this study, we developed a mathematical model incorporating presence of grass through a drag field in the momentum equation of fluid. A linear stability analysis of this model shows that a competition between destabilizing effect of shear and stabilizing effect of drag dissipation leads to a critical flow condition characterized by Reynolds number above which flow becomes unstable leading to \textit{Monami}. Our linear stability analysis predicts existence of two different modes of instability which we termed as mode-1 and mode-2. Mode-1 is found 
+to be instability localized on the length scale of shear layer formed near the canopy top whereas Mode-2 is represent the flow instability on the scale of full water column. We found that
+mode-1 shares many of characteristics of Kelvin-Helmholtz instability such as instability on the scale of shear layer thickness but is found to be fundamentally different from it. The prediction of critical Reynolds number and waving frequency associated with \textit{Monami} is 
+found to compare well the experimental observations. Results from our analysis can also be applicable to many other related scenario such as flow over coral reefs, permeable sediments, flow through urban environments and therefore is expected to have wider impact. 
+
+%\input{content/intro}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Mathematical Model}
+%\input{content/tools}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Blowing Smoke}
+%\input{content/smoke}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{The Main Event}
+%\input{content/main}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Applying The Main Event}
+%\input{content/application}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Conclusion}
+%\input{content/conclusion}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%------------------------ APPENDIX ------------------------%
+\appendix
+\chapter{Stuff Too Complicated To Talk About}
+%\input{content/appendix/app1}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Stuff Too Boring to Talk About}
+%\input{content/appendix/app2}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%---------------------- BIBLIOGRAPHY ----------------------%
+
+\bibliographystyle{plain}
+\begin{spacing}{0.9}
+  \bibliography{thesis}
+\end{spacing}
+
+\end{document}

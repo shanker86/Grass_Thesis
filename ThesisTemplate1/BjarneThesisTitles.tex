@@ -1,0 +1,41 @@
+% Redefine alphano commands
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+  
+  \ChNameVar{\Huge\sc}    % sets the style for name
+  \ChNumVar{\Huge\sc}         % sets the style for digit
+  \ChTitleVar{\Huge\bf\centering} % sets the style for title
+  \ChRuleWidth{4pt}        % Set RW=4pt
+  %\ChNameUpperCase         % Make name uppercase
+  \ChNameAsIs         % Make name uppercase
+  \ChTitleAsIs
+
+  \renewcommand{\DOCH}{%
+    %\setlength{\fboxrule}{\RW} % Let fbox lines be controlled by
+                               % \ChRuleWidth
+    %\fbox{\CNV\FmN{\@chapapp}\space \CNoV\thechapter}\par\nobreak
+    \thispagestyle{empty}
+    \vskip 80\p@
+    \begin{center}
+    %\CNV\FmN{\@chapapp}\space \CNoV\thechapter\par\nobreak
+    \CNV\FmN{\@chapapp} \TheAlphaChapter\par\nobreak
+    \begin{tabular*}{\textwidth}{c}
+      \hline
+    \end{tabular*}
+    %\line(1,0){5in}\\
+    \end{center}
+    %\vskip 20\p@
+    }
+
+  \renewcommand{\DOTI}[1]{%
+    \CTV\FmTi{#1}\par\nobreak
+    \vskip 40\p@
+    {\newpage}
+    }
+  \renewcommand{\DOTIS}[1]{%
+    \CTV\FmTi{#1}\par\nobreak
+    \vskip 40\p@
+    }
+\makeatother
+

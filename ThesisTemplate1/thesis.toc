@@ -1,0 +1,10 @@
+\contentsline {chapter}{Vitae}{iv}
+\contentsline {chapter}{Acknowledgments}{v}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {chapter}{\numberline {2}Mathematical Model}{6}
+\contentsline {chapter}{\numberline {3}Blowing Smoke}{7}
+\contentsline {chapter}{\numberline {4}The Main Event}{8}
+\contentsline {chapter}{\numberline {5}Applying The Main Event}{9}
+\contentsline {chapter}{\numberline {6}Conclusion}{10}
+\contentsline {chapter}{\numberline {A}Stuff Too Complicated To Talk About}{11}
+\contentsline {chapter}{\numberline {B}Stuff Too Boring to Talk About}{12}
