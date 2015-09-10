@@ -172,7 +172,8 @@ shear layer thickness but is found to have significant differeces as well. The p
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
 \chapter{Mathematical Model}
-The drag exerted by the vegetated is central to the hypothesized instability leading to the phenomenon of monami. Lab scale experiments have shown that flow intability leading and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels (Ghisalberti $\&$ Nepf 2002, 2006). Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Futher since flow strucre arising leading to monami is dimiantely 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. Here we present methods for averaging the flow eqautions in presence of vegetation. Follwing Pedras $\&$ de Lemos we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuaition time, then perform spatial averaging. Denoting overbar to represent time averaged properties and the angel brackets to denote spatial averaged properties, for any fluid property $\phi$ such as velocity, pressure etc.
+The drag exerted by the vegetated is central to the hypothesized instability leading to the phenomenon of monami. Lab scale experiments have shown that flow intability leading and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels (Ghisalberti $\&$ Nepf 2002, 2006). Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Futher since flow strucre arising leading to monami is dimiantely 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. Here we present methods for averaging the flow eqautions in presence of vegetation. Follwing Pedras $\&$ de Lemos we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuaition time, then perform spatial averaging. Denoting 
+overbar to represent time averaged properties and the angel brackets to denote spatial averaged properties, for any fluid property $\phi$ such as velocity, pressure etc.
   \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy \]
   \[\phi = \bar{\phi}+\phi^{'} \hspace{1.cm}  \bar{\phi} = \langle \bar{\phi} \rangle \ +\phi^{''} \]
  Upon performing temporal averaing of Navier-Stokes and fluid continuity euation we arrive the follwing euations for fluid continuity and momentum balance.
@@ -224,7 +225,20 @@ In order to understand nature of flow intability associated with monami, we firs
  -\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U|=0,
 \label{base_equ}
 \end{equation}
-where $S(y)=1$ for $0<y<\hg$ and $S(y)=0$ for $\hg< y< 2H$. 
+where $S(y)=1$ for $0<y<\hg$ and $S(y)=0$ for $\hg< y< 2H$.
+
+\begin{figure}
+\centerline{\includegraphics[scale=.99]{Grass_Base_Nepf} }
+% \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
+\caption{
+Schematic setup and comparison of our steady flow profile with that from the experiments in ref. \cite{Nepf04} (Case I from Table 1) %  with 1250 plants/m$^2$, plant height = 13.7$\pm 0.2$ cm and blade width of 0.64 cm)
+ and its approximation with $U_0=7.28$ cm/s and $\delta = 5.02$ cm in our model. The grass extends up to $y=\hg$ in the water column of depth $2H$. 
+The steady velocity profile can be decomposed into a parabolic profile in the unvegetated region, a uniform profile deep within the vegetation, and a boundary layer of thickness $\delta$ near the grass top. 
+The dependence of the boundary layer thickness (estimated as $|U/U_y|$ at $y=\hg$ from the numerical solution of \eqref{base_equ}) on the vegetation density parameter $\ReyNdg$ is shown in the inset.
+}
+\label{basicflow}
+\end{figure}
+
 Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$.
 The former arises for dense vegetation because the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag (Nepf 2000 ) whereas the latter models the free interface. 
 A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig.
@@ -260,6 +274,12 @@ These equations are non-dimensionalized using half channel height $H$, velocity 
 We also use $\delta/H$ in lieu of $\Ndg$ to parametrize the vegetation density and help elucidate the instability mechanism. 
 Using a stream function $\psi$ with $u = \psi_{y}, v= -\psi_x$ to satisfy mass balance, we seek a solution of 
 the form $\left(u,v,\psi \right)= \left(\hat u(y), \hat v(y), \phi(y) \right)e^{ikx+\sigma t}$ to obtain a modified Orr-Sommerfeld equation %\citep{Drazin81,Chen97,Chu91} 
+\begin{figure}
+ \centerline{\includegraphics[]{Vivoni_Fig3_6_zero_shear_match} \includegraphics{Vivoni_Fig3_7_zero_shear_match}}
+\end{figure}
+
+
+
 \begin{equation}
 \begin{split}
 \Rey^{-1}\left(D^2 -k^{2} \right)^2\phi &= \left[ \left({\sigma}+ikU\right) \left(D^2-k^2\right) -ikU_{yy}\right]\phi + \Ndg D\left(2 S U D \phi\right),
