@@ -29,6 +29,29 @@
 %% Control the fonts and formatting used in the table of contents, list of
 %% figures, and list of tables
 \usepackage[titles]{tocloft}
+%\newcommand{\del}{\partial}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bx}{{\boldsymbol{\hat{x}}}}
+\newcommand{\bn}{{\boldsymbol{\hat{n}}}}
+\newcommand{\bt}{{\boldsymbol{\hat{t}}}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\grad}{\mathbf{\nabla}}
+\newcommand{\del}{\partial}
+\newcommand{\hg}{h_g}
+\newcommand{\Rey}{{R}}
+\newcommand{\Ndg}{\tilde{N}_g}
+\newcommand{\monami}{\textit{monami}}
+\newcommand{\ubl}{U_\text{bl}}
+\newcommand{\words}[1]{\textbf{(#1)~}}
+% \newcommand{\words}[1]{{}}
+\newcommand{\ReyNdg}{{\Rey\Ndg}}
+
+
+
+
+
+
+\renewcommand{\bar}{\overline}
 
 %% Aesthetic spacing redefines that look nicer to me than the defaults.
 \setlength{\cftbeforechapskip}{-1ex}
@@ -149,17 +172,78 @@ shear layer thickness but is found to have significant differeces as well. The p
 The drag exerted by the vegetated is central to the hypothesized instability leading to the phenomenon of monami. Lab scale experiments have shown that flow intability leading and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels (Ghisalberti $\&$ Nepf 2002, 2006). Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Futher since flow strucre arising leading to monami is dimiantely 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. Here we present methods for averaging the flow eqautions in presence of vegetation. Follwing Pedras $\&$ de Lemos we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuaition time, then perform spatial averaging. Denoting overbar to represent time averaged properties and the angel brackets to denote spatial averaged properties, for any fluid property $\phi$ such as velocity, pressure etc.
   \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy \]
   \[\phi = \bar{\phi}+\phi^{'} \hspace{1.cm}  \bar{\phi} = \langle \bar{\phi} \rangle \ +\phi^{''} \]
- Upon performing temporal and spatial averaing of Navier-Stokes and fluid continuity euation we arrive the follwing euations for fluid continuity and momentum balance.
- \[ \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}=0 \]
- \[\rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] = -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} + \mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial         x_j^2} + \frac{\partial \langle \bar{\tau_{ij}} \rangle }{\partial x_j} -D_i\]
+ Upon performing temporal averaing of Navier-Stokes and fluid continuity euation we arrive the follwing euations for fluid continuity and momentum balance.
+ \begin{equation}
+ \begin{split}
+ \frac{\partial \bar{u_i} }{\partial x_i} &=0 \\
+ \rho \left[ \frac{\partial  \overline{u_i}  }{\partial t}+  \overline{u_j}  \frac{\partial  \overline{u_i} }{\partial x_j} \right ] &= -\frac{\partial  \bar{p}   }{\partial x_i} + \mu \frac{\partial^2  \overline{u_i}  }{\partial x_j^2} - \rho \frac{\partial  \overline { u_i^{'} u_j^{'} }  }{\partial x_j} 
+ \end{split}
+ \end{equation}
+ 
+ and further spatial averaging gives
+ 
+ \begin{equation}\label{averaged_eq}
+  \begin{split}
+  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} + \mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial         x_j^2} + \frac{\partial \langle \bar{\tau_{ij}} \rangle }{\partial x_j} -D_i
+ \end{split}
+ \end{equation}
+ 
  where $\rho$ is fluid density, $\mu$ is molecular viscosity and 
- $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stess tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to tempral fluctiation and dispersivr stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctiation. 
-  
+ $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stess tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to tempral fluctiation and dispersive stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctiation. The drag force $D_i$ is resistance due to vegetation, the sum of form and viscous drag over the avergaing scale.
+ \begin{equation}
+  D_i = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle
+ \end{equation}
+Several approaches have been proposed for finite $R_e = \rho U d/\mu$ ($d$ average diameter of grass), most of these proposed approaches use quadractic resistance law with $D_i = \rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|$, where $N_g$ is average grass number density. Koch $\&$ Ladd (1997) have verified that a quadratic drag law describes the resistance due to array of cylinder from moderate to high Reynold numbers.
+
+Since both dispersive stress ($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $)and molecular stress ($ \mu\ \del u_i / \del x_j $) are negligble compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $), the equation \ref{averaged_eq} simplifies into
+ \begin{equation}\label{averaged_eq2}
+  \begin{split}
+  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} -\rho \frac{\partial \langle \bar{u_i^{'}u_j^{'}} \rangle }{\partial x_j} -D_i
+ \end{split}
+\end{equation}
+We further hypothesized that Reynolds stress can be estimated by using a constant eddy visocity i.e. 
+\[ -\rho \langle u_i^{'} u_j^{'} \rangle = \mu \left(\frac{\del \bar{u_i} }{\del x_j} + \frac{\del \bar {u_j} }{\del x_i}  \right)\]
+From nowonwards $\mu$ stands for eddy viscosity rather than molecular viscosity, with this simplification equation \ref{averaged_eq} further simplifies into
+ \begin{equation}\label{averaged_eq3}
+  \begin{split}
+  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} +\mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial x_j^2} -D_i
+ \end{split}
+\end{equation}
 
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
-
-\chapter{Blowing Smoke}
+\chapter{Linear stability analysis}
+In order to understand nature of flow intability associated with monami, we first calculate the fully developed steady solution $\bu = U(y)\boldsymbol{\hat{x}}$ of ~\eqref{averaged_eq3} driven by constant pressure gradient $dP/dx$, and use it to non-dimensionalize the mathematical model. The momentum balance \eqref{averaged_eq3} for $U(y)$ simplifies to
+\begin{equation}
+ -\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U|=0,
+\label{base_equ}
+\end{equation}
+where $S(y)=1$ for $0<y<\hg$ and $S(y)=0$ for $\hg< y< 2H$. 
+Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$.
+The former arises for dense vegetation because the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag (Nepf 2000 ) whereas the latter models the free interface. 
+A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig.
+The profile $U(y)$ has three distinct regions.
+Within the vegetation, it is approximately uniform with $ U(y) \approx U_g = \sqrt{\frac{-dP/dx}{\rho C_N dN_g}}$, arising from a balance of the drag with the pressure gradient. 
+Outside the vegetation, the velocity has a simple parabolic profile. % due to the balance between viscous forces and the pressure gradient. 
+At the grass top, continuity of shear stresses results in a boundary layer of thickness $\delta$. 
+Denoting $\ubl$ to be the velocity scale in the boundary layer, and $U_0 = {(-dP/dx)~H^2}/{\mu}$ the velocity scale in the unvegetated region, the balance between viscous forces and vegetation drag implies $(\mu \ubl/\delta^2 \sim \rho C_N d N_g \ubl^2)$, and the continuity of shear stress across the grass top implies $(\ubl/\delta \sim U_0/H)$.
+Solving for $\delta$ and $\ubl$ yields $\delta/H \sim \ubl/U_0 \sim (\Rey \Ndg )^{-1/3}$, %where $\Ndg = \left(C_N d H N_g\right)$ is the vegetation frontal area per bed area, and $\Rey=\rho U_0 H/\mu$ is the Reynolds number of the flow. 
+A numerical estimate of $\delta$ (estimated as $U/U_y$ at $y=\hg$) is compared with this prediction in Fig. \ref{basicflow} (inset).
+We identify the boundary layer to be analogous to the shear layer {Ghisal02,Nepf04} in the previous explanation of \monami.
+This dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
+Fig. \ref{basicflow} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
+In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
+\begin{figure}
+%\centerline{\includegraphics[]{new_graph_freq}}
+\caption{Comparison of experimental observations of the experimentally measured dominant frequency $f_o$ (in Hz) with the predictions $f_p=\text{Im}(\sigma)$ from the solution of ~\eqref{Orr-somerfield}. 
+The experimental data in the inset is obtained from \cite{Ghisal02} (Ghisalberti) and \cite{Vivoni98} (Vivoni). 
+In order to estimate the $\Rey$ for these experiments, a representative value of $\mu=0.1$ Pa~s was assumed.
+}
+\label{frequency_comparison}
+\end{figure}
 %\input{content/smoke}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
