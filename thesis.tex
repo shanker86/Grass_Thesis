@@ -30,6 +30,9 @@
 %% figures, and list of tables
 \usepackage[titles]{tocloft}
 %\newcommand{\del}{\partial}
+\graphicspath{ {images/}}
+
+
 \newcommand{\by}{\mathbf{y}}
 \newcommand{\bx}{{\boldsymbol{\hat{x}}}}
 \newcommand{\bn}{{\boldsymbol{\hat{n}}}}
@@ -237,13 +240,36 @@ This dependence of $\delta$ on $N_g$ gives us a way to systematically investigat
 Fig. \ref{basicflow} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
 In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
 \begin{figure}
-%\centerline{\includegraphics[]{new_graph_freq}}
+\centerline{\includegraphics[]{new_graph_freq}}
 \caption{Comparison of experimental observations of the experimentally measured dominant frequency $f_o$ (in Hz) with the predictions $f_p=\text{Im}(\sigma)$ from the solution of ~\eqref{Orr-somerfield}. 
 The experimental data in the inset is obtained from \cite{Ghisal02} (Ghisalberti) and \cite{Vivoni98} (Vivoni). 
 In order to estimate the $\Rey$ for these experiments, a representative value of $\mu=0.1$ Pa~s was assumed.
 }
 \label{frequency_comparison}
 \end{figure}
+
+Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{navier-stokes} and expand to linear order to investigate the evolution of small perturbations $(\tilde{u}, \tilde{v})$, which obey
+\begin{equation}
+\begin{split}
+\rho(u_t+U u_x+vU_y) &= -p_x+ {\mu}\nabla^2u-2S\rho C_{N}dN_{g}Uu, \\
+\rho(v_t+ Uv_x) &= -p_y+ {\mu}\nabla^2v, \hspace{0.3cm} \nabla\cdot\bu=0,
+\end{split} \nonumber
+\end{equation}
+where the tilde are dropped.
+These equations are non-dimensionalized using half channel height $H$, velocity $U_0$, and time $H/U_0$, leading to three non-dimensional parameters, \textit{viz.} $\Rey$, $\Ndg$, and the vegetation submergence ratio $\hg/H$. 
+We also use $\delta/H$ in lieu of $\Ndg$ to parametrize the vegetation density and help elucidate the instability mechanism. 
+Using a stream function $\psi$ with $u = \psi_{y}, v= -\psi_x$ to satisfy mass balance, we seek a solution of 
+the form $\left(u,v,\psi \right)= \left(\hat u(y), \hat v(y), \phi(y) \right)e^{ikx+\sigma t}$ to obtain a modified Orr-Sommerfeld equation %\citep{Drazin81,Chen97,Chu91} 
+\begin{equation}
+\begin{split}
+\Rey^{-1}\left(D^2 -k^{2} \right)^2\phi &= \left[ \left({\sigma}+ikU\right) \left(D^2-k^2\right) -ikU_{yy}\right]\phi + \Ndg D\left(2 S U D \phi\right),
+\label{Orr-somerfield}
+\end{split}
+\end{equation}
+where $D=d/dy$, and subject to the boundary conditions $\phi = D^2\phi = 0$ at $y=0$ and $y=2$. 
+The growth rate $\sigma$ for a given wave number $k$ appears as an eigenvalue that allows a non-trivial solution $\phi$ of  \eqref{Orr-somerfield}.
+We solve \eqref{Orr-somerfield} numerically for $\sigma$ and $\phi$.
+
 %\input{content/smoke}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
