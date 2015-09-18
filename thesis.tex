@@ -244,7 +244,7 @@ From now-onwards $\mu$ stands for eddy viscosity rather than molecular viscosity
  \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} +\mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial x_j^2} -\rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|
  \end{split}
 \end{equation}
-Boundary condition on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure \ref{basicflow} ). 
+Which is same as Navier-Stokes equation with molecular viscosity replaced by a constant eddy viscosity. Boundary condition on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure \ref{basicflow} ). 
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Linear stability analysis}
@@ -284,7 +284,8 @@ Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{
 \begin{split}
 \rho(u_t+U u_x+vU_y) &= -p_x+ {\mu}\nabla^2u-2S\rho C_{N}dN_{g}Uu, \\
 \rho(v_t+ Uv_x) &= -p_y+ {\mu}\nabla^2v, \hspace{0.3cm} \nabla\cdot\bu=0,
-\end{split} \nonumber
+\label{LinearizedNavierStokes}
+\end{split} 
 \end{equation}
 where the tilde are dropped.
 These equations are non-dimensionalized using half channel height $H$, velocity $U_0$, and time $H/U_0$, leading to three non-dimensional parameters, \textit{viz.} $\Rey$, $\Ndg$, and the vegetation submergence ratio $\hg/H$. 
@@ -299,8 +300,87 @@ the form $\left(u,v,\psi \right)= \left(\hat u(y), \hat v(y), \phi(y) \right)e^{
 \end{equation}
 where $D=d/dy$, and subject to the boundary conditions $\phi = D^2\phi = 0$ at $y=0$ and $y=2$. 
 The growth rate $\sigma$ for a given wave number $k$ appears as an eigenvalue that allows a non-trivial solution $\phi$ of  \eqref{Orr-somerfield}.
+\section{Numerical Method}
+  In order to solve \eqref{Orr-somerfield}, we used finite difference with $N$ equally spaced grid points $(y_i = i\Delta y, \Delta y = \frac{2}{N})$, and used second order approximation for various terms in \eqref{Orr-somerfield} at these grid points. We used following approximation for evaluating various derivatives appearing in \eqref{Orr-somerfield}
+  \begin{equation}
+  \begin{align}
+    \left.{ D^4\phi} \right|_i &= \frac{ \phi_{i+2}-4\phi_{i+1}+6\phi_{i}-4\phi_{i-1}+\phi_{i-2} }{\Delta y^4} - \frac{\Delta y^2}{6} \left. \frac{\del^6 \phi}{\del y^6} \right |_i \\
+    \left. D^2\phi \right|_i &=  \frac{\phi_{i+1} -2\phi_i +\phi_{i-1}}{\Delta y^2} - \left. \frac{\Delta y^2}{12} \frac{\del^4 \phi}{\del x^4} \right|_i \\    
+    \left. D\phi \right|_i &=  \frac{\phi_{i+1} -\phi_{i-1}}{2\Delta y} - \left. \frac{\Delta y^2}{6} \frac{\del^3 \phi}{\del x^3} \right|_i \\
+    \end{align}
+  \end{equation}
+  The base velocity profile at these grid points are evaluated by solving \eqref{base_equ}. Using these approximation we can rearrange terms in \eqref{Orr-somerfield} 
+\begin{equation}
+\begin{split}
+A\phi &= \sigma B \phi\\
+A &= \Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi + ik U_{yy}\phi -\Ndg D\left(2 S U D \phi\right)\\
+%\Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi +5 ik U_{yy}\phi &-\Ndg D\left(2 S U D \phi\right)  =\\
+B &= {\sigma} \left(D^2-k^2\right) \phi
+\end{split}
+\end{equation}
+where the operator $A$ and $B$ are approximated at the grid points using finite difference method, which results in solving finite size generalized eigen-value problem.
+\begin{figure}
+ \centerline{\includegraphics{GrowthrateVsK}}
+ \caption{Growth rate of perturbation ($\sigma_r$) to solution of \eqref{base_equ} as predicted by the solution of \eqref{Orr-somerfield}. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively }
+\end{figure}
 
-
+\section{Comparison with CFD}
+In order to verify the growth rate for a perturbation of wavenumber $k$ as predicted by \eqref{Orr-somerfield}, we explicitly solved  
+\eqref{averaged_eq} with finite difference method on a staggered grid using {\bf{MAC}} scheme. On this staggered grid pressure variables are defined at the center of the cell, the x-component of velocity $u$ is defined on the center of vertical faces and the vertical velocity $v$ is defined,as shown in the Figure \ref{staggered}
+In this method, each time step is divided into two substeps. In the first step we ignore pressure and solve convection and diffusion equation.
+\begin{figure}
+\centerline{\includegraphics{StaggardGrid}}
+\caption{Staggered grid showing the grid points of $u$, $v$ and $p$ field. The horizontal velocity $u$ is defined at the center of vertical faces of cell, vertical velocity $v$ is defined at the center of horizontal faces and the pressure is defined at the center of cell.   }
+\label{staggered}
+\end{figure}
+\begin{equation}
+\frac{\tilde{\bu}^{n+1}-\bu^{n}}{\Delta t}+(\bu^n \cdot \grad )\bu^n - \frac{1}{R} \grad^2 \bu^n
+\label{TransportEq}
+\end{equation}
+Where $\Delta t$ is the size of time discretization, n denotes time label and $R$ is the Reynolds number. In the second step, we add pressure gradient operator and impose the incompressibility of flow.
+\begin{equation}
+\begin{split}
+ \frac{\bu^{n+1}-\tilde{\bu^{n+1}}}{\Delta t} +\grad P &= 0\\
+ \grad \cdot \bu^{n+1} = 0
+ \label{IncompressibleCondEq}
+ \end{split}
+\end{equation}
+Using the staggered grid the two components of \eqref{TransportEq} can be written as
+\begin{equation}
+\begin{split}
+ \tilde{u}_{i,j+1/2}^{n+1} &= u_{i,j+1/2}^n - \Delta t \left(u u_x + vu_y -\frac{1}{R}\grad^2u \right)_{i,j+1/2}^n -\Delta t\Ndg (u^2)_{i,j+1/2}^n\\
+ \tilde{v}_{i+1/2,j}^{n+1} &= v_{i+1/2,j}^n - \Delta t \left(u v_x + vv_y -\frac{1}{R}\grad^2v \right)_{i,j+1/2}^n
+\end{split}
+\end{equation}
+where $\left(u u_x + vu_y -\frac{1}{R}\grad^2u \right)_{i,j+1/2}^n$ and $\left(u v_x + vv_y -\frac{1}{R}\grad^2v \right)_{i,j+1/2}^n$
+needs to be evaluated at the grid location for the x-component of velocity at $(i,j+1/2)$ and for y-component of the velocity at $(i+1/2,j)$, respectively. The equations \eqref{IncompressibleCondEq} are discretized as 
+\begin{equation}
+\begin{split}
+ u^{n+1}_{i,j+1/2} &= \tilde{u}^{n+1}_{i,j+1/2} -\frac{1}{R} \frac{\Delta t}{\Delta x} \left(p_{i+1/2,j+1/2}^{n+1} -p_{i-1/2,j+1/2}^{n+1} \right)\\
+ v^{n+1}_{i+1/2,j} &= \tilde{v}^{n+1}_{i+1/2,j} -\frac{1}{R} \frac{\Delta t}{\Delta y} \left(p_{i+1/2,j+1/2}^{n+1} -p_{i+1/2,j-1/2}^{n+1} \right)
+ \end{split}
+ \label{true_velocity_cmp}
+\end{equation}
+where $\Delta x$ and $\Delta y$ are the uniform grid spacing in the x and y directions, respectively. The continuity equation on this staggered can be written as 
+\begin{equation}
+ \frac{ u_{i+1,j+1/2}^{n+1}-u_{i,j+1/2}^{n+1} }{ \Delta x } +\frac{v_{i+1/2,j+1}^{n+1}-v_{i+1/2,j}^{n+1} }{\Delta y} = 0
+ \label{staggered_continuity}
+ \end{equation}
+Substituting the velocity components from \eqref{true_velocity_cmp} into \eqref{staggered_continuity}, we get discretized poisson equation for pressure.
+\begin{equation}
+\begin{split}
+  \Delta t \left[\frac{p_{i+3/2,j+1/2}^{n+1}-2p_{i+1/2,j+1/2}^{n+1}+p_{i-1/2,j+1/2}^{n+1}}{\Delta x^2} \right] &+
+ \Delta t \left[ \frac{p_{i+1/2,j+3/2}^{n+1}-2p_{i+1/2,j+1/2}^{n+1}+p_{i+1/2,j-1/2}^{n+1}}{\Delta y^2}   \right] = \\
+ \frac{\left(\tilde{u}_{i+1,j+1/2}^{n+1}-
+  \tilde{u}_{i,j+1/2}^{n+1}  \right) }{\Delta x}&+\frac{\left(\tilde{v}_{i+1/2,j+1}^{n+1}-\tilde{v}_{i+1/2,j}^{n+1}  \right)}{\Delta y}
+\end{split}
+\end{equation}
+The no-normal velocity on the top and bottom surface provides boundary condition for pressure field, after that using \eqref{true_velocity_cmp} we get the velocity field at the next time step.
+\begin{figure}
+\centerline{\includegraphics{LinearStabilityVsCFD1} \includegraphics{LinearStabilityVsCFD2}}
+\caption{Graph (left panel) showing growth rate of a random perturbation made to the solution of \eqref{base_equ}, by explicitly solving \eqref{averaged_eq} and its comparison with the highest growth rate predicted by linear stability analysis. The $\sigma_r$ is the real part of growth rate predicted by linear stability analysis. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively. On the right panel, we compared the vertical velocity predicted by linear stability analysis and by explicitly solving \eqref{averaged_eq}}
+\label{CFD_vs_LinearStability}
+\end{figure}
 %\input{content/smoke}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
