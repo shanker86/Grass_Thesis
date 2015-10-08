@@ -176,7 +176,7 @@ length scale of plant such as its diameter or leave with. This estimate indicate
 %vegetation in response to unidirectional steady current is the large amplitude coherent oscillations, known as \textit{Monami}, which have been observed in laboratory(Ikedea, Nepf) as well as in observation of seagrass meadows in field studies (Kensworthy, Grizzle). Transportation and mixing of nutrients in dense canopies are known to be dominated by the phenomenon of \textit{Monami} which directly influences biomass production of marine plants as well as inhabitants of grass bed. 
 %Similar phenomenon of large amplitude coherent oscillations are also observed for terrestrial canopies which are known as \textit{Honami}. A crucial difference between the atmospheric and aquatic flow is that the atmospheric are essentially unbounded vertically.
 \subsection{Previous Work}
-While considerable research is done to understand the phenomenon associated with atmospheric flows through terrestrial canopies, research for the case of flow through aquatic vegetation is not prevalent. Evidence of the effect of aquatic plants on unidirectional flow emerges from various study of research groups interested in conveyance of water through vegetated canals (Kouwen 1992), the cycling of particulate and dissolved matter etc. One such systematic study on the topic of blue mussels larvae settlement attributed the excess presence of blue-muscel larvae on the tip of grass to the presence of \textit{Monami} (Grizzle 1996). The most notable research work related to \textit{Monami} are laboratories study of open channel flow through flexible and rigid canopies \cite{Nepf00,Ikedea}, which shows existence of coherent eddies propagating on canopy top. 
+While considerable research is done to understand the phenomenon associated with atmospheric flows through terrestrial canopies, research for the case of flow through aquatic vegetation is not prevalent. Evidence of the effect of aquatic plants on unidirectional flow emerges from various study of research groups interested in conveyance of water through vegetated canals (Kouwen 1992), the cycling of particulate and dissolved matter etc. One such systematic study on the topic of blue mussels larvae settlement attributed the excess presence of blue-muscel larvae on the tip of grass to the presence of \textit{Monami} (Grizzle 1996). The most notable research work related to \textit{Monami} are laboratories study of open channel flow through flexible and rigid canopies \cite{Ikeda96}, which shows existence of coherent eddies propagating on canopy top. 
 \begin{figure}
  {\includegraphics[scale=0.72]{Grizzle}}
  \caption{Sketches made by Grizzle, et al. \citep{Grizzle96} from direct observations of eelgrass blades in the mouth of the Jordan river, ME, USA, in response to a tidal
@@ -248,12 +248,18 @@ Which is same as Navier-Stokes equation with molecular viscosity replaced by a c
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Linear stability analysis}
-In order to understand nature of flow instability associated with monami, we first calculate the fully developed steady solution $\bu = U(y)\boldsymbol{\hat{x}}$ of ~\eqref{averaged_eq3} driven by constant pressure gradient $dP/dx$, and use it to non-dimensionlize the mathematical model. The momentum balance \eqref{averaged_eq3} for $U(y)$ simplifies to
+The usual response of submerged grass to steady current is to remain bend in some fixed configration. However above certain flow velocity the grass beds shows coherent large amplitude oscillation as well, such response of time dependent large amplitude oscillation exhibited by sea grass under the influence of otherwise steady steady current is thought to be understood as result of hydrodynamic instability. In order to understand nature of the flow instability associated with monami, we first calculate the fully developed steady solution $\bu = U(y)\boldsymbol{\hat{x}}$ of ~\eqref{averaged_eq3} driven by constant pressure gradient $dP/dx$, and use it to non-dimensionlize the mathematical model. The momentum balance \eqref{averaged_eq3} for $U(y)$ simplifies to
 \begin{equation}
- -\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U|=0,
+\begin{split}
+ -&\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U| =0\\
+ &S(y) = 1, \hspace{2cm} 0<y<\hg\\
+ &S(y) = 0, \hspace{2cm} \hg< y< 2H
 \label{base_equ}
+\end{split}
 \end{equation}
-where $S(y)=1$ for $0<y<\hg$ and $S(y)=0$ for $\hg< y< 2H$.
+Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$. In real flow the true boundary condition at the bottom is no slip velocity, however the boundary layer formed due to no slip condition is so thin ($\approx 0.5 cm$) that it's hardly visible in experiments as can be seen from the experimental data of \ref{Nepf04} in Figure \ref{basicflow}. Due to presence of dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04 } and hence the bottom boundary condition can be approximated by no shear $U'(0)=0$ condition.
+On the top surface, a rigid lid condition ( no shear and no normal velocity ) or free surface is suitable. Since changes in water surface elevation due to presence of \monami  is small compared to the depth of water channel, we can approximate the top surface by no shear condition ($ U'(2H)=0$ ) as well.
+A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig \ref{basicflow}.
 \begin{figure}
 \centerline{\includegraphics[scale=.99]{Grass_Base_Nepf} }
 % \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
@@ -265,17 +271,14 @@ The dependence of the boundary layer thickness (estimated as $|U/U_y|$ at $y=\hg
 }
 \label{basicflow}
 \end{figure}
-Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$.
-The former arises for dense vegetation because the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04 } whereas the latter models the free interface. 
-A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig.
 The profile $U(y)$ has three distinct regions.
-Within the vegetation, it is approximately uniform with $ U(y) \approx U_g = \sqrt{\frac{-dP/dx}{\rho C_N dN_g}}$, arising from a balance of the drag with the pressure gradient. 
-Outside the vegetation, the velocity has a simple parabolic profile, similar to a Poissueille profile, influenced by the free shear at the surface. 
-At the grass top, continuity of shear stresses results in a boundary layer of thickness $\delta$ - `` one where shear does not arise from boundary conditions''. Denoting $\ubl$ to be the velocity scale in the boundary layer, and $U_0 = {(-dP/dx)~H^2}/{\mu}$ the velocity scale in the unvegetated region, the balance between viscous forces and vegetation drag implies $(\mu \ubl/\delta^2 \sim \rho C_N d N_g \ubl^2)$, and the continuity of shear stress across the grass top implies $(\ubl/\delta \sim U_0/H)$.
+Within the vegetation, it is approximately uniform with $ U(y) \approx U_g = \sqrt{\frac{-dP/dx}{\rho C_N dN_g}}$ which arise from the balance of the drag with the pressure gradient. 
+Outside the vegetation, the velocity has a simple parabolic profile similar to a Poissueille profile, arising from the balance between pressure and viscous forces together with the free shear condition at the top surface. 
+At the grass top, continuity of shear stresses results in a boundary layer of thickness $\delta$ - `` one where shear does not arise from boundary conditions''. Denoting $\ubl$ to be the velocity scale in the boundary layer, and $U_0 = {(-dP/dx)~H^2}/{\mu}$ the velocity scale in the unvegetated region, the balance between viscous forces and vegetation drag with in grass implies $(\mu \ubl/\delta^2 \sim \rho C_N d N_g \ubl^2)$, and the continuity of shear stress across the grass top implies $(\ubl/\delta \sim U_0/H)$.
 Solving for $\delta$ and $\ubl$ yields $\delta/H \sim \ubl/U_0 \sim (\Rey \Ndg )^{-1/3}$, %where $\Ndg = \left(C_N d H N_g\right)$ is the vegetation frontal area per bed area, and $\Rey=\rho U_0 H/\mu$ is the Reynolds number of the flow. 
 A numerical estimate of $\delta$ (estimated as $U/U_y$ at $y=\hg$) is compared with this prediction in Fig. \ref{basicflow} (inset).
 We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
-This dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
+The dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
 Fig. \ref{basicflow} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
 In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
 
@@ -377,10 +380,44 @@ Substituting the velocity components from \eqref{true_velocity_cmp} into \eqref{
 \end{equation}
 The no-normal velocity on the top and bottom surface provides boundary condition for pressure field, after that using \eqref{true_velocity_cmp} we get the velocity field at the next time step.
 \begin{figure}
-\centerline{\includegraphics{LinearStabilityVsCFD1} \includegraphics{LinearStabilityVsCFD2}}
+\centerline{\includegraphics{LinearStabilityVsCFD1} }
 \caption{Graph (left panel) showing growth rate of a random perturbation made to the solution of \eqref{base_equ}, by explicitly solving \eqref{averaged_eq} and its comparison with the highest growth rate predicted by linear stability analysis. The $\sigma_r$ is the real part of growth rate predicted by linear stability analysis. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively. On the right panel, we compared the vertical velocity predicted by linear stability analysis and by explicitly solving \eqref{averaged_eq}}
-\label{CFD_vs_LinearStability}
+\label{CFD_vs_LinearStabilityGrowthRate}
 \end{figure}
+\begin{figure}
+\centerline{\includegraphics{LinearStabilityVsCFD_u_phase0} \includegraphics{LinearStabilityVsCFD_u_phase90}}
+\label{CFD_vs_LinearStability_u}
+\end{figure}
+
+\begin{figure}
+\centerline{\includegraphics{LinearStabilityVsCFD_v_phase0} \includegraphics{LinearStabilityVsCFD_v_phase90}}
+\label{CFD_vs_LinearStability_v}
+\end{figure}
+
+\begin{figure}
+\centerline{\includegraphics{LinearStabilityVsCFD_p_phase0} \includegraphics{LinearStabilityVsCFD_p_phase90}}
+\label{CFD_vs_LinearStability_p}
+\end{figure}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\section{Saturated Region}
+
+\begin{figure*}
+\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_u_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_u_phase90}}
+\label{CFD_vs_LinearStability_u}
+\end{figure*}
+
+\begin{figure*}
+\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_v_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_v_phase90}}
+\label{CFD_vs_LinearStability_v}
+\end{figure*}
+
+\begin{figure*}
+\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_p_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_p_phase90}}
+\label{CFD_vs_LinearStability_p}
+\end{figure*}
+
+
 %\input{content/smoke}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
