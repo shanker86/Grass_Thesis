@@ -56,6 +56,8 @@
 \newcommand{\bn}{{\boldsymbol{\hat{n}}}}
 \newcommand{\bt}{{\boldsymbol{\hat{t}}}}
 \newcommand{\bu}{\mathbf{u}}
+%\newcommand{\bn}{\mathbf{n}}
+%\newcommand{\bt}{\mathbf{t}}
 \newcommand{\grad}{\mathbf{\nabla}}
 \newcommand{\del}{\partial}
 \newcommand{\hg}{h_g}
@@ -152,43 +154,53 @@ Hydrodynamic instability leading to \textit{Monami}
 
 \chapter{Introduction}
 \subsection{Motivation}
-Seagrasses are submerged flowering plants found in shallow marine waters, mostly in the littoral zones of freshwater and in large expanses of low lying coastal shore, they occupy less than $0.05\%$ of the ocean areas but contribute directly to about $15\%$ of the total biomass production in the ocean. Seagrasses plays crucial role in protecting sea shores. The extensive root system in seagrasses, which extends both vertically and horizontally, helps stabilize the sea bottom in a manner similar to the way land grasses prevent soil erosion. With no seagrasses to diminish the force of the currents along the bottom, numerous beaches, businesses, and homes can be subject to greater damage from storms.
+Seagrasses are submerged flowering plants found in shallow marine waters, mostly in the littoral zones of freshwater and in large expanses of low lying coastal shore, they occupy less than $0.05\%$ of the ocean area \cite{green2003world} but contribute directly to about $15\%$ of the total biomass production in the ocean \cite{duarte1999}. Seagrasses plays crucial role in protecting sea shores. The extensive root system in seagrasses, which extends both vertically and horizontally, helps stabilize the sea bottom in a manner similar to the way land grasses prevent soil erosion. With no seagrasses to diminish the force of the currents along the bottom, numerous beaches, businesses, and homes can be subject to greater damage from storms.
 %ocean bottom areas which are mostly devoid of seagrass are vulnerable to intense wave action from currents and storms. 
 
 Seagrasses provide food, shelter, and essential nursery areas to commercial and recreational fishery species and to countless invertebrates living in seagrass communities.
-Some fish, such as seahorses and lizardfish, can be found in seagrasses throughout the year, while other fish remain in seagrass beds during certain life stages. While some organisms, including the endangered Florida manatee and green sea turtle, graze directly on seagrass leaves, others use seagrasses indirectly to provide nutrients. Bottlenose dolphins are often found feeding on organisms that live in seagrass areas. Detritus from bacterial decomposition of dead seagrass plants provides food for worms, sea cucumbers, crabs, and filter feeders such as anemones and ascidians. Further decomposition releases nutrients (such as nitrogen and phosphorus), which, when dissolved in water, are re-absorbed by seagrasses and phytoplankton.
+Some fish, such as seahorses and lizardfish, can be found in seagrasses throughout the year, while other fish spends their certain life stages in seagrass beds. While some organisms, including the endangered Florida manatee and green sea turtle, graze directly on seagrass leaves, others use seagrasses indirectly for nutrients. Bottlenose dolphins are often found feeding on organisms that live in seagrass areas. Detritus from bacterial decomposition of dead seagrass plants provides food for worms, sea cucumbers, crabs, and filter feeders such as anemones and ascidians. Further decomposition releases nutrients (such as nitrogen and phosphorus), which, when dissolved in water, are re-absorbed by seagrasses and phytoplankton.
+\begin{figure}
+\centerline{ \includegraphics[scale=1.45]{SeaHorse} \includegraphics[scale=0.045]{GreenSeaTurtle} }
+\caption{Seahorse (left) uses seagrass for their habitat and Green sea turtle (right) grazing on seagrass leaves, pictures taken from \textit{amagintheseaworldpress.com} and  \textit{mikegil.com} respectively  }
+\end{figure}
 
-The relative safety of seagrass meadows provides an ideal environment for the female fishes to to lay and hatch their eggs. The safety of seagrass meadows are also useful for the juvenile fish and invertebrates to conceal themselves from predators. Seagrass leaves are also ideal for the attachment of larvae and eggs, including those of the sea squirt and mollusk. Much of Florida's recreationally and commercially important marine life can be found in seagrass meadows during at least one early life stage. While seagrasses are ideal for juvenile and small adult fish for escape from larger predators, many infaunal organisms (animals living in soft sea bottom sediments) also live within seagrass meadows. Species such as clams, worms, crabs, and echinoderms, like starfishes, sea cucumbers, and sea urchins, use the buffering capabilities of seagrasses to provide a refuge from strong currents. The dense network of roots established by seagrasses also helps deter predators from digging through the substratum to find 
+The relative safety of seagrass meadows from strong water current provides an ideal environment for the female fishes to to lay and hatch their eggs \cite{rooker98}. The safety of seagrass meadows are also useful for the juvenile fish and invertebrates to hide themselves from predators. Seagrass leaves are also ideal for the attachment of larvae and eggs, including those of the sea squirt and mollusk. Much of Florida's recreationally and commercially important marine life can be found in seagrass meadows during at least one early life stage. While seagrasses are ideal for juvenile and small adult fish for escape from larger predators, many infaunal organisms (animals living in soft sea bottom sediments) also live within seagrass meadows. Species such as clams, worms, crabs, and echinoderms, like starfishes, sea cucumbers, and sea urchins, use the buffering capabilities of seagrasses to provide a refuge from strong currents. The dense network of roots established by seagrasses also helps deter predators from 
+digging through the substratum to find 
 infaunal prey organisms. Seagrass leaves provide a place of anchor for seaweeds and for filter-feeding animals like bryozoans, sponges, and forams.
 
-Seagrasses help trap fine sediments and particles that are suspended in the water column, which increases water clarity. When a sea floor area lacks seagrass communities, the sediments are more frequently stirred by wind and waves, decreasing water clarity, affecting marine animal behavior, and generally decreasing the recreational quality of coastal areas. Seagrasses are also known to sequester $C O_2$, mix and recycle the nutrients necessary for life of its inhabitants they also work to filter nutrients that come from land-based industrial discharge and stormwater runoff before these nutrients are washed out to sea and to other sensitive habitats such as coral reefs.
+Seagrasses help trap fine sediments and particles that are suspended in the water column, which increases water clarity. When a sea floor area lacks seagrass communities, the sediments are more frequently stirred by wind and waves, decreasing water clarity, affecting marine animal behavior, and generally decreasing the recreational quality of coastal areas. Seagrasses are also known to sequester $C O_2$\cite{duarte2005}, mix and recycle the nutrients necessary for life of its inhabitants they also work to filter nutrients that come from land-based industrial discharge and stormwater runoff before these nutrients are washed out to sea and to other sensitive habitats such as coral reefs.
 %However these ecosystems are disappearing at an alarming rate (average $7\%$ since 1990).
 
-The primary requirement for active marine eco-systems are presence of sunlight and a mechanism to mix and transport the nutrients. Since sunlight can penetrate only near the surface of water, the sea-shores are ideal place for rich marine ecology. One of the other important factor in proliferating the marine ecology near the ocean shores is the presence of regular wave and tides which constantly stir the region, a mechanism which is not present in the lakes. Despite shallow average depth of lakes (e.g. average depth of Lake Erie is 18.6m and that of lake Chand is 4 m) with plenty of sunlight, lakes are not able to support a rich ecology as compared to the coastal shore due to absence of tidal mixing. The coastal oceans are about 10 times as productive as the lakes. Along with marshes and mangroves, seagrasses meadows rank highest in terms of biomass production.
+The primary requirement for active marine eco-systems are presence of sunlight and a mechanism to mix and transport the nutrients. Since sunlight can penetrate only near the surface of water, the sea-shores are ideal place for rich marine ecology. One of the other important factor in proliferating the marine ecology near the ocean shores is the presence of regular wave and tides which constantly stir the region, a mechanism which is not present in the lakes. Despite shallow average depth of lakes (e.g. average depth of Lake Erie is 18.6m and that of lake Chand is 4 m) with plenty of sunlight, lakes are not able to support a rich ecology as compared to the coastal shore due to absence of tidal mixing. The coastal oceans are about 10 times as productive as the lakes\cite{nixon1988}. Along with marshes and mangroves, seagrasses meadows rank highest in terms of biomass production.
 \newline
 %\newline
 The ability of seagrass meadows to engineer the habitat for effective ecosystems is directly related to its ability to influence hydrodynamic processes. This requires balance between
 two competing requirements such as flow should be sufficiently slow so that species don't get flushed along with the water, but not stagnant and thus allowing the nutrients and other material to be transported by the flow. It is widely believed that many systems including seagrass rely on flow for the transportation and mixing of nutrients, pollens, sperms etc. A simple estimate of mixing-strength in absence of any flow instability can be estimated to help us understand the importance of existence of flow instability. A typical seagrass patch extend from $10^2 m$ to $10^3 m$ with a typical flow speed of $0.1 m/s$ to $1 m/s$, indicating that any tracer particle carried by the flow would take about $\tau = 10^2-10^4 s$ to cross the patch. In the absence of any flow instability mean flow is horizontal and vertical transportation and mixing of material can happen only through turbulent diffusivity $\kappa =  0.1 U d$, where $ U \approx 1 cm/s$ is the mean flow in canopy, and $d \approx 1cm $ is characteristic 
-length scale of plant such as its diameter or leave with. This estimate indicates that transportation of material above the grass bed can only penetrate about $\sqrt{\kappa \tau} = 3-30 mm $, compared to the canopy height of 10-100 cm. However in presence of flow instability even a modest $10\%$ conversion of horizontal flow to vertical velocity results in penetration length scale of about 10-1000 cm. Indeed, It is widely believed that the phenomenon of large amplitude coherent oscillation of marine grass, known as \textit{Monami} is a result of flow instability, much like coherent waves commonly observed on terrestrial grass field, known as \textit{Honami} in strong wind. While the two cases seems superficially similar, there are major difference such as atmospheric flow is essentially unbounded. Another major difference the two is the considerable difference of stiffness of canopies.
+length scale of plant such as its diameter or leaf width\cite{Nepf99}. This estimate indicates that transportation of material above the grass bed can only penetrate about $\sqrt{\kappa \tau} = 3-30 mm $, compared to the canopy height of 10-100 cm. However in presence of flow instability even a modest $10\%$ conversion of horizontal flow to vertical velocity results in penetration length scale of about 10-1000 cm. Indeed, It is widely believed that the phenomenon of large amplitude coherent oscillation of marine grass, known as \textit{Monami} is a result of flow instability, much like coherent waves commonly observed on terrestrial grass field, known as \textit{Honami} in strong wind \cite{Inoue55_1, Inoue55_2, Raupach96, Delangre06}. While the two cases seems superficially similar, there are major difference such as atmospheric flow is essentially unbounded. Another major difference the two is the considerable difference of stiffness of canopies.
 \newline
 %from   assuming the plant diameter to be  exhibit rich set of dynamical behavior due to their interaction with the flow of water. The hydrodynamic processes resulting from these behavior are known to influence
 %number of environmental processes such as transportation and mixing of sediments, contaminants, dissolved oxygen etc. One such response of submerged grass
 %vegetation in response to unidirectional steady current is the large amplitude coherent oscillations, known as \textit{Monami}, which have been observed in laboratory(Ikedea, Nepf) as well as in observation of seagrass meadows in field studies (Kensworthy, Grizzle). Transportation and mixing of nutrients in dense canopies are known to be dominated by the phenomenon of \textit{Monami} which directly influences biomass production of marine plants as well as inhabitants of grass bed. 
 %Similar phenomenon of large amplitude coherent oscillations are also observed for terrestrial canopies which are known as \textit{Honami}. A crucial difference between the atmospheric and aquatic flow is that the atmospheric are essentially unbounded vertically.
 \subsection{Previous Work}
-While considerable research is done to understand the phenomenon associated with atmospheric flows through terrestrial canopies, research for the case of flow through aquatic vegetation is not prevalent. Evidence of the effect of aquatic plants on unidirectional flow emerges from various study of research groups interested in conveyance of water through vegetated canals (Kouwen 1992), the cycling of particulate and dissolved matter etc. One such systematic study on the topic of blue mussels larvae settlement attributed the excess presence of blue-muscel larvae on the tip of grass to the presence of \textit{Monami} (Grizzle 1996). The most notable research work related to \textit{Monami} are laboratories study of open channel flow through flexible and rigid canopies \cite{Ikeda96}, which shows existence of coherent eddies propagating on canopy top. 
+While considerable research is done to understand the phenomenon associated with atmospheric flows through terrestrial canopies, research for the case of flow through aquatic vegetation is not prevalent. Evidence of the effect of aquatic plants on unidirectional flow emerges from various study of research groups interested in conveyance of water through vegetated canals \cite{kouwen93}, the cycling of particulate and dissolved matter etc. One such systematic study on the topic of blue mussels larvae settlement attributed the excess presence of blue-muscel larvae on the tip of grass to the presence of \textit{Monami} \cite{Grizzle96}. The most notable research work related to \textit{Monami} are laboratories study of open channel flow through flexible and rigid canopies \cite{Ikeda96,Ghisal02}, which shows existence of coherent eddies propagating on canopy top. 
 \begin{figure}
  {\includegraphics[scale=0.72]{Grizzle}}
  \caption{Sketches made by Grizzle, et al. \citep{Grizzle96} from direct observations of eelgrass blades in the mouth of the Jordan river, ME, USA, in response to a tidal
  flow through half a tidal cycle. The horizontal velocity profile is also plotted with each of the sketches. The grass spontaneously starts to wave in frame E, when the flow 
  speed exceeds a threshold of 10-15 cm/s.}
+ \label{GrizzleFig}
 \end{figure}
 
-The current explanation of \textit{Monami} is proposed by Ghisalberti and Nepf \cite{Ghisal02,Nepf00} which is inspired by the work of Raupach for the case of terrestrial canopies, which is based on Kelvin-Helmholtz (KH) instability.
-According to this mechanism the essential role of vegetation is to exert drag on the flow slowing it down, and giving rise to velocity differential between the canopy and the region above it. This so called shear layer profile is then expected to be hydrodynamically unstable to KH instability and break down into coherent vortices. The flexibility of grass blades then merely aids in visualizing there vortices by deforming as they are advected past by the flow.
+The current explanation of \textit{Monami} is proposed by Ghisalberti and Nepf \cite{Ghisal02,Nepf00} which is inspired by the work of Raupach for the case of terrestrial canopies, which is based on Kelvin-Helmholtz (KH) instability of free shear flow.
+According to this mechanism the essential role of vegetation is to exert drag on the flow slowing it down, and giving rise to velocity differential between the canopy and the region above it. This so called shear layer profile is then expected to be hydrodynamically unstable to KH instability and break down into coherent vortices. The flexibility of grass blades then merely aids in visualizing these vortices by deforming as they are advected past by the flow.
 According to this shear layer model, the velocity profile of flow through vegetation can be approximated to a characteristic shear like profile - `` one where shear does not arise from the boundary condition'' e.g. $U(y) = \Delta U[1+\tanh(y/\delta)]$, in an approximately unbounded domain $-\infty < y< \infty$, using the shear layer thickness $\delta$ determined by fitting to the measured mean velocity profile (e.g. see \ref{basicflow} ), the frequency predicted by KH instability agrees well with the laboratories observations.
 
-However, several aspects of existing theory remain unexplained. First, the assumption of instability of perturbation to shear layer through a mechanism of Kelvin-Helmholtz relies on absence of any interaction between the flow perturbation and drag, making shear layer a inconsistent theory. Second, classical free shear flow is known to be unstable for all the Reynolds number. On the contrary, a threshold flow speed is observed in the field for the grass to spontaneously wave \cite{Grizzle96}; below this threshold speed the grass bends steadily in response to steady current. This threshold speed corresponds to a  critical Reynolds number $\approx O(1000)$, based on turbulent viscosity. These drawbacks of existing theory suggest that flow through vegetation requires further investigation for better understanding of phenomenon.
+However, several aspects of existing theory remain unexplained. First, the assumption of instability of perturbation to shear layer through a mechanism of Kelvin-Helmholtz relies on absence of any interaction between the flow perturbation and drag, making shear layer a inconsistent theory. Second, classical free shear flow is known to be unstable for all the Reynolds number. On the contrary, a threshold flow speed is observed in the field for the grass to spontaneously wave \cite{Grizzle96}; below this threshold speed the grass bends steadily in response to steady current. This threshold speed corresponds to a  critical Reynolds number $\approx O(1000)$, based on turbulent viscosity. 
+
+Another seemingly related analysis of shear instability and coherent structure in shallow flow adjacent to emergent vegetation has been carried out by \cite{White07}, where presence of vegetation imposes extra drag in addition to drag caused by bed friction. In their analysis they also assumed steady profile to be hyperbolic tangent and flow domain to be infinite. They also assumed symmetric the drag due to vegetation and bed friction. Since both the dominant component of flow velocity are in the same plane as bed, we expect both these component to experience similar drag due to vegetation. However for flow through submerged vegetation one of dominant component is perpendicular (vertical velocity in Figure \ref{GrizzleFig}) to the bed plane and hence experience negligible drag as compared to the other component which is in the plane (horizontal velocity in Figure \ref{GrizzleFig}).
+
+These drawbacks of existing theory suggest that flow through vegetation requires further investigation for better understanding of phenomenon.
 \subsection{Our Approach}
 In this study, we developed a mathematical model for the linear stability incorporating presence of grass through a drag field in the momentum equation of fluid. Although monami is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to the hypothesized instability. A linear stability analysis of this model shows that a competition between destabilizing effect of shear and stabilizing effect of drag dissipation leads to a critical flow condition characterized by Reynolds number above which flow becomes unstable leading to \textit{Monami}. Our linear stability analysis predicts existence of two different modes of instability which we termed as mode-1 and mode-2. Mode-1 is found to be instability localized on the length scale of shear layer formed near the canopy top whereas Mode-2 is represent the flow instability on the scale of full water column. We found that mode-1 shares many of characteristics of Kelvin-Helmholtz instability such as instability on the scale of 
 shear layer thickness but is found to have significant differences as well. The prediction of critical Reynolds number and waving frequency associated with \textit{Monami} is found to compare well the experimental observations. Results from our analysis can also be applicable to many other related scenario such as flow over coral reefs, permeable sediments, flow through urban environments and therefore is expected to have wider impact. 
@@ -198,10 +210,11 @@ shear layer thickness but is found to have significant differences as well. The 
 
 \chapter{Mathematical Model}
 Given the range of length scales in the canopy (leaf thickness $<$ 1mm, leaf width $\sim$ 1cm, canopy height $\sim 1m$, vegetation patch $10^2-10^3 m$), a fully resolved direct numerical solution is challenging and unnecessary. We instead exploit this separation of length scale between the canopy scale and its microstructure, and resort to modeling the aquatic vegetation as a homogenized multiphase medium which occupies no volume but exert drag on the fluid flow.
-Because the leaves are wide but thin , the volume fraction of vegetation is less than $10\%$ in the densest of seagrass canopies, and dominant interaction with the surrounding water is by exerting a drag. Hence to leading order, we ignore the space occupied by the grass in the fluid mass and momentum balance.
-Further, lab scale experiments have shown that flow instability and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels \cite{Ghisal02, Nepf06}. Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Since the flow structure leading to monami is dominantly 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. 
+Because the leaves are wide but thin , the volume fraction of vegetation is less than $10\%$ \cite{chandler96} in the densest of seagrass canopies, and dominant interaction with the surrounding water is by exerting a drag. Hence to leading order, we ignore the space occupied by the grass in the fluid mass and momentum balance. In our model vegetation is represented as a continuum field $h(x,t)$. 
 
-Here we present methods for averaging the flow equations in presence of vegetation. Following Pedras $\&$ de Lemos we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuation time, then perform spatial averaging. Denoting 
+%Further, lab scale experiments have shown that flow instability and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels \cite{Ghisal02, Nepf06}. Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Since the flow structure leading to monami is dominantly 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. 
+
+Here we present methods for averaging the flow equations in presence of vegetation. Following Pedras $\&$ de Lemos \cite{Pedras00} we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuation time, then perform spatial averaging. Denoting 
 overbar to represent time averaged properties and the angel brackets to denote spatial averaged properties, for any fluid property $\phi$ such as velocity, pressure etc.
   \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy \]
   \[\phi = \bar{\phi}+\phi^{'} \hspace{1.cm}  \bar{\phi} = \langle \bar{\phi} \rangle \ +\phi^{''} \]
@@ -220,15 +233,12 @@ overbar to represent time averaged properties and the angel brackets to denote s
  \end{split}
  \end{equation}
  where $\rho$ is fluid density, $\mu$ is molecular viscosity and 
- $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stress tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to temporal fluctuation and dispersive stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctuation.
+ $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stress tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to temporal fluctuation and dispersive stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctuation. The drag force $D_i(x,y) = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle $ is resistance due to vegetation, the sum of form and viscous drag over the averaging scale, which is zero above the vegetation i.e.  when $y>h(x,t)$. 
+ %\begin{equation}
+ % D_i = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle
+ %\end{equation}
  
- The drag force $D_i$ is resistance due to vegetation, the sum of form and viscous drag over the averaging scale.
- \begin{equation}
-  D_i = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle
- \end{equation}
-Several approaches have been proposed for finite $R_e = \rho U d/\mu$ ($d$ average diameter of grass), most of these proposed approaches use quadratic resistance law with $D_i = \rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|$, where $N_g$ is average grass number density. Koch $\&$ Ladd (1997) have verified that a quadratic drag law describes the resistance due to array of cylinder from moderate to high Reynold numbers.
-
-Since both dispersive stress ($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $)and molecular stress ($ \mu\ \del u_i / \del x_j $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $), the equation \ref{averaged_eq} simplifies into
+ Since both dispersive stress ($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $)and molecular stress ($ \mu\ \del u_i / \del x_j $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $), the equation \ref{averaged_eq} simplifies into
  \begin{equation}\label{averaged_eq2}
   \begin{split}
   \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
@@ -241,10 +251,40 @@ From now-onwards $\mu$ stands for eddy viscosity rather than molecular viscosity
  \begin{equation}\label{averaged_eq3}
   \begin{split}
   \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
- \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} +\mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial x_j^2} -\rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} +\mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial x_j^2} - D_i
+ %\rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|
  \end{split}
 \end{equation}
-Which is same as Navier-Stokes equation with molecular viscosity replaced by a constant eddy viscosity. Boundary condition on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure \ref{basicflow} ). 
+Which is same as Navier-Stokes equation with molecular viscosity replaced by a constant eddy viscosity, from now-onwards we will drop angle bracket and over bar 
+for notational simplicity.
+\begin{equation}\label{averaged_eq}
+\begin{split}
+  \grad .{\bu}&=0 \\
+ \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p}  +\mu \grad^2\bu - \mathbf{D}
+\end{split}
+\end{equation}
+When the Reynolds number of the flow on the microstructure and molecular viscosity is small, the drag force $\mathbf{D}$ can be modeled according to Darcy's law $\mathbf{D} \propto \bu$. While there is no generic way to model the drag force when Reynolds number on microstructure is large ( O(100-1000) ), general principal of high-Reynolds number flows guide us towards a phenomenological model for drag. Firstly in this range of Reynolds number, the flow separate from grass blade forming a wake , and therefore it is reasonable to expect the drag to scale with dynamic pressure $\rho \bu_r^2$, where $\bu_r$ is the relative velocity between the fluid and the grass blade. Moreover, we assume that the drag is anisotropic; flow across the grass blade experiences more drag than the flow along the glass blade. Mathematically, the drag law uses projection of relative velocity along the blade and normal to the blade as.
+\begin{equation}
+ \bu_N = \bu_r.\bn,\hspace{0.5cm} \bu_T = \bu_r.\bt,\hspace{.5cm} \mathbf{D} = -\rho d(x,y)\left( C_N \bu_N |\bu_N|\bn + C_T \bu_T |\bu_T| \bt \right)
+\end{equation} 
+where $C_N$ and $C_T$ are drag coefficient in the normal and tangential directions respectively, $N_g$ is the grass number density, $d(x,y)$ is average grass diameter at location specified by co-ordinates $(x,y)$, $\bt$ is average unit vector tangent to the grass element at $(x,y)$ and $\bn$ is average unit vector normal to the grass blade at $(x,y)$. The orientation of grass blade can be obtained by solving force and torque balance equation together with a constitutive relation relating bending moment $M$ to the curvature $\kappa$
+\begin{figure}
+ \centerline{\includegraphics[width=2.8cm, height = 2.8cm]{Grass_mod1}\hspace{2.5cm} \includegraphics[width=3.cm,height=3.cm]{Grass_mod2}}
+ \caption{Schematic of mechanics of individual grass blade deformation}
+ \label{grass_blade_deformation}
+\end{figure}
+\begin{equation}
+ \frac{\partial}{\partial s}\left( T\bt + N\bn \right)+\mathbf{f_d}+\mathbf{f_{buoy}} =0 \hspace{.5cm} \frac{\partial M}{\partial s} -N =0 \hspace{.5cm}  M = B\kappa
+\end{equation}
+Where $s$ is the arc-length along the grass blade, $\mathbf{f_{buoy}}$ is the force of buoyancy on the submerged grass blade and $\mathbf{f_{d}}$ is the drag force per unit length experienced by the grass blade. Since the marine grass blades are extremely flexible so we can safely ignore the role of bending stiffness in determining the orientation of grass blade,  which results in solving a simplified equation, subject to inextensiblity of the grass blades. 
+\begin{equation}
+  \frac{\partial}{\partial s} T\bt +\mathbf{f_d}+\mathbf{f_{buoy}} =0
+  \label{orientation_eq}
+\end{equation}
+The equation \eqref{orientation_eq} together with the equation \eqref{averaged_eq} can be solved subject to appropriate boundary condition to predict flow structure and grass orientation.
+
+Although {\monami} is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to flow instability leading to {\monami}. Since the instability and resulting flow structures leading to monami persist even when the flexible grass mimics are replaced with the rigid dowels \cite{Ghisal02,Nepf06}. Therefore, to develop essential mathematical model, we assume grass blade to be rigid on average oriented vertically.
+Boundary condition for \eqref{averaged_eq} on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure \ref{basicflow} ). 
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Linear stability analysis}
@@ -281,6 +321,22 @@ We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02
 The dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
 Fig. \ref{basicflow} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
 In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
+\begin{figure}
+\centerline{\includegraphics[scale=1.]{Grass_Base_Nepf_shear_scale} \includegraphics[scale=1.]{Grass_shear_scale}}
+% \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
+\caption{
+Schematic setup and comparison of our steady flow profile with that from the experiments in ref. \cite{Nepf04} (Case I from Table 1) %  with 1250 plants/m$^2$, plant height = 13.7$\pm 0.2$ cm and blade width of 0.64 cm)
+  from the numerical solution of \eqref{base_equ}) on the vegetation density parameter $\ReyNdg$ is shown in the inset.
+}
+\end{figure}
+\begin{figure}
+\centerline{\includegraphics[]{Grass_shear_scale_collapse} }
+% \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
+\caption{
+Schematic setup and comparison of our steady flow profile with that from the experiments in ref. \cite{Nepf04} (Case I from Table 1) %  with 1250 plants/m$^2$, plant height = 13.7$\pm 0.2$ cm and blade width of 0.64 cm)
+  from the numerical solution of \eqref{base_equ}) on the vegetation density parameter $\ReyNdg$ is shown in the inset.
+}
+\end{figure}
 
 Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{navier-stokes} and expand to linear order to investigate the evolution of small perturbations $(\tilde{u}, \tilde{v})$, which obey
 \begin{equation}
@@ -312,7 +368,9 @@ The growth rate $\sigma$ for a given wave number $k$ appears as an eigenvalue th
     \left. D\phi \right|_i &=  \frac{\phi_{i+1} -\phi_{i-1}}{2\Delta y} - \left. \frac{\Delta y^2}{6} \frac{\del^3 \phi}{\del x^3} \right|_i \\
     \end{align}
   \end{equation}
-  The base velocity profile at these grid points are evaluated by solving \eqref{base_equ}. Using these approximation we can rearrange terms in \eqref{Orr-somerfield} 
+The boundary conditions at the top and bottom surface are approximated by $\phi_0 = 0$,  $\phi_{N+1} = 0$ to satisfy $\phi=0$ at the top and bottom surface.
+The zero shear condition at the top and bottom surface ($D^2\phi=0$) are expressed by $\phi_{-1} = -\phi{1}$ and $\phi_{N+1} = -\phi_{N}$. The last term in \eqref{Orr-somerfield} give rise to a dirac-delta term $2\Ndg U_g D\phi_g \delta(y-h_g)$, where $U_g$ is velocity the grass tip and $\phi_g$ is value of $\phi$ at the grass tip. We approximate the term with dirac-delta as $2\Ndg U_g D\phi_{g} \frac{1}{\Delta x}$.
+The base velocity profile at these grid points are evaluated by solving \eqref{base_equ}. Using these approximation we can rearrange terms in \eqref{Orr-somerfield} 
 \begin{equation}
 \begin{split}
 A\phi &= \sigma B \phi\\
@@ -321,101 +379,11 @@ A &= \Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi + ik U
 B &= {\sigma} \left(D^2-k^2\right) \phi
 \end{split}
 \end{equation}
-where the operator $A$ and $B$ are approximated at the grid points using finite difference method, which results in solving finite size generalized eigen-value problem.
+where the operator $A$ and $B$ are approximated at the grid points using finite difference method. This results in solving finite dimensional generalized eigen-value problem, whose solution provide growth rate $\sigma$ and eigen mode $\phi$ for a perturbation of wavenumber $k$ to the base velocity profile $U(y)$.  
 \begin{figure}
  \centerline{\includegraphics{GrowthrateVsK}}
  \caption{Growth rate of perturbation ($\sigma_r$) to solution of \eqref{base_equ} as predicted by the solution of \eqref{Orr-somerfield}. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively }
 \end{figure}
-
-\section{Comparison with CFD}
-In order to verify the growth rate for a perturbation of wavenumber $k$ as predicted by \eqref{Orr-somerfield}, we explicitly solved  
-\eqref{averaged_eq} with finite difference method on a staggered grid using {\bf{MAC}} scheme. On this staggered grid pressure variables are defined at the center of the cell, the x-component of velocity $u$ is defined on the center of vertical faces and the vertical velocity $v$ is defined,as shown in the Figure \ref{staggered}
-In this method, each time step is divided into two substeps. In the first step we ignore pressure and solve convection and diffusion equation.
-\begin{figure}
-\centerline{\includegraphics{StaggardGrid}}
-\caption{Staggered grid showing the grid points of $u$, $v$ and $p$ field. The horizontal velocity $u$ is defined at the center of vertical faces of cell, vertical velocity $v$ is defined at the center of horizontal faces and the pressure is defined at the center of cell.   }
-\label{staggered}
-\end{figure}
-\begin{equation}
-\frac{\tilde{\bu}^{n+1}-\bu^{n}}{\Delta t}+(\bu^n \cdot \grad )\bu^n - \frac{1}{R} \grad^2 \bu^n
-\label{TransportEq}
-\end{equation}
-Where $\Delta t$ is the size of time discretization, n denotes time label and $R$ is the Reynolds number. In the second step, we add pressure gradient operator and impose the incompressibility of flow.
-\begin{equation}
-\begin{split}
- \frac{\bu^{n+1}-\tilde{\bu^{n+1}}}{\Delta t} +\grad P &= 0\\
- \grad \cdot \bu^{n+1} = 0
- \label{IncompressibleCondEq}
- \end{split}
-\end{equation}
-Using the staggered grid the two components of \eqref{TransportEq} can be written as
-\begin{equation}
-\begin{split}
- \tilde{u}_{i,j+1/2}^{n+1} &= u_{i,j+1/2}^n - \Delta t \left(u u_x + vu_y -\frac{1}{R}\grad^2u \right)_{i,j+1/2}^n -\Delta t\Ndg (u^2)_{i,j+1/2}^n\\
- \tilde{v}_{i+1/2,j}^{n+1} &= v_{i+1/2,j}^n - \Delta t \left(u v_x + vv_y -\frac{1}{R}\grad^2v \right)_{i,j+1/2}^n
-\end{split}
-\end{equation}
-where $\left(u u_x + vu_y -\frac{1}{R}\grad^2u \right)_{i,j+1/2}^n$ and $\left(u v_x + vv_y -\frac{1}{R}\grad^2v \right)_{i,j+1/2}^n$
-needs to be evaluated at the grid location for the x-component of velocity at $(i,j+1/2)$ and for y-component of the velocity at $(i+1/2,j)$, respectively. The equations \eqref{IncompressibleCondEq} are discretized as 
-\begin{equation}
-\begin{split}
- u^{n+1}_{i,j+1/2} &= \tilde{u}^{n+1}_{i,j+1/2} -\frac{1}{R} \frac{\Delta t}{\Delta x} \left(p_{i+1/2,j+1/2}^{n+1} -p_{i-1/2,j+1/2}^{n+1} \right)\\
- v^{n+1}_{i+1/2,j} &= \tilde{v}^{n+1}_{i+1/2,j} -\frac{1}{R} \frac{\Delta t}{\Delta y} \left(p_{i+1/2,j+1/2}^{n+1} -p_{i+1/2,j-1/2}^{n+1} \right)
- \end{split}
- \label{true_velocity_cmp}
-\end{equation}
-where $\Delta x$ and $\Delta y$ are the uniform grid spacing in the x and y directions, respectively. The continuity equation on this staggered can be written as 
-\begin{equation}
- \frac{ u_{i+1,j+1/2}^{n+1}-u_{i,j+1/2}^{n+1} }{ \Delta x } +\frac{v_{i+1/2,j+1}^{n+1}-v_{i+1/2,j}^{n+1} }{\Delta y} = 0
- \label{staggered_continuity}
- \end{equation}
-Substituting the velocity components from \eqref{true_velocity_cmp} into \eqref{staggered_continuity}, we get discretized poisson equation for pressure.
-\begin{equation}
-\begin{split}
-  \Delta t \left[\frac{p_{i+3/2,j+1/2}^{n+1}-2p_{i+1/2,j+1/2}^{n+1}+p_{i-1/2,j+1/2}^{n+1}}{\Delta x^2} \right] &+
- \Delta t \left[ \frac{p_{i+1/2,j+3/2}^{n+1}-2p_{i+1/2,j+1/2}^{n+1}+p_{i+1/2,j-1/2}^{n+1}}{\Delta y^2}   \right] = \\
- \frac{\left(\tilde{u}_{i+1,j+1/2}^{n+1}-
-  \tilde{u}_{i,j+1/2}^{n+1}  \right) }{\Delta x}&+\frac{\left(\tilde{v}_{i+1/2,j+1}^{n+1}-\tilde{v}_{i+1/2,j}^{n+1}  \right)}{\Delta y}
-\end{split}
-\end{equation}
-The no-normal velocity on the top and bottom surface provides boundary condition for pressure field, after that using \eqref{true_velocity_cmp} we get the velocity field at the next time step.
-\begin{figure}
-\centerline{\includegraphics{LinearStabilityVsCFD1} }
-\caption{Graph (left panel) showing growth rate of a random perturbation made to the solution of \eqref{base_equ}, by explicitly solving \eqref{averaged_eq} and its comparison with the highest growth rate predicted by linear stability analysis. The $\sigma_r$ is the real part of growth rate predicted by linear stability analysis. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively. On the right panel, we compared the vertical velocity predicted by linear stability analysis and by explicitly solving \eqref{averaged_eq}}
-\label{CFD_vs_LinearStabilityGrowthRate}
-\end{figure}
-\begin{figure}
-\centerline{\includegraphics{LinearStabilityVsCFD_u_phase0} \includegraphics{LinearStabilityVsCFD_u_phase90}}
-\label{CFD_vs_LinearStability_u}
-\end{figure}
-
-\begin{figure}
-\centerline{\includegraphics{LinearStabilityVsCFD_v_phase0} \includegraphics{LinearStabilityVsCFD_v_phase90}}
-\label{CFD_vs_LinearStability_v}
-\end{figure}
-
-\begin{figure}
-\centerline{\includegraphics{LinearStabilityVsCFD_p_phase0} \includegraphics{LinearStabilityVsCFD_p_phase90}}
-\label{CFD_vs_LinearStability_p}
-\end{figure}
-\clearpage{\pagestyle{empty}\cleardoublepage}
-
-\section{Saturated Region}
-
-\begin{figure*}
-\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_u_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_u_phase90}}
-\label{CFD_vs_LinearStability_u}
-\end{figure*}
-
-\begin{figure*}
-\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_v_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_v_phase90}}
-\label{CFD_vs_LinearStability_v}
-\end{figure*}
-
-\begin{figure*}
-\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_p_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_p_phase90}}
-\label{CFD_vs_LinearStability_p}
-\end{figure*}
 
 
 %\input{content/smoke}
@@ -679,7 +647,103 @@ Hence, only the KH-like characteristics are observed in the terrestrial case.
 %\input{content/application}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-\chapter{Conclusion}
+\chapter{Nonlinear Solution of Initial value Problem}
+
+
+In order to verify the growth rate for a perturbation of wavenumber $k$ as predicted by \eqref{Orr-somerfield}, we explicitly solved  
+\eqref{averaged_eq} with finite difference method on a staggered grid using {\bf{MAC}} scheme. On this staggered grid pressure variables are defined at the center of the cell, the x-component of velocity $u$ is defined on the center of vertical faces and the vertical velocity $v$ is defined,as shown in the Figure \ref{staggered}
+In this method, each time step is divided into two substeps. In the first step we ignore pressure and solve convection and diffusion equation.
+\begin{figure}
+\centerline{\includegraphics{StaggardGrid}}
+\caption{Staggered grid showing the grid points of $u$, $v$ and $p$ field. The horizontal velocity $u$ is defined at the center of vertical faces of cell, vertical velocity $v$ is defined at the center of horizontal faces and the pressure is defined at the center of cell.   }
+\label{staggered}
+\end{figure}
+\begin{equation}
+\frac{\tilde{\bu}^{n+1}-\bu^{n}}{\Delta t}+(\bu^n \cdot \grad )\bu^n - \frac{1}{R} \grad^2 \bu^n
+\label{TransportEq}
+\end{equation}
+Where $\Delta t$ is the size of time discretization, n denotes time label and $R$ is the Reynolds number. In the second step, we add pressure gradient operator and impose the incompressibility of flow.
+\begin{equation}
+\begin{split}
+ \frac{\bu^{n+1}-\tilde{\bu^{n+1}}}{\Delta t} +\grad P &= 0\\
+ \grad \cdot \bu^{n+1} = 0
+ \label{IncompressibleCondEq}
+ \end{split}
+\end{equation}
+Using the staggered grid the two components of \eqref{TransportEq} can be written as
+\begin{equation}
+\begin{split}
+ \tilde{u}_{i,j+1/2}^{n+1} &= u_{i,j+1/2}^n - \Delta t \left(u u_x + vu_y -\frac{1}{R}\grad^2u \right)_{i,j+1/2}^n -\Delta t\Ndg (u^2)_{i,j+1/2}^n\\
+ \tilde{v}_{i+1/2,j}^{n+1} &= v_{i+1/2,j}^n - \Delta t \left(u v_x + vv_y -\frac{1}{R}\grad^2v \right)_{i,j+1/2}^n
+\end{split}
+\end{equation}
+where $\left(u u_x + vu_y -\frac{1}{R}\grad^2u \right)_{i,j+1/2}^n$ and $\left(u v_x + vv_y -\frac{1}{R}\grad^2v \right)_{i,j+1/2}^n$
+needs to be evaluated at the grid location for the x-component of velocity at $(i,j+1/2)$ and for y-component of the velocity at $(i+1/2,j)$, respectively. The equations \eqref{IncompressibleCondEq} are discretized as 
+\begin{equation}
+\begin{split}
+ u^{n+1}_{i,j+1/2} &= \tilde{u}^{n+1}_{i,j+1/2} -\frac{1}{R} \frac{\Delta t}{\Delta x} \left(p_{i+1/2,j+1/2}^{n+1} -p_{i-1/2,j+1/2}^{n+1} \right)\\
+ v^{n+1}_{i+1/2,j} &= \tilde{v}^{n+1}_{i+1/2,j} -\frac{1}{R} \frac{\Delta t}{\Delta y} \left(p_{i+1/2,j+1/2}^{n+1} -p_{i+1/2,j-1/2}^{n+1} \right)
+ \end{split}
+ \label{true_velocity_cmp}
+\end{equation}
+where $\Delta x$ and $\Delta y$ are the uniform grid spacing in the x and y directions, respectively. The continuity equation on this staggered can be written as 
+\begin{equation}
+ \frac{ u_{i+1,j+1/2}^{n+1}-u_{i,j+1/2}^{n+1} }{ \Delta x } +\frac{v_{i+1/2,j+1}^{n+1}-v_{i+1/2,j}^{n+1} }{\Delta y} = 0
+ \label{staggered_continuity}
+ \end{equation}
+Substituting the velocity components from \eqref{true_velocity_cmp} into \eqref{staggered_continuity}, we get discretized poisson equation for pressure.
+\begin{equation}
+\begin{split}
+  \Delta t \left[\frac{p_{i+3/2,j+1/2}^{n+1}-2p_{i+1/2,j+1/2}^{n+1}+p_{i-1/2,j+1/2}^{n+1}}{\Delta x^2} \right] &+
+ \Delta t \left[ \frac{p_{i+1/2,j+3/2}^{n+1}-2p_{i+1/2,j+1/2}^{n+1}+p_{i+1/2,j-1/2}^{n+1}}{\Delta y^2}   \right] = \\
+ \frac{\left(\tilde{u}_{i+1,j+1/2}^{n+1}-
+  \tilde{u}_{i,j+1/2}^{n+1}  \right) }{\Delta x}&+\frac{\left(\tilde{v}_{i+1/2,j+1}^{n+1}-\tilde{v}_{i+1/2,j}^{n+1}  \right)}{\Delta y}
+\end{split}
+\label{pressure_equation}
+\end{equation}
+The no-normal velocity on the top and bottom surface provides boundary condition for pressure field, which are used to solve for pressure using \eqref{pressure_equation}. Substitutuing the pressure from the solution of \eqref{pressure_equation} in to \eqref{true_velocity_cmp} we get the velocity field at the next time step. 
+\begin{figure}
+\centerline{\includegraphics{LinearStabilityVsCFD1} }
+\caption{Graph showing growth rate of a random perturbation made to the solution of \eqref{base_equ}, by explicitly solving \eqref{averaged_eq} and its comparison with the highest growth rate predicted by linear stability analysis. The $\sigma_r$ is the real part of growth rate predicted by linear stability analysis. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively.}
+\label{CFD_vs_LinearStabilityGrowthRate}
+\end{figure}
+
+We have explicitly solved \eqref{averaged_eq} with the intitial condition $u(x,y,0) = U_{0}(y)+\tilde{u}_0(y)$ and $v(x,y,0)=0$, where $U_{0}(y)$ is velocity profile arising from the solution of \eqref{basicflow} and $\tilde{u}(y) = \epsilon f(y)$ where $\epsilon \ll 1$ and $f(y)$ is an arbitrary function. We expect this perturbation to grow exponentially as $||u(t)|| = ||u(t_0)|| e^{\sigma_r (t-t_0)}$ with the maximum growth rate ($\sigma_r$) as predicted by the solution of \eqref{Orr-somerfield}, where $||.||$ represent $L_2$ norm of perturabation. A comparison of growth rate computed from the solution of \eqref{averaged_eq} with the
+maximum growth rate $\sigma_r$ arising from the solution of \eqref{Orr-somerfield} is shown in Figure \ref{CFD_vs_LinearStabilityGrowthRate}, we can see intially when the perturabation to the $U_0(y)$ is small, the perturbation grow with the rate predicted by \eqref{Orr-somerfield}. However once the magnitude of perturbation becomes comparable to the $U_0(y)$, non-linear effect also become important and the growth rate can not be described the solution of linear stability analysis. 
+
+In the regime when $||u-U_0|| \ll ||U_0||$, we also expect that the profiles of perturb velocities $\tilde{u}(x,y,t) = u(x,y,t) - U_0(y)$ and $\tilde{v}(x,y,t) = v(x,y,t)$ can be easily descibed by the dominant eigen mode $\phi(k,y)$ corresoponding to $k$ with the highest growth rate.
+\begin{equation}
+\begin{split}
+ \tilde{u}(x,y,t) &= \Re\left(\phi_y(k,y) e^{ikx+\sigma t+ i\theta}\right)\\
+ \tilde{v}(x,y,t) &= \Re\left(ik \phi(k,y) e^{ikx+\sigma t + i\theta }\right)
+\end{split}
+\end{equation}
+Where $\theta$ is a constant phase between $\tilde{u}(0,y,t)$ and $\Re(\phi_y(k,y) e^{\sigma t})$. A comparison between initial evolution of perturb variables $(\tilde{u}, \tilde{v}, \tilde{p})$ with a random perturbation to the base flow $U_0(y)$ arising from the solution of \eqref{averaged_eq} with the prediction based  on the dominant eigen-mode $\phi(k,y)$ is shown in Figure \ref{CFD_vs_LinearStability_AllVariables}
+
+\begin{figure}
+\centerline{\includegraphics{LinearStabilityVsCFD_u_phase0} \includegraphics{LinearStabilityVsCFD_u_phase90}}
+\centerline{\includegraphics{LinearStabilityVsCFD_v_phase0} \includegraphics{LinearStabilityVsCFD_v_phase90}}
+\centerline{\includegraphics{LinearStabilityVsCFD_p_phase0} \includegraphics{LinearStabilityVsCFD_p_phase90}}
+\caption{Comparison of velocities and pressure predicted by Linear Stability analysis and by explicitly solving \eqref{averaged_eq}. The comparison are made at $\bar{T}=82$ and two different locations, where velocities are $\pi/2$ out of pahse with each other.}
+\label{CFD_vs_LinearStability_AllVariables}
+\end{figure}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\section{Saturated Region}
+
+\begin{figure*}
+\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_u_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_u_phase90}}
+\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_v_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_v_phase90}}
+\centerline{\includegraphics{LinearStabilityVsCFD_Saturated_p_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_p_phase90}}
+\label{CFD_vs_LinearStability_u}
+\end{figure*}
+
+
+
+
+
+
+
 %\input{content/conclusion}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
