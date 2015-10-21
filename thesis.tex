@@ -198,7 +198,7 @@ According to this shear layer model, the velocity profile of flow through vegeta
 
 However, several aspects of existing theory remain unexplained. First, the assumption of instability of perturbation to shear layer through a mechanism of Kelvin-Helmholtz relies on absence of any interaction between the flow perturbation and drag, making shear layer a inconsistent theory. Second, classical free shear flow is known to be unstable for all the Reynolds number. On the contrary, a threshold flow speed is observed in the field for the grass to spontaneously wave \cite{Grizzle96}; below this threshold speed the grass bends steadily in response to steady current. This threshold speed corresponds to a  critical Reynolds number $\approx O(1000)$, based on turbulent viscosity. 
 
-Another seemingly related analysis of shear instability and coherent structure in shallow flow adjacent to emergent vegetation has been carried out by \cite{White07}, where presence of vegetation imposes extra drag in addition to drag caused by bed friction. In their analysis they also assumed steady profile to be hyperbolic tangent and flow domain to be infinite. They also assumed symmetric the drag due to vegetation and bed friction. Since both the dominant component of flow velocity are in the same plane as bed, we expect both these component to experience similar drag due to vegetation. However for flow through submerged vegetation one of dominant component is perpendicular (vertical velocity in Figure \ref{GrizzleFig}) to the bed plane and hence experience negligible drag as compared to the other component which is in the plane (horizontal velocity in Figure \ref{GrizzleFig}).
+Another seemingly related analysis of shear instability and coherent structure in shallow flow adjacent to emergent vegetation has been carried out by \cite{White07}, where presence of vegetation imposes extra drag in addition to drag caused by bed friction. In their analysis they also assumed steady profile to be hyperbolic tangent and flow domain to be infinite. They also assumed symmetric the drag due to vegetation and bed friction. Since both the dominant component of flow velocity are in the same plane as bed, we expect both these component to experience similar drag due to vegetation. However for flow through submerged vegetation one of dominant component is perpendicular (vertical velocity in Figure ~\ref{GrizzleFig}) to the bed plane and hence experience negligible drag as compared to the other component which is in the plane (horizontal velocity in Figure ~\ref{GrizzleFig}).
 
 These drawbacks of existing theory suggest that flow through vegetation requires further investigation for better understanding of phenomenon.
 \subsection{Our Approach}
@@ -284,7 +284,7 @@ Where $s$ is the arc-length along the grass blade, $\mathbf{f_{buoy}}$ is the fo
 The equation \eqref{orientation_eq} together with the equation \eqref{averaged_eq} can be solved subject to appropriate boundary condition to predict flow structure and grass orientation.
 
 Although {\monami} is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to flow instability leading to {\monami}. Since the instability and resulting flow structures leading to monami persist even when the flexible grass mimics are replaced with the rigid dowels \cite{Ghisal02,Nepf06}. Therefore, to develop essential mathematical model, we assume grass blade to be rigid on average oriented vertically.
-Boundary condition for \eqref{averaged_eq} on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure \ref{basicflow} ). 
+Boundary condition for \eqref{averaged_eq} on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure ~\ref{basicflow} ). 
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Linear stability analysis}
@@ -297,9 +297,9 @@ The usual response of submerged grass to steady current is to remain bend in som
 \label{base_equ}
 \end{split}
 \end{equation}
-Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$. In real flow the true boundary condition at the bottom is no slip velocity, however the boundary layer formed due to no slip condition is so thin ($\approx 0.5 cm$) that it's hardly visible in experiments as can be seen from the experimental data of \ref{Nepf04} in Figure \ref{basicflow}. Due to presence of dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04 } and hence the bottom boundary condition can be approximated by no shear $U'(0)=0$ condition.
+Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$. In real flow the true boundary condition at the bottom is no slip velocity, however the boundary layer formed due to no slip condition is so thin ($\approx 0.5 cm$) that it's hardly visible in experiments as can be seen from the experimental data of \ref{Nepf04} in Figure ~\ref{basicflow}. Due to presence of dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04 } and hence the bottom boundary condition can be approximated by no shear $U'(0)=0$ condition.
 On the top surface, a rigid lid condition ( no shear and no normal velocity ) or free surface is suitable. Since changes in water surface elevation due to presence of \monami  is small compared to the depth of water channel, we can approximate the top surface by no shear condition ($ U'(2H)=0$ ) as well.
-A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig \ref{basicflow}.
+A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig ~\ref{basicflow}.
 \begin{figure}
 \centerline{\includegraphics[scale=.99]{Grass_Base_Nepf} }
 % \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
@@ -307,7 +307,6 @@ A comparison of the steady flow profile from the solution of ~\eqref{base_equ} w
 Schematic setup and comparison of our steady flow profile with that from the experiments in ref. \cite{Nepf04} (Case I from Table 1) %  with 1250 plants/m$^2$, plant height = 13.7$\pm 0.2$ cm and blade width of 0.64 cm)
  and its approximation with $U_0=7.28$ cm/s and $\delta = 5.02$ cm in our model. The grass extends up to $y=\hg$ in the water column of depth $2H$. 
 The steady velocity profile can be decomposed into a parabolic profile in the unvegetated region, a uniform profile deep within the vegetation, and a boundary layer of thickness $\delta$ near the grass top. 
-The dependence of the boundary layer thickness (estimated as $|U/U_y|$ at $y=\hg$ from the numerical solution of \eqref{base_equ}) on the vegetation density parameter $\ReyNdg$ is shown in the inset.
 }
 \label{basicflow}
 \end{figure}
@@ -315,27 +314,48 @@ The profile $U(y)$ has three distinct regions.
 Within the vegetation, it is approximately uniform with $ U(y) \approx U_g = \sqrt{\frac{-dP/dx}{\rho C_N dN_g}}$ which arise from the balance of the drag with the pressure gradient. 
 Outside the vegetation, the velocity has a simple parabolic profile similar to a Poissueille profile, arising from the balance between pressure and viscous forces together with the free shear condition at the top surface. 
 At the grass top, continuity of shear stresses results in a boundary layer of thickness $\delta$ - `` one where shear does not arise from boundary conditions''. Denoting $\ubl$ to be the velocity scale in the boundary layer, and $U_0 = {(-dP/dx)~H^2}/{\mu}$ the velocity scale in the unvegetated region, the balance between viscous forces and vegetation drag with in grass implies $(\mu \ubl/\delta^2 \sim \rho C_N d N_g \ubl^2)$, and the continuity of shear stress across the grass top implies $(\ubl/\delta \sim U_0/H)$.
-Solving for $\delta$ and $\ubl$ yields $\delta/H \sim \ubl/U_0 \sim (\Rey \Ndg )^{-1/3}$, %where $\Ndg = \left(C_N d H N_g\right)$ is the vegetation frontal area per bed area, and $\Rey=\rho U_0 H/\mu$ is the Reynolds number of the flow. 
-A numerical estimate of $\delta$ (estimated as $U/U_y$ at $y=\hg$) is compared with this prediction in Fig. \ref{basicflow} (inset).
-We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
+Solving for $\delta$ and $\ubl$ yields $\delta/H \sim \ubl/U_0 \sim (\Rey \Ndg )^{-1/3}$, where $\Ndg = \left(C_N d H N_g\right)$ is the vegetation frontal area per bed area, and $\Rey=\rho U_0 H/\mu$ is the Reynolds number of the flow. 
+A numerical estimate of $\delta$ (estimated as $U/U_y$ at $y=\hg$) is compared with this prediction in Fig. ~\ref{basicflow} (inset).
+
+We can also understand the scales for $U_{bl}$ and boundary layer thickness $\delta$ by integrating equation \eqref{basicflow} from $h_g-m\delta$ to $2H$, where $m ~ O(1)$.
+\begin{equation}
+ \int_{h_g-m\delta}^{2H} \left( -\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U|\right)dy = 0 
+\end{equation}
+\begin{equation*}
+-\frac{dP}{dx}(2H-h_g+m\delta)+\mu (U_y(2H)-U_y(h_g-m\delta) -\int_{h_g-m\delta}^{h_g} \rho C_N d N_gU |U|dy -\int_{h_g}^{2H} \rho C_N d N_gU |U|dy =0
+\end{equation*}
+Above equation can be further simplified by observing that $U_y(2H)=0$ due to zero shear boundary condition and $U_y(h_g-m\delta) \approx 0$ due to approximately constant velocity below the boundary layer, we also observe that $S(y)=0$ above the grass and $\int_{h_g-m\delta}^{h_g} U |U| dy = U_{bl}^2 m\delta \alpha$, where $\alpha$ is $O(1)$.
+\begin{equation*}
+-\frac{dP}{dx}(2H-h_g+m\delta) - \rho C_N d N_g U_{bl}^2 m \delta \alpha  =0
+\end{equation*}
+Further, since $\delta \ll H$ we can ignore $\delta$ in comparison to $2H-h_g$.
+\begin{equation}
+-\frac{dP}{dx}(2H-h_g) - \rho C_N d N_g U_{bl}^2 m \delta \alpha  =0
+\end{equation}
+In above equation the first term ($ -\frac{dP}{dx}(2H-h_g)$) is the total shear stress applied at the gras tip by flow above the canopy which is balanced by the drag $\rho C_N d N_g U_{bl}^2 m \delta \alpha $ within the boundary layer. By observing that $ U_{bl}/\delta \sim U_0/H$ due to continuity of shear stress at the grass top and $U_0 = (-dP/dx) H^2/\mu$, above equation can be solved for $\delta$ and $U_{bl}$
+\begin{equation}
+ \delta = \beta (R\Ndg)^{-1/3} \hspace{1.5cm} U_{bl} = \frac{\delta}{H} U_0 
+ \label{delta_asymp}
+\end{equation}
+where $\beta$ depends only on submergence ratio. The numerical estimate of $\delta$ (estimated as $U/U_y$ at y = $h_g$) for the experimental data of \cite{Nepf04} is shown in Figure \ref{Uy_base} (left), we have also shown the comparison of numerical estimate of $\delta$ with the prediction of \eqref{delta_asymp} on the right panel in figure ~\ref{Uy_base}.
+The prediction of \eqref{delta_asymp} with the solution of \eqref{base_equ} are also shown in Figure ~\ref{base_collapse}. We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
 The dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
-Fig. \ref{basicflow} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
+Figure ~\ref{Uy_base} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
 In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
 \begin{figure}
 \centerline{\includegraphics[scale=1.]{Grass_Base_Nepf_shear_scale} \includegraphics[scale=1.]{Grass_shear_scale}}
 % \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
-\caption{
-Schematic setup and comparison of our steady flow profile with that from the experiments in ref. \cite{Nepf04} (Case I from Table 1) %  with 1250 plants/m$^2$, plant height = 13.7$\pm 0.2$ cm and blade width of 0.64 cm)
-  from the numerical solution of \eqref{base_equ}) on the vegetation density parameter $\ReyNdg$ is shown in the inset.
+\caption{Graph showing numerical estimate of $\delta$ for the experimental data of \cite{Nepf04} (Case I from Table 1) from the numerical solution of \eqref{base_equ}). The dependence of boundary layer thickness (estimated as $|U/U_y|$ at y = $h_g$ from numerical solution of \ref{base_equ} on the vegetation density parameter $R\Ndg$ is shown on the right.
 }
+\label{Uy_base}
 \end{figure}
+
 \begin{figure}
 \centerline{\includegraphics[]{Grass_shear_scale_collapse} }
-% \includegraphics[width=15cm]{Grass_Base_Nepf_shear}
 \caption{
-Schematic setup and comparison of our steady flow profile with that from the experiments in ref. \cite{Nepf04} (Case I from Table 1) %  with 1250 plants/m$^2$, plant height = 13.7$\pm 0.2$ cm and blade width of 0.64 cm)
-  from the numerical solution of \eqref{base_equ}) on the vegetation density parameter $\ReyNdg$ is shown in the inset.
+Collapse of velocity profile near the grass tip over boundary layer thickness $\delta$  
 }
+\label{base_collapse}
 \end{figure}
 
 Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{navier-stokes} and expand to linear order to investigate the evolution of small perturbations $(\tilde{u}, \tilde{v})$, which obey
@@ -413,7 +433,7 @@ The threshold $\Rey$ increases with the vegetation density, indicating a competi
 %Previous calculations for terrestrial grass either exclude the vegetation drag in their models \cite{Raupach96}, or assume the mean velocity profile \textit{ad hoc} \citep{Raupach96,Delangre06}.
 %A threshold flow condition is not reported previously either for terrestrial or submerged marine meadows.
 The frequency (Im$(\sigma)$) of the fastest growing mode also agrees well with observed behavior -- frequency of \monami, maxima in the velocity spectra, and frequency of vortex passage in lab scale experiments \cite{Ghisal02} -- for cases where the vegetation was sufficiently dense to be modeled by a continuum drag field as shown in Fig.~\ref{frequency_comparison}. For completeness, the comparison of solution of \eqref{base_equ}
-with the velocity profile observed in the lab scale experiment of \cite{Vivoni98} are shown in \ref{VivoniFig}. The velocity profile for experiments of \cite{Ghisal02} are not
+with the velocity profile observed in the lab scale experiment of \cite{Vivoni98} are shown in ~\ref{VivoniFig}. The velocity profile for experiments of \cite{Ghisal02} are not
 available. The calculated velocity profiles for both these experiments are estimated using the constrain of given flow rate, grass number density and the submergence ratio. The experimentally observed \monami ~wavelengths are not available for comparison.
 \begin{figure*}
  \includegraphics[width=\textwidth]{SetAll_imgsc3}
@@ -469,8 +489,9 @@ In order to estimate the $\Rey$ for these experiments, a representative value of
 \end{figure}
 
 \begin{figure}
- \centerline{\includegraphics[]{Vivoni_Fig3_6_zero_shear_match} \includegraphics{Vivoni_Fig3_7_zero_shear_match}}
- \caption{Comparison of experimental velocity profile of lab scale experiments with the solution of \eqref{base_equ} for \textit{Case A } and \textit{Case B} experimental observation of \cite{Vivoni98} }
+ {\includegraphics[]{Vivoni_Fig3_6_zero_shear_match}\\
+ \includegraphics{Vivoni_Fig3_7_zero_shear_match}}
+ \caption{Comparison of experimental velocity profile of lab scale experiments with the solution of \eqref{base_equ} for \textit{Case A } (on top) and \textit{Case B} on (bottom ) experimental observation of \cite{Vivoni98}. The graph with solid line represents experimental data and the dashed line with same color represent the estimated velocity profile from the solution of \eqref{base_equ}  }
  \label{VivoniFig}
 \end{figure}
 
@@ -512,14 +533,14 @@ The vegetation drag may not be neglected within this boundary layer, and therefo
 %This analysis also concludes that the mode structure is self-similar over the length scale $\delta$ for fixed $\Rey/\Ndg^{2}$; the verification of this idea is shown in Fig.~\ref{Asymptotic_mode} (inset).
 
 \begin{figure}
-\centerline{\includegraphics[scale=1.2]{Asymptotic_noshear}}
-% \includegraphics[width=12cm]{Asymptotic_noshear}
+{\includegraphics[scale=1.1]{Asymptotic_noshear}}\\
+ \includegraphics[scale=1.1]{Asymptotic_noshear2}
 \caption{
-Plot of the neutral Mode 1 (solid) and Mode 2 (dashed) shape $|\phi|$ in the limit of small $\delta/H$ for $\hg/H=0.2$. 
+Plot of the neutral Mode 1 (solid) and Mode 2 (dashed) shape $|\phi|$ in the limit of small $\delta/H$ for $\hg/H=0.2$ in the top panel.
 % Mode 1 is shown in solid and Mode 2 is shown in dashed. The parameters for Mode 2 shapes are chosen such that $\Rey \gg 1$, $\Ndg \gg 1$ (specified in terms of $\delta/H$) but $\Rey/\Ndg = O(1)$. 
 The approach of mode shapes to each other for these small values of $\delta/H$ indicates that the dense vegetation asymptote is reached. 
 Mode 1 shapes appear self-similar in shape as $\delta\to 0$.
-Inset shows rescaled $|\phi|$ for Mode 1 as a function of $(y-\hg)/\delta$ approach a universal shape, indicating that an asymptotic limit has been reached. 
+The bottom graphs shows rescaled $|\phi|$ for Mode 1 as a function of $(y-\hg)/\delta$ approach a universal shape, indicating that an asymptotic limit has been reached. 
 % The limit is not yet reached for the case $\delta/H = 0.005$ due to the influence of bottom boundary; the vegetation height in this case is comparable to the boundary layer thickness.
 }
 \label{Asymptotic_mode}
