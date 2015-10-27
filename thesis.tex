@@ -10,6 +10,7 @@
 \usepackage{changebar}
 \usepackage{enumerate}
 \usepackage[table]{xcolor}
+\usepackage{amsmath}
 % Do you use TikZ?
 \usepackage{tikz}
 %\usepackage{pgfmath}
@@ -33,8 +34,6 @@
 \usepackage{array}
 \usepackage{amssymb}
 %\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-
-
 
 
 %%%%%%%%%%%%%%%%% Fancy chapter headings %%%%%%%%%%%%%%%%%%%
@@ -68,6 +67,8 @@
 \newcommand{\words}[1]{\textbf{(#1)~}}
 % \newcommand{\words}[1]{{}}
 \newcommand{\ReyNdg}{{\Rey\Ndg}}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
 
 
 \renewcommand{\bar}{\overline}
@@ -153,7 +154,7 @@ Hydrodynamic instability leading to \textit{Monami}
 %------------------------ CONTENT ------------------------%
 
 \chapter{Introduction}
-\subsection{Motivation}
+\section{Motivation}
 Seagrasses are submerged flowering plants found in shallow marine waters, mostly in the littoral zones of freshwater and in large expanses of low lying coastal shore, they occupy less than $0.05\%$ of the ocean area \cite{green2003world} but contribute directly to about $15\%$ of the total biomass production in the ocean \cite{duarte1999}. Seagrasses plays crucial role in protecting sea shores. The extensive root system in seagrasses, which extends both vertically and horizontally, helps stabilize the sea bottom in a manner similar to the way land grasses prevent soil erosion. With no seagrasses to diminish the force of the currents along the bottom, numerous beaches, businesses, and homes can be subject to greater damage from storms.
 %ocean bottom areas which are mostly devoid of seagrass are vulnerable to intense wave action from currents and storms. 
 
@@ -182,7 +183,7 @@ length scale of plant such as its diameter or leaf width\cite{Nepf99}. This esti
 %number of environmental processes such as transportation and mixing of sediments, contaminants, dissolved oxygen etc. One such response of submerged grass
 %vegetation in response to unidirectional steady current is the large amplitude coherent oscillations, known as \textit{Monami}, which have been observed in laboratory(Ikedea, Nepf) as well as in observation of seagrass meadows in field studies (Kensworthy, Grizzle). Transportation and mixing of nutrients in dense canopies are known to be dominated by the phenomenon of \textit{Monami} which directly influences biomass production of marine plants as well as inhabitants of grass bed. 
 %Similar phenomenon of large amplitude coherent oscillations are also observed for terrestrial canopies which are known as \textit{Honami}. A crucial difference between the atmospheric and aquatic flow is that the atmospheric are essentially unbounded vertically.
-\subsection{Previous Work}
+\section{Previous Work}
 While considerable research is done to understand the phenomenon associated with atmospheric flows through terrestrial canopies, research for the case of flow through aquatic vegetation is not prevalent. Evidence of the effect of aquatic plants on unidirectional flow emerges from various study of research groups interested in conveyance of water through vegetated canals \cite{kouwen93}, the cycling of particulate and dissolved matter etc. One such systematic study on the topic of blue mussels larvae settlement attributed the excess presence of blue-muscel larvae on the tip of grass to the presence of \textit{Monami} \cite{Grizzle96}. The most notable research work related to \textit{Monami} are laboratories study of open channel flow through flexible and rigid canopies \cite{Ikeda96,Ghisal02}, which shows existence of coherent eddies propagating on canopy top. 
 \begin{figure}
  {\includegraphics[scale=0.72]{Grizzle}}
@@ -201,8 +202,8 @@ However, several aspects of existing theory remain unexplained. First, the assum
 Another seemingly related analysis of shear instability and coherent structure in shallow flow adjacent to emergent vegetation has been carried out by \cite{White07}, where presence of vegetation imposes extra drag in addition to drag caused by bed friction. In their analysis they also assumed steady profile to be hyperbolic tangent and flow domain to be infinite. They also assumed symmetric the drag due to vegetation and bed friction. Since both the dominant component of flow velocity are in the same plane as bed, we expect both these component to experience similar drag due to vegetation. However for flow through submerged vegetation one of dominant component is perpendicular (vertical velocity in Figure ~\ref{GrizzleFig}) to the bed plane and hence experience negligible drag as compared to the other component which is in the plane (horizontal velocity in Figure ~\ref{GrizzleFig}).
 
 These drawbacks of existing theory suggest that flow through vegetation requires further investigation for better understanding of phenomenon.
-\subsection{Our Approach}
-In this study, we developed a mathematical model for the linear stability incorporating presence of grass through a drag field in the momentum equation of fluid. Although monami is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to the hypothesized instability. A linear stability analysis of this model shows that a competition between destabilizing effect of shear and stabilizing effect of drag dissipation leads to a critical flow condition characterized by Reynolds number above which flow becomes unstable leading to \textit{Monami}. Our linear stability analysis predicts existence of two different modes of instability which we termed as mode-1 and mode-2. Mode-1 is found to be instability localized on the length scale of shear layer formed near the canopy top whereas Mode-2 is represent the flow instability on the scale of full water column. We found that mode-1 shares many of characteristics of Kelvin-Helmholtz instability such as instability on the scale of 
+\section{Our Approach}
+In this study, we developed a mathematical model for the linear stability incorporating presence of grass through a drag field in the momentum equation of fluid. Although monami is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to the hypothesized instability. A linear stability analysis of this model shows that a competition between destabilizing effect of shear and stabilizing effect of drag dissipation leads to a critical flow condition characterized by Reynolds number above which flow becomes unstable leading to \textit{Monami}. Our linear stability analysis predicts existence of two different modes of instability which we termed as Mode 1 and Mode 2. Mode 1 is found to be instability localized on the length scale of shear layer formed near the canopy top whereas Mode-2 is represent the flow instability on the scale of full water column. We found that Mode 1 shares many of characteristics of Kelvin-Helmholtz instability such as instability on the scale of 
 shear layer thickness but is found to have significant differences as well. The prediction of critical Reynolds number and waving frequency associated with \textit{Monami} is found to compare well the experimental observations. Results from our analysis can also be applicable to many other related scenario such as flow over coral reefs, permeable sediments, flow through urban environments and therefore is expected to have wider impact. 
 
 %\input{content/intro}
@@ -410,7 +411,7 @@ where the operator $A$ and $B$ are approximated at the grid points using finite 
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
 \chapter{Results}
-\subsection{Unstable modes and critical parameters}
+\section{Unstable modes and critical parameters}
 \begin{figure}
 \begin{center}
 \includegraphics[scale = 0.95]{new_graph_R_vs_delta}\\
@@ -432,9 +433,10 @@ The threshold $\Rey$ increases with the vegetation density, indicating a competi
 % A similar conclusion was presented for an analogous problem (flow around an emergent (i.e., $\hg>2H$) sea grass patch), but by assuming $U(y)$ to be a tanh-profile, and neglecting the viscous term \citep{White07}.
 %Previous calculations for terrestrial grass either exclude the vegetation drag in their models \cite{Raupach96}, or assume the mean velocity profile \textit{ad hoc} \citep{Raupach96,Delangre06}.
 %A threshold flow condition is not reported previously either for terrestrial or submerged marine meadows.
-The frequency (Im$(\sigma)$) of the fastest growing mode also agrees well with observed behavior -- frequency of \monami, maxima in the velocity spectra, and frequency of vortex passage in lab scale experiments \cite{Ghisal02} -- for cases where the vegetation was sufficiently dense to be modeled by a continuum drag field as shown in Fig.~\ref{frequency_comparison}. For completeness, the comparison of solution of \eqref{base_equ}
+The frequency (Im$(\sigma)$/2$\pi$) of the fastest growing mode also agrees well with observed behavior -- frequency of \monami, maxima in the velocity spectra, and frequency of vortex passage in lab scale experiments \cite{Ghisal02} -- for cases where the vegetation was sufficiently dense to be modeled by a continuum drag field as shown in Fig.~\ref{frequency_comparison}. For completeness, the comparison of solution of \eqref{base_equ}
 with the velocity profile observed in the lab scale experiment of \cite{Vivoni98} are shown in ~\ref{VivoniFig}. The velocity profile for experiments of \cite{Ghisal02} are not
-available. The calculated velocity profiles for both these experiments are estimated using the constrain of given flow rate, grass number density and the submergence ratio. The experimentally observed \monami ~wavelengths are not available for comparison.
+available. The calculated velocity profiles for both these experiments are estimated using the constrain of given flow rate, grass number density and the submergence ratio.
+Although the experimentally observed \monami ~wavelengths are not available for comparison, the predicted wavelength for lab scale experiments \citep{Ghisal02} are found to be $O(H)$.
 \begin{figure*}
  \includegraphics[width=\textwidth]{SetAll_imgsc3}
 %\end{figure}
@@ -468,10 +470,10 @@ The smallest $\Rey$ on the neutral curve (Re$(\sigma)=0$) sets the threshold.
 We observe that as $\Ndg$ increases, the unstable region splits into two; we refer to the region with the higher $k$ as ``Mode 1'', and the one with the lower $k$ as ``Mode 2''. 
 For $\hg/H\lesssim 0.9$, the unstable region for Mode 1 recedes to higher $\Rey$, and for $\hg/H \gtrsim 0.9$, the region shrinks to zero size.
 In either case, due to such behavior the most unstable mode transitions discontinuously from Mode 1 to Mode 2.
-All experimental data we have found corresponds to a vegetation density for which the unstable region in the $\Rey-k$ space has not split into two. 
+All experimental data we have found corresponds to a vegetation density for which the unstable region in the $\Rey-k$ space has not split into two, so we are unable to determine if flow instability in the lab scale experiments \citep{Nepf04} are due to Mode 1 or Mode 2.
 The distinct asymptotic behavior of the two modes as $\Ndg \gg 1$ distinguish them from each other and facilitate comparison with KH instability mechanism.
 
-\subsection{Mode 1}
+\section{Mode 1}
 We numerically observe that the threshold Reynolds number for Mode 1 instability scales as  $\Rey \sim (H/\delta)^2$ (or $\Rey \propto {\Ndg}^{2}$). 
 Our calculations also show that Mode 1 asymptotically localizes to the boundary layer near the grass top, and exhibits highest growth for a perturbation of  $k \sim H/\delta$ (see Fig.~\ref{Re_vs_delta}). 
 The behavior of this critical Reynolds number can be understood by considering the limit $\Rey \gg 1$ and $\Ndg \gg 1$.
@@ -494,6 +496,10 @@ In order to estimate the $\Rey$ for these experiments, a representative value of
  \caption{Comparison of experimental velocity profile of lab scale experiments with the solution of \eqref{base_equ} for \textit{Case A } (on top) and \textit{Case B} on (bottom ) experimental observation of \cite{Vivoni98}. The graph with solid line represents experimental data and the dashed line with same color represent the estimated velocity profile from the solution of \eqref{base_equ}  }
  \label{VivoniFig}
 \end{figure}
+\begin{figure}
+ \includegraphics{Ikeda_zero_shear_match}
+\end{figure}
+
 
 To further understand the mechanism of Mode 1, we rescale \eqref{Orr-somerfield} near the grass-top using the the boundary layer scalings $\eta = y/(\delta/H)$, 
 $U(y) = (\delta/H)\bar{U}(\eta)$ and $k = (H/\delta) \bar{k}$.
@@ -546,7 +552,7 @@ The bottom graphs shows rescaled $|\phi|$ for Mode 1 as a function of $(y-\hg)/\
 \label{Asymptotic_mode}
 \end{figure}
 
-\subsection{Mode 2}
+\section{Mode 2}
 The threshold condition for Mode 2 is numerically observed to be $\Rey \propto ({\delta}/{H})^{-3/2}$ (or $\Rey \propto \Ndg$) for $k\sim O(1)$, shown in Fig.~\ref{Re_vs_delta}, which can be understood by assuming $\Rey \gg 1$ but fixed $\Rey/\Ndg \sim O(1)$.
 % Note that for large $\Ndg$, the non-dimensional steady flow velocity inside the vegetation is $U_g \sim (\Rey \Ndg)^{-1/2}$. 
 In this limit, the non-dimensional flow in the grass bed is $U_g/U_0 \sim (\Rey \Ndg)^{-1/2} \ll 1$, and therefore $ikU \ll \sigma$ may be neglected in comparison to $\sigma$. 
@@ -609,7 +615,7 @@ Therefore, we conclude that Mode 2 is distinct from the KH instability, and owes
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
 \chapter{Discussion}
-\subsection{Role of turbulence Model}
+\section{Role of turbulence Model}
 We have modeled turbulence using a constant eddy viscosity. 
 The simplicity of this model allows us to make progress and capture the essential features of the instability. 
 % without accounting for the rich and detailed characteristics of the turbulence. 
@@ -641,7 +647,7 @@ For the Mode 2 instability, the turbulent momentum transport is found to be irre
 In the asymptotic limit of dense grass, \eqref{eqn:mode2asymp} shows that the instability is driven by the interaction of the unvegetated flow with the vegetation drag.
 The influence of the turbulence model is limited to the regularization of the sharp transition in tangential velocity across the grass top.
 Therefore we expect Mode 2 and its features to be preserved even if a different turbulence model is used.
-\subsection{Comparison with previous models}
+\section{Comparison with previous models}
 
 % Chen and Jirka (1997), White and Nepf (2007). What are their results and how do they relate to ours? These analyses have investigated instability of hyperbolic tangent profiles using modified versions of Orr Sommerfeld or Rayleigh's equations in the context of shallow water flow instabilities. They have represented the additional drag arising due to vegetation or bottom friction using a parametrization analogous to ours. 
 A modified version of the Orr-Sommerfeld equation was analyzed previously by \cite{Chu91}, \cite{Chen97}, and \cite{White07} in the context of instabilities in depth-averaged shallow water flows, where bottom friction replaces or augments vegetation drag.
@@ -770,7 +776,117 @@ Where $\theta$ is a constant phase between $\tilde{u}(0,y,t)$ and $\Re(\phi_y(k,
 
 %------------------------ APPENDIX ------------------------%
 \appendix
-\chapter{Stuff Too Complicated To Talk About}
+\chapter{Matched Asymptotic Solution}
+Here we present an asymptotic solution of equation (3.1) for $N_g \gg 1$, which should be helpful in further understanding of boundary layer near the grass top. For simplicity of calculation in this particular calculation we assume the grass to extend from $y=0$ to $y=H$, i. e. a submergence ratio is 0.5. 
+Using $ U_0 = (-dP/dx)H^2/\mu$ as velocity scale, $H$ as length scale, we rescale velocity as $U= U_0 \bar{U}$ and $y = H \bar{y}$. Equation (3.1) is then transformed to  
+\begin{equation}
+\begin{split}
+ \bar{U}_{\bar{y}\bar{y}}+1 - \frac{\rho U_0 H}{\mu} C_N d N_g \bar{U}^2 =0, \quad &\text{ for } y<0\\
+ \bar{U}_{\bar{y}\bar{y}}+1 - R \Ndg \bar{U}^2=0, \quad &\text{ for } y>0.
+\end{split}
+\end{equation}
+For notational convenience, we will drop the overbar and define a drag parameter as $D_g = R\Ndg$ for $-1<y\le 0$, $D_g = 0$ for $0<y\le 1$, grass top is at $y=0$ and the bottom surface is at $y=-1$. Equation (3.1) now reads
+\begin{equation}
+\begin{split}
+ {U}_{{y}{y}}+1 - D_g{U}^2 &=0.
+\end{split}
+\end{equation}
+We use the zero shear boundary condition on both the boundaries ($y=-1,1$) as mentioned in the manuscript.
+
+\vspace{2mm}
+\noindent
+\textbf{Asymptotic Solution of 3.1 below the grass}
+
+\noindent
+We observe that $U = \sqrt{(1/D_g)}$ is a stationary point of above equation, where both $U_{yy}=0$ and $U_y =0 $. By multiplying with $U_y$ and integrating once, we get
+\begin{equation}
+\begin{split}
+ \frac{1}{2} \left( \frac{dU}{dy} \right)^2 +U - \frac{1}{3} D_g U^3 + C = 0
+\end{split}
+\label{eqn:above}
+\end{equation}
+Where C is a constant of integration, which can be determined by observing that as $U$ approaches $1/\sqrt{D_g}$, $U_y$ approaches zero. Applying this condition gives $C = -\dfrac{2}{3\sqrt{D_g}}$. Using the value of $C$, \eqref{eqn:above} becomes 
+\begin{equation}
+\begin{split}
+ \frac{dU}{dy} = \sqrt{\frac{2}{3}D_g U^3+\frac{4}{3\sqrt{D_g}}-2U }
+\end{split}
+\end{equation}
+We further use the substitution $U=\dfrac{1}{\sqrt{D_g}} u $ in the above equation, which simplifies it to
+\begin{equation}
+\begin{split}
+%  \frac{1}{\sqrt{D_g}}\frac{du}{dy} &= \frac{1}{D_g^{1/4}}\sqrt{\frac{2}{3}} \sqrt{ u^3+2-3u } \\
+%  \frac{du}{dy} &= {D_g^{1/4}}\sqrt{\frac{2}{3}} \sqrt{ u^3+2-3u } \\
+ \frac{du}{(u-1)\sqrt{u+2} } &= {D_g^{1/4}}\sqrt{\frac{2}{3}} dy
+\end{split}
+\end{equation}
+Above equation can be integrated to obtain the solution in the vegetated region as
+\begin{equation}
+\begin{split}
+u &= 3 \coth \left(\frac{C_1-y D_g^{1/4}}{\sqrt{2}}  \right)^2-2 \\
+U &= \frac{1}{\sqrt{D_g}} \left( 3 \coth^2 \left(\frac{C_1-y D_g^{1/4}}{\sqrt{2}}  \right)-2    \right)
+\label{under_grass_sol}
+\end{split}
+ \hspace{1cm} \text{for $-1\le y\le 0$,}
+\end{equation}
+where $C_1$ is constant of integration, which can be found by matching the shear stress applied by the flow above the grass at the tip of the grass. Deep inside grass the 
+solution saturates to $U(y)=\frac{1}{\sqrt{D_g}}$ independent of the value of $C_1$ due to the dominant balance between drag and pressure gradient.
+
+\vspace{2mm}
+\noindent
+\textbf{Solution above the grass}
+
+\noindent
+Above the grass, the dimensionless form of equation (3.1) translates to
+\begin{equation}
+ U_{yy}+1=0
+\end{equation}
+which can be integrated together with the zero shear boundary condition at top to provided
+\begin{equation}
+ U(y) = y-y^2/2+C_2 \hspace{1cm} \text{for $0<y<1$}
+ \label{above_grass_sol}
+\end{equation}
+Where $C_2$ is constant of integration.
+
+\vspace{2mm}
+\noindent
+\textbf{Matching the solution obtained by \eqref{under_grass_sol} and \eqref{above_grass_sol} }
+
+\noindent
+The value of $C_1$ and $C_2$ can be determined by matching the solution \eqref{under_grass_sol} and \eqref{above_grass_sol} at the grass tip.
+Matching the shear stress at the grass top results in
+\begin{equation}
+\frac{3\sqrt{2}}{D_g^{1/4}} \coth\left(\frac{C_1}{\sqrt{2}}\right) \csch^2\left(\frac{C_1}{\sqrt{2}}\right) = 1;
+\label{C1_eq}
+\end{equation}
+Above equation can be solved numerically, but here we will solve it asymptotically for $D_g \gg 1$. We expect $C_1 \ll 1$ in this limit, and the terms in \eqref{C1_eq} may be expanded in this limit to get
+\begin{equation}
+\begin{split}
+\frac{3\sqrt{2}}{D_g^{1/4}} \left( \frac{\sqrt{2}}{C_1} \right) \left( \frac{2}{C_1^2} \right) &= 1 \\
+C_1 = \frac{(12)^{1/3}}{D_g^{1/12}}
+\end{split}
+\end{equation}
+The boundary layer length scale may be derived from examining the scale of $y$ for which the argument of \eqref{under_grass_sol} changes asymptotic order. This examination implies $C_1 \sim O(y D_g^{1/4})$ or $y = O(D_g^{-1/3})$. The scale for velocity in the boundary layer is the value of \eqref{under_grass_sol} at $y=0$.
+\begin{align}
+ U_\text{top} &=  \frac{1}{\sqrt{D_g}} \left( 3 \coth^2 \left(\frac{C_1}{\sqrt{2}}  \right)-2    \right) \\
+              &\approx  \frac{1}{\sqrt{D_g}} \left( \frac{6}{C_1^2} -2    \right) \\
+              &\approx \frac{1}{\sqrt{D_g}} \frac{6D_g^{1/6}}{12^{2/3}} \\
+              &\approx \left( \dfrac{3}{2} \right)^{1/3} D_g^{-1/3}.
+\end{align}
+
+% 
+% 
+% Through constant $C_1$ a natural length scale $\delta$ arises when $\delta D_g^{1/4}$ balances $C_1$ in equation \eqref{under_grass_sol}, which gives $\delta \sim D_g^{-1/3}$ or $\delta \sim (R\Ndg)^{-1/3}$. We can also obtain scale of velocity in the boundary layer by substituting $y=0$ in the \eqref{under_grass_sol} and using asymptotic expansion of $\coth(x)$, doing this expansion leads to 
+% \begin{equation}
+% \begin{split}
+% U(y)-U_{tip} &\sim \frac{1}{\sqrt{D_g}}\frac{1}{C_1^2}\\
+% U(y)-U_{tip} &\sim D_g^{-1/3}\\
+% U(y)-U_{tip} &\sim (R\Ndg)^{-1/3}
+% \end{split}
+% \end{equation}
+% near the grass tip. 
+We have employed one of the many possible methods to understand the structure of the solution of (3.1); other methods can also be used to reach the same conclusions.
+For a general treatment of the topic, we refer the referee to the book by \cite{Hinch1991}. % (Perturbation Methods by E.J. Hinch, Cambridge Texts in Applied Mathematics ).
+
 %\input{content/appendix/app1}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
