@@ -239,15 +239,17 @@ overbar to represent time averaged properties and the angel brackets to denote s
  % D_i = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle
  %\end{equation}
  
- Since both dispersive stress ($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $)and molecular stress ($ \mu\ \del u_i / \del x_j $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $), the equation \ref{averaged_eq} simplifies into
+ Both molecular stress dispersive stress ($ \mu\ \del u_i / \del x_j $) and dispersive stress($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $). The formar is usual assumption in a turbulent flow such as flow in vegetation and the latter can be understood by observing that
+ lateral dimensions of canopy elements are much smaller than the canopy height so that the correlation between spatial deviation of both components of velocity on horizontal plane is small \cite{Raupach94,Raupach96}. With this assumption the equation further simplifies into.
  \begin{equation}\label{averaged_eq2}
   \begin{split}
   \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
  \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} -\rho \frac{\partial \langle \bar{u_i^{'}u_j^{'}} \rangle }{\partial x_j} -D_i
  \end{split}
 \end{equation}
-We further hypothesized that Reynolds stress can be estimated by using a constant eddy viscosity i.e. 
+We further hypothesized that Reynolds stress can be estimated by using an eddy viscosity i.e. 
 \[ -\rho \langle u_i^{'} u_j^{'} \rangle = \mu \left(\frac{\del \bar{u_i} }{\del x_j} + \frac{\del \bar {u_j} }{\del x_i}  \right)\]
+In a real grass canopy, the measured value of eddy viscosity is found to vary with depth in the water column \cite{Nepf04}. However, in this work, inorder to develop essential mathematical model we have used a constant representative value of eddy viscotiy thoughout the water column.
 From now-onwards $\mu$ stands for eddy viscosity rather than molecular viscosity, with this simplification equation \ref{averaged_eq} further simplifies into
  \begin{equation}\label{averaged_eq3}
   \begin{split}
@@ -339,7 +341,9 @@ In above equation the first term ($ -\frac{dP}{dx}(2H-h_g)$) is the total shear 
  \label{delta_asymp}
 \end{equation}
 where $\beta$ depends only on submergence ratio. The numerical estimate of $\delta$ (estimated as $U/U_y$ at y = $h_g$) for the experimental data of \cite{Nepf04} is shown in Figure \ref{Uy_base} (left), we have also shown the comparison of numerical estimate of $\delta$ with the prediction of \eqref{delta_asymp} on the right panel in figure ~\ref{Uy_base}.
-The prediction of \eqref{delta_asymp} with the solution of \eqref{base_equ} are also shown in Figure ~\ref{base_collapse}. We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
+The prediction of \eqref{delta_asymp} with the solution of \eqref{base_equ} are also shown in Figure ~\ref{base_collapse}. 
+
+We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
 The dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
 Figure ~\ref{Uy_base} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
 In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
@@ -438,7 +442,7 @@ with the velocity profile observed in the lab scale experiment of \cite{Vivoni98
 available. The calculated velocity profiles for both these experiments are estimated using the constrain of given flow rate, grass number density and the submergence ratio.
 Although the experimentally observed \monami ~wavelengths are not available for comparison, the predicted wavelength for lab scale experiments \citep{Ghisal02} are found to be $O(H)$.
 \begin{figure*}
- \includegraphics[width=\textwidth]{SetAll_imgsc3}
+ \centerline{\includegraphics[]{SetAll_imgsc4}}
 %\end{figure}
 %\begin{figure*}
 %\begin{tabular}{cccc}
@@ -472,6 +476,12 @@ For $\hg/H\lesssim 0.9$, the unstable region for Mode 1 recedes to higher $\Rey$
 In either case, due to such behavior the most unstable mode transitions discontinuously from Mode 1 to Mode 2.
 All experimental data we have found corresponds to a vegetation density for which the unstable region in the $\Rey-k$ space has not split into two, so we are unable to determine if flow instability in the lab scale experiments \citep{Nepf04} are due to Mode 1 or Mode 2.
 The distinct asymptotic behavior of the two modes as $\Ndg \gg 1$ distinguish them from each other and facilitate comparison with KH instability mechanism.
+\begin{figure}
+ \includegraphics{K_vs_GrowthSet3}
+ \caption{Growth rate for various values of $\delta/H$, as a function of wavenumber k. The wavenumber with highest growth for Mode 2 (first peak) is always O(1), whereas for Mode 1 the wavenumber with highest growth increases as $\sim (H/\delta)$. The submergence ratio and grass number density for above graph are $0.3$ and $\Ndg = 300$ respectively  }
+ \label{K_vs_SigmaSet3}
+\end{figure}
+
 
 \section{Mode 1}
 We numerically observe that the threshold Reynolds number for Mode 1 instability scales as  $\Rey \sim (H/\delta)^2$ (or $\Rey \propto {\Ndg}^{2}$). 
@@ -728,17 +738,17 @@ Substituting the velocity components from \eqref{true_velocity_cmp} into \eqref{
 \end{split}
 \label{pressure_equation}
 \end{equation}
-The no-normal velocity on the top and bottom surface provides boundary condition for pressure field, which are used to solve for pressure using \eqref{pressure_equation}. Substitutuing the pressure from the solution of \eqref{pressure_equation} in to \eqref{true_velocity_cmp} we get the velocity field at the next time step. 
+The no-normal velocity on the top and bottom surface provides boundary condition for pressure field, which are used to solve for pressure using \eqref{pressure_equation}. Substituting the pressure from the solution of \eqref{pressure_equation} in to \eqref{true_velocity_cmp} we get the velocity field at the next time step. 
 \begin{figure}
 \centerline{\includegraphics{LinearStabilityVsCFD1} }
 \caption{Graph showing growth rate of a random perturbation made to the solution of \eqref{base_equ}, by explicitly solving \eqref{averaged_eq} and its comparison with the highest growth rate predicted by linear stability analysis. The $\sigma_r$ is the real part of growth rate predicted by linear stability analysis. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively.}
 \label{CFD_vs_LinearStabilityGrowthRate}
 \end{figure}
 
-We have explicitly solved \eqref{averaged_eq} with the intitial condition $u(x,y,0) = U_{0}(y)+\tilde{u}_0(y)$ and $v(x,y,0)=0$, where $U_{0}(y)$ is velocity profile arising from the solution of \eqref{basicflow} and $\tilde{u}(y) = \epsilon f(y)$ where $\epsilon \ll 1$ and $f(y)$ is an arbitrary function. We expect this perturbation to grow exponentially as $||u(t)|| = ||u(t_0)|| e^{\sigma_r (t-t_0)}$ with the maximum growth rate ($\sigma_r$) as predicted by the solution of \eqref{Orr-somerfield}, where $||.||$ represent $L_2$ norm of perturabation. A comparison of growth rate computed from the solution of \eqref{averaged_eq} with the
-maximum growth rate $\sigma_r$ arising from the solution of \eqref{Orr-somerfield} is shown in Figure \ref{CFD_vs_LinearStabilityGrowthRate}, we can see intially when the perturabation to the $U_0(y)$ is small, the perturbation grow with the rate predicted by \eqref{Orr-somerfield}. However once the magnitude of perturbation becomes comparable to the $U_0(y)$, non-linear effect also become important and the growth rate can not be described the solution of linear stability analysis. 
+We have explicitly solved \eqref{averaged_eq} with the intitial condition $u(x,y,0) = U_{0}(y)+\tilde{u}_0(y)$ and $v(x,y,0)=0$, where $U_{0}(y)$ is velocity profile arising from the solution of \eqref{basicflow} and $\tilde{u}(y) = \epsilon f(y)$ where $\epsilon \ll 1$ and $f(y)$ is an arbitrary function. We expect this perturbation to grow exponentially as $||u(t)|| = ||u(t_0)|| e^{\sigma_r (t-t_0)}$ with the maximum growth rate ($\sigma_r$) as predicted by the solution of \eqref{Orr-somerfield}, where $||.||$ represent $L_2$ norm of perturbation. A comparison of growth rate computed from the solution of \eqref{averaged_eq} with the
+maximum growth rate $\sigma_r$ arising from the solution of \eqref{Orr-somerfield} is shown in Figure \ref{CFD_vs_LinearStabilityGrowthRate}, we can see initially when the perturbation to the $U_0(y)$ is small, the perturbation grow with the rate predicted by \eqref{Orr-somerfield}. However once the magnitude of perturbation becomes comparable to the $U_0(y)$, non-linear effect also become important and the growth rate can not be described the solution of linear stability analysis. 
 
-In the regime when $||u-U_0|| \ll ||U_0||$, we also expect that the profiles of perturb velocities $\tilde{u}(x,y,t) = u(x,y,t) - U_0(y)$ and $\tilde{v}(x,y,t) = v(x,y,t)$ can be easily descibed by the dominant eigen mode $\phi(k,y)$ corresoponding to $k$ with the highest growth rate.
+In the regime when $||u-U_0|| \ll ||U_0||$, we also expect that the profiles of perturb velocities $\tilde{u}(x,y,t) = u(x,y,t) - U_0(y)$ and $\tilde{v}(x,y,t) = v(x,y,t)$ can be easily described by the dominant eigen mode $\phi(k,y)$ corresponding to $k$ with the highest growth rate.
 \begin{equation}
 \begin{split}
  \tilde{u}(x,y,t) &= \Re\left(\phi_y(k,y) e^{ikx+\sigma t+ i\theta}\right)\\
