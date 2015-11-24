@@ -33,6 +33,8 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{amssymb}
+%\usepackage{multirow}
+%\usepackage{multicol}
 %\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 
 
@@ -757,7 +759,31 @@ In the regime when $||u-U_0|| \ll ||U_0||$, we also expect that the profiles of 
 \end{equation}
 Where $\theta$ is a constant phase between $\tilde{u}(0,y,t)$ and $\Re(\phi_y(k,y) e^{\sigma t})$. A comparison between initial evolution of perturb variables $(\tilde{u}, \tilde{v}, \tilde{p})$ with a random perturbation to the base flow $U_0(y)$ arising from the solution of \eqref{averaged_eq} with the prediction based  on the dominant eigen-mode $\phi(k,y)$ is shown in Figure \ref{CFD_vs_LinearStability_AllVariables}; which shows expected agreement between prediction based on the dominant eigen mode analysis and the prediction based on the full numerical simulation of \eqref{averaged_eq}.
 
-By carrying out numerical simulation of \eqref{averaged_eq} for large time we observe that initially the amplitude of perturbation variable grow with the rate predicted by linear stability analysis and then saturates to constant value (  See Figure \ref{CFD_vs_LinearStabilityGrowthRate} ). After the perturbation saturates to an approximately constant value, the flow can be described as a steadily propagating wave. The frequency and wavelength of the wave arising from the flow instability can be easily calculated by observing the the vortex passage frequency near the grass tip and the vortex pattern over the flow domain (see figure \ref{TimeVsVorticity} and figure \ref{XVsVorticity} ). If the Reynolds number is close to the critical value we expect the frequency and wavelength of the wave arising due to flow instability to be close to the one predicted by linear stability analysis.  
+By carrying out numerical simulation of \eqref{averaged_eq} for large time we observe that initially the amplitude of perturbation variable grow with the rate predicted by linear stability analysis and then saturates to constant value (  See Figure \ref{CFD_vs_LinearStabilityGrowthRate} ). After the perturbation saturates to an approximately constant value, the flow can be described as a steadily propagating wave (see figure \ref{VorticityColor} ). The frequency and wavelength of the wave arising from the flow instability can be easily calculated by observing the the vortex passage frequency near the grass tip and the vortex pattern over the flow domain (see figure \ref{TimeVsVorticity} and figure \ref{XVsVorticity} ). If the Reynolds number is close to the critical value we expect the frequency and wavelength of the wave arising due to flow instability to be close to the one predicted by linear stability analysis, a comparison between prediction of wavelength and frequency based on the solution of \eqref{Orr-somerfield} and \eqref{averaged_eq} is shown in table \ref{tab:LinearStabilityVsCFD}. A comparison between $u(x,y,t)-<u(y,t)>$ and 
+ $\Re\left(\phi_y(k,y) e^{i\left(kx+\sigma_i t+ \theta\right)} g(t) \right)$  and between $v(x,y,t)-<v(y,t)>$ and $\Re\left(\phi(k,y) e^{i\left(kx+\sigma_i t+ \theta\right)} g(t) \right)$ for Reynolds number close to its critical value is shown in figure \ref{CFDVsLinearStabilitySaturated}. Where $u(x,y,t)$ and $v(x,y,t)$ are solution of equation \eqref{averaged_eq}, the $< >$ denotes horizontally averaged variables i.e.
+ \[<u(y,t)> = \frac{1}{L}\int_{0}^{L} u(x,y,t) dx\]
+ The $\sigma_i$ is the imaginary part of the eigenvalue predicted by the solution of equation \ref{Orr-somerfield} corresponding to the maximum growth rate $(\Re(\sigma))$. The $\phi(k,y)$ and $\phi_y(k,y)$ are the dominant eigen mode and it's derivative corresponding to $k$ with the highest growth rate. Similar comparison for pressure is also shown in figure \ref{CFDVsLinearStabilitySaturated}. From the agreement between the explicit numerical calculation and the prediction based on the solution of Orr–Sommerfeld equation \ref{Orr-somerfield}, we can infer that for Reynolds number $R$ close to the critical Reynolds number, the flow in the saturation region ( for $T(U_0/H)>600$ ) can be described as steadily propagating wave whose wavelength, frequency and mode shape is close to that predicted by linear stability analysis.  
+\begin{centering} 
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  Reynolds Number 
+   &\multicolumn{2}{c|}{Linear Stability Analysis }&\multicolumn{2}{c|}{ Solution of \eqref{averaged_eq}}\\
+\cline{2-5}
+ & $H k$
+ & $\omega (H/U_0)$ & $ H k$  &  $\omega (H/U_0)$ \\
+\hline
+$ R = 250 $ &      1.35 & 0.535 & 1.25 &  0.505 \\
+$ R = 300 $ &      1.50 & 0.567 & 1.25 &  0.468 \\
+$ R = 400 $ &      1.50 & 0.541 & 1.25 &  0.386 \\
+$ R = 500 $ &	    1.50 & 0.523 & 1.25 &  0.325 \\
+
+\hline
+\end{tabular}
+ \caption{Comparison between the estimate of frequency and wavelength between prediction based on the solution of \eqref{Orr-somerfield} and \eqref{averaged_eq}. The calculation is done for $\Ndg=2$, $h_g/(2H)=0.4$. The critical Reynolds number is $R=190$}
+ \label{tab:LinearStabilityVsCFD}
+\end{table}
+\end{centering}
 
 \begin{figure}
 \centerline{\includegraphics{LinearStabilityVsCFD_u_phase0} \includegraphics{LinearStabilityVsCFD_u_phase90}}
@@ -771,8 +797,9 @@ By carrying out numerical simulation of \eqref{averaged_eq} for large time we ob
 %\section{Saturated Region}
 \begin{figure}
  \centerline{\includegraphics[scale=1.3]{VorticityColor}}
- \caption{ evolution of vorticity $\omega = \grad \times \bu$ as function of time for a random perturbation over the steady flow arising from the solution of \eqref{base_equ}. The perturbation grow with the rate predicted by linear stability analysis for $T(U_0/H)<600$ and then saturates to an approximately constant value. For $T(U_0/H) >600$ flow can be described as a steadily propagating wave, whose wavelength and frequency matches with the one predicted by linear stability analysis. The simulation is done for $R=250$, $\Ndg=2$ and $h_g/(2H)=0.4$ }
-\end{figure}
+ \caption{ evolution of vorticity $\omega = \grad \times \bu$ as function of time for a random perturbation over the steady flow arising from the solution of \eqref{base_equ}. The perturbation grow with the rate predicted by linear stability analysis for $T(U_0/H)<600$ and then saturates to an approximately constant value. For $T(U_0/H) >600$ flow can be described as a steadily propagating wave, whose wavelength and frequency matches with the one predicted by linear stability analysis. The simulation is done for $R=250$, $\Ndg=2$ and $h_g/(2H)=0.4$ }. 
+\label{VorticityColor}
+ \end{figure}
 
 \begin{figure*}
 \centerline{\includegraphics[scale=0.95]{LinearStabilityVsCFD_TimeVsVorticity}}
@@ -786,12 +813,12 @@ By carrying out numerical simulation of \eqref{averaged_eq} for large time we ob
 \label{XVsVorticity}
 \end{figure*}
 
-\begin{figure*}
+\begin{figure}
 \centerline{\includegraphics{LinearStabilityVsCFD_Saturated_u_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_u_phase90}}
 \centerline{\includegraphics{LinearStabilityVsCFD_Saturated_v_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_v_phase90}}
 \centerline{\includegraphics{LinearStabilityVsCFD_Saturated_p_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_p_phase90}}
-\label{CFD_vs_LinearStability_u}
-\end{figure*}
+\label{CFDVsLinearStabilitySaturated}
+\end{figure}
 
 
 
@@ -918,9 +945,9 @@ For a general treatment of the topic, we refer the referee to the book by \cite{
 %\input{content/appendix/app1}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-\chapter{Stuff Too Boring to Talk About}
+%\chapter{Stuff Too Boring to Talk About}
 %\input{content/appendix/app2}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 %---------------------- BIBLIOGRAPHY ----------------------%
 \nocite{*}
