@@ -213,10 +213,21 @@ shear layer thickness but is found to have significant differences as well. The 
 
 \chapter{Mathematical Model}
 Given the range of length scales in the canopy (leaf thickness $<$ 1mm, leaf width $\sim$ 1cm, canopy height $\sim 1m$, vegetation patch $10^2-10^3 m$), a fully resolved direct numerical solution is challenging and unnecessary. We instead exploit this separation of length scale between the canopy scale and its microstructure, and resort to modeling the aquatic vegetation as a homogenized multiphase medium which occupies no volume but exert drag on the fluid flow.
-Because the leaves are wide but thin , the volume fraction of vegetation is less than $10\%$ \cite{chandler96} in the densest of seagrass canopies, and dominant interaction with the surrounding water is by exerting a drag. Hence to leading order, we ignore the space occupied by the grass in the fluid mass and momentum balance. In our model vegetation is represented as a continuum field $h(x,t)$. 
+Because the leaves are wide but thin , the volume fraction of vegetation is less than $10\%$ \cite{chandler96} in the densest of seagrass canopies, and dominant interaction with the surrounding water is by exerting a drag on the flow. Hence to leading order, we ignore the space occupied by the grass in the fluid mass and momentum balance. In our model vegetation is represented as a continuum field $h(x,t)$. 
 
 %Further, lab scale experiments have shown that flow instability and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels \cite{Ghisal02, Nepf06}. Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Since the flow structure leading to monami is dominantly 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. 
-
+The governing equation of flow in and above the grass can be represented by the fluid continuity equation incorporating the mass conservation and fluid fluid momentum equation, the equation for incompressible fluid can be expresses as
+\begin{equation}\
+\begin{split}
+  \grad .{\bu}&=0 \\
+ \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p} +\rho \bf{g}  +\mu \grad^2\bu
+\end{split}
+\label{NavierStokes}
+\end{equation}
+where $\bu$ is velocity field, $\mu$ is molecular viscosity of fluid , $\rho$ is fluid density, $p$ is the pressure field and $\bf{g}$ is the body force due to grass bed orientation. The body force $\bf{g}$ can be defined as 
+\[{\bf{g}} = \left(g \sin{\theta},0, g \cos{\theta} \right) \]
+where $g$ is acceleration due to gravity and $\theta$ is bed angle. For most grass beds, wetlands and open channel flow in presence of grass, the angle $\theta$ is very small \cite{Garcia1996}.
+The typical Reynolds number for flow in presence of grass is $O(1000)$
 Here we present methods for averaging the flow equations in presence of vegetation. Following Pedras $\&$ de Lemos \cite{Pedras00} we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuation time, then perform spatial averaging. Denoting 
 overbar to represent time averaged properties and the angel brackets to denote spatial averaged properties, for any fluid property $\phi$ such as velocity, pressure etc.
   \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy \]
@@ -554,7 +565,7 @@ The vegetation drag may not be neglected within this boundary layer, and therefo
 {\includegraphics[scale=1.1]{Asymptotic_noshear}}\\
  \includegraphics[scale=1.1]{Asymptotic_noshear2}
 \caption{
-Plot of the neutral Mode 1 (solid) and Mode 2 (dashed) shape $|\phi|$ in the limit of small $\delta/H$ for $\hg/H=0.2$ in the top panel.
+Plot of the neutral Mode 1 (solid) shape $|\phi|$ in the limit of small $\delta/H$ for $\hg/H=0.2$ in the top panel.
 % Mode 1 is shown in solid and Mode 2 is shown in dashed. The parameters for Mode 2 shapes are chosen such that $\Rey \gg 1$, $\Ndg \gg 1$ (specified in terms of $\delta/H$) but $\Rey/\Ndg = O(1)$. 
 The approach of mode shapes to each other for these small values of $\delta/H$ indicates that the dense vegetation asymptote is reached. 
 Mode 1 shapes appear self-similar in shape as $\delta\to 0$.
@@ -584,12 +595,24 @@ The only remaining parameter in \eqref{eqn:mode2asymp} is $\Rey/\Ndg$.
 For fixed $\Rey/\Ndg$, the mode shape converges in the aforementioned limit, in agreement with our numerical results shown in Fig.~\ref{Asymptotic_mode}.
 This convergence indicates that we have identified the correct asymptotic limit to investigate Mode 2.
 The parameter $\Rey/\Ndg$ therefore sets the threshold, justifying the numerically observed asymptotic behavior $\Rey \propto \Ndg$ (or $\Rey \sim ({\delta}/{H})^{-3/2}$; see Fig.~\ref{Re_vs_delta} for comparison with numerical results).
-The structure of this mode in the aforementioned limit is such that $\phi$ is continuous at $y=h_g$, but $D\phi$ undergoes a rapid transition there, on the scale of boundary layer thickness $\delta$.
+The structure of this mode in the aforementioned limit is such that $\phi$ is continuous at $y=h_g$, but $D\phi$ undergoes a rapid transition there, on the scale of boundary layer thickness $\delta$ ( see figure \ref{Asymptotic_mode2})
 The eigenvalues and the mode shape are otherwise independent of $\delta$.
 Therefore we conclude that the boundary layer only plays a secondary role of regularizing the discontinuity in tangential velocity arising at $y=\hg$ in this instability mechanism.
 The enhanced shear in the boundary layer plays no role for this mode of instability.
 % We interpret Mode 2 as the instability of an inviscid fluid, with the vegetation modeled by a continuum drag field, and for which the boundary layer near the grass top plays no role. 
 % On the other hand, Mode 1 asymptotically localizes to the boundary layer near the grass tip, and exhibits a different asymptotic behavior with $k \sim O(H/\delta)$, and $\Rey \sim (H/\delta)$ (or $\Rey \propto {\Ndg}^{1/2}$) at the threshold. 
+\begin{figure}
+\centerline{\includegraphics[width=1\linewidth]{AsymptoticPhiNoshear}}
+\centerline{\includegraphics[width=0.95\linewidth]{AsymptoticPhiyNoshear}}
+\caption{
+Plot of the neutral Mode 2 shape $|\phi|$ in the limit of small $\delta/H$ for $\hg/H=0.2$ in the top panel.
+The approach of mode shapes to each other for these small values of $\delta/H$ indicates that the dense vegetation asymptote is reached. 
+The bottom graphs shows that $\phi_y$ undergoes rapid transition on the scale of boundary layer thickness $\delta$.
+}
+\label{Asymptotic_mode2}
+\end{figure}
+
+
 Mode 2 has characteristics distinct from KH. Outside the grass, the unstable mode shape is governed by the inviscid Rayleigh's equation \eqref{eqn:Rayleigh}.
 An inflection point in $U(y)$ is a necessary condition for instability arising from \eqref{eqn:Rayleigh} according to Rayleigh's criteria {Rayleigh1879}. 
 However, for our $U(y)$ profiles, $U_{yy}(y) = -1$ above the grass and therefore does not change sign for $y>\hg$. 
@@ -626,65 +649,8 @@ Therefore, we conclude that Mode 2 is distinct from the KH instability, and owes
 \end{table*}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-\chapter{Discussion}
-\section{Role of turbulence Model}
-We have modeled turbulence using a constant eddy viscosity. 
-The simplicity of this model allows us to make progress and capture the essential features of the instability. 
-% without accounting for the rich and detailed characteristics of the turbulence. 
-However, this simplicity in some cases only provides a qualitatively accurate description of the flow. 
-In this subsection, we present an account of the advantages and shortcomings of assuming a constant eddy viscosity to model the turbulence.
 
-As a consequence of the constant eddy viscosity, the boundary layer thickness $\delta$ scales as $H(\ReyNdg)^{-1/3}$.
-Experimental observations show that the boundary layer thickness scales instead as $\Ndg^{-1}$ \cite{Nepf07}.
-Whereas the precise boundary layer thickness is governed by the details of the turbulence model, the existence of this boundary layer for dense vegetation is independent of the turbulence model. 
-We have captured one possible realization of this feature using constant eddy viscosity.
-Experiments have also shown that a model based on mixing length $l$ better approximates the turbulent characteristics of the flow with $l \sim \delta$; \textit{i.e.}, the boundary layer itself establishes eddies to transport momentum. 
-The eddy viscosity corresponding to this model is $\mu \sim \rho U \delta$, and the leading order balance between turbulent momentum transport and vegetation drag is $\mu U/\delta^2 \sim \rho C_N d N_g U^2$.
-Substituting $\mu$ yields $\delta/H \sim \Ndg^{-1}$, in agreement with the experimental observations.
 
-% Replacing the constant eddy viscosity by the scale for it from the mixing length hypothesis also recovers the experimentally observed scaling for boundary layer thickness.
-Within our framework, the mixing length model implies a scale for the eddy viscosity $\mu \sim \rho \ubl \delta$ at grass top, which corresponds to an effective $\Rey \sim U_0H/\ubl \delta$.
-Furthermore, matching the slope of the velocity profile from the boundary layer to the unvegetated flow implies $\ubl/U_0 \sim \delta/H$, and therefore $\Rey \sim (H/\delta)^2$.
-Substituting this relation in $\delta/H \sim (\Rey \Ndg)^{-1/3}$ and solving for $\delta$ yields $\delta/H \sim \Ndg^{-1}$.
-This simple scaling analysis shows that the boundary layer thickness depends on the turbulence model, and indicates that turbulence models based on mixing lengths will yield more realistic scalings for boundary layer thickness.
-At the same time, the qualitative features of the instability are represented by our analysis.
-
-The Mode 1 instability is driven by the intense shear on the scale of the boundary layer.
-The driving mechanism for this instability is similar to that of KH, and relies only on the presence of this shear as presented in the $\bar{U}_{\eta\eta}$ term in equation \eqref{eqn:mode1asymp}. 
-Therefore, we expect Mode 1 instability to be exhibited independent of the turbulence model. 
-We further expect the fastest growing wavenumber to be proportional to $1/\delta$, and the mode to be localized to the boundary layer because these results have a basis in dimensional analysis.
-The threshold parameters for Mode 1, however, may depend on the precise turbulence model used.
- 
-For the Mode 2 instability, the turbulent momentum transport is found to be irrelevant to leading order.
-In the asymptotic limit of dense grass, \eqref{eqn:mode2asymp} shows that the instability is driven by the interaction of the unvegetated flow with the vegetation drag.
-The influence of the turbulence model is limited to the regularization of the sharp transition in tangential velocity across the grass top.
-Therefore we expect Mode 2 and its features to be preserved even if a different turbulence model is used.
-\section{Comparison with previous models}
-
-% Chen and Jirka (1997), White and Nepf (2007). What are their results and how do they relate to ours? These analyses have investigated instability of hyperbolic tangent profiles using modified versions of Orr Sommerfeld or Rayleigh's equations in the context of shallow water flow instabilities. They have represented the additional drag arising due to vegetation or bottom friction using a parametrization analogous to ours. 
-A modified version of the Orr-Sommerfeld equation was analyzed previously by \cite{Chu91}, \cite{Chen97}, and \cite{White07} in the context of instabilities in depth-averaged shallow water flows, where bottom friction replaces or augments vegetation drag.
-They assumed the steady profile to be a hyperbolic tangent, the drag to be isotropic, and the flow domain to be infinite in $y$.
-{White07} also neglected the eddy viscosity in their stability analysis.
-While a detailed investigation needed to compare the consequence of the different assumptions is outside the scope of this paper, we discuss similarities and differences between their results and ours.
-These investigations only found one unstable mode.
-It is most likely so because the calculations were restricted to a parameter regime where the two modes have not yet been separated from each other, as is the case shown in Fig. \ref{K_Re_sigma_set3} for the lowest $\Ndg$.
-These investigations also found that increasing the drag could further destabilize the flow, which is consistent with our interpretation of the Mode 2 instability mechanism.
-
-The analogous oscillation of terrestrial canopies in wind, known as \textit{Honami} \cite{Inoue56,Raupach96}, is different because the atmospheric boundary layer is much larger than the vegetation height.
-% A crucial difference between the atmospheric and aquatic flow is that the atmospheric flows are essentially unbounded vertically \cite{Vivoni98,Nepf00}. 
-% Another difference is that terrestrial vegetation is much more rigid, whereas aquatic vegetation is buoyant \cite{Vivoni98,Ghisal02}. 
-In the framework of our model, the limit of $\hg/H \ll 1$ while $\delta/\hg$ = constant can be used to represent the hydrodynamic instability for the terrestrial case.
-We find that in this case, the transition from Mode 1 to Mode 2 happens at such a large vegetation density, that Mode 2 is irrelevant. 
-Hence, only the KH-like characteristics are observed in the terrestrial case. 
-
-% We now test the assumption of an undeformable grass bed due to the dominant restoring force of buoyancy, using the criteria that the buoyancy time scale be much shorter than the hydrodynamic time scale $H/U_0$.
-% For a common seagrass, \textit{Zostera Marina}, the relative density difference $\Delta \rho /\rho \approx 0.25$, the volume fraction $V_f \approx 0.1$ and $H=1$ m \citep{Fonseca98}, yielding the buoyancy time scale $\sqrt{\rho H/V_f \Delta \rho g} \approx 2$ s.
-% The hydrodynamic time scale assuming $U_0 \approx 0.1$ m/s is 10 s, and therefore longer than the hydrodynamic time scale.
-% We have neither accounted for the pre-factors appearing in the scaling argument, or considered cases when the time-scale separation is not so evident.
-% Accounting for these factors  can lead to further interesting behavior \citep{Delangre06}.
-
-%\input{content/application}
-\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \chapter{Nonlinear Solution of Initial value Problem}
 
@@ -759,7 +725,8 @@ In the regime when $||u-U_0|| \ll ||U_0||$, we also expect that the profiles of 
 \end{equation}
 Where $\theta$ is a constant phase between $\tilde{u}(0,y,t)$ and $\Re(\phi_y(k,y) e^{\sigma t})$. A comparison between initial evolution of perturb variables $(\tilde{u}, \tilde{v}, \tilde{p})$ with a random perturbation to the base flow $U_0(y)$ arising from the solution of \eqref{averaged_eq} with the prediction based  on the dominant eigen-mode $\phi(k,y)$ is shown in Figure \ref{CFD_vs_LinearStability_AllVariables}; which shows expected agreement between prediction based on the dominant eigen mode analysis and the prediction based on the full numerical simulation of \eqref{averaged_eq}.
 
-By carrying out numerical simulation of \eqref{averaged_eq} for large time we observe that initially the amplitude of perturbation variable grow with the rate predicted by linear stability analysis and then saturates to constant value (  See Figure \ref{CFD_vs_LinearStabilityGrowthRate} ). After the perturbation saturates to an approximately constant value, the flow can be described as a steadily propagating wave (see figure \ref{VorticityColor} ). The frequency and wavelength of the wave arising from the flow instability can be easily calculated by observing the the vortex passage frequency near the grass tip and the vortex pattern over the flow domain (see figure \ref{TimeVsVorticity} and figure \ref{XVsVorticity} ). If the Reynolds number is close to the critical value we expect the frequency and wavelength of the wave arising due to flow instability to be close to the one predicted by linear stability analysis, a comparison between prediction of wavelength and frequency based on the solution of \eqref{Orr-somerfield} and \eqref{averaged_eq} is shown in table \ref{tab:LinearStabilityVsCFD}. A comparison between $u(x,y,t)-<u(y,t)>$ and 
+By carrying out numerical simulation of \eqref{averaged_eq} for large time we observe that initially the amplitude of perturbation variable grow with the rate predicted by linear stability analysis and then saturates to constant value (  See Figure \ref{CFD_vs_LinearStabilityGrowthRate} ). After the perturbation saturates to an approximately constant value, the flow can be described as a steadily propagating wave (see figure \ref{VorticityColor} ). The frequency and wavelength of the wave arising from the flow instability can be easily calculated by observing the the vortex passage frequency near the grass tip and the vortex pattern over the flow domain (see figure \ref{TimeVsVorticity} and figure \ref{XVsVorticity} ). If the Reynolds number is close to the critical value we expect the frequency and wavelength of the wave arising due to flow instability to be close to the one predicted by linear stability analysis, a comparison between prediction of wavelength and frequency based on the solution of \eqref{
+Orr-somerfield} and \eqref{averaged_eq} is shown in table \ref{tab:LinearStabilityVsCFD}. A comparison between $u(x,y,t)-<u(y,t)>$ and 
  $\Re\left(\phi_y(k,y) e^{i\left(kx+\sigma_i t+ \theta\right)} g(t) \right)$  and between $v(x,y,t)-<v(y,t)>$ and $\Re\left(\phi(k,y) e^{i\left(kx+\sigma_i t+ \theta\right)} g(t) \right)$ for Reynolds number close to its critical value is shown in figure \ref{CFDVsLinearStabilitySaturated}. Where $u(x,y,t)$ and $v(x,y,t)$ are solution of equation \eqref{averaged_eq}, the $< >$ denotes horizontally averaged variables i.e.
  \[<u(y,t)> = \frac{1}{L}\int_{0}^{L} u(x,y,t) dx\]
  The $\sigma_i$ is the imaginary part of the eigenvalue predicted by the solution of equation \ref{Orr-somerfield} corresponding to the maximum growth rate $(\Re(\sigma))$. The $\phi(k,y)$ and $\phi_y(k,y)$ are the dominant eigen mode and it's derivative corresponding to $k$ with the highest growth rate. Similar comparison for pressure is also shown in figure \ref{CFDVsLinearStabilitySaturated}. From the agreement between the explicit numerical calculation and the prediction based on the solution of Orr–Sommerfeld equation \ref{Orr-somerfield}, we can infer that for Reynolds number $R$ close to the critical Reynolds number, the flow in the saturation region ( for $T(U_0/H)>600$ ) can be described as steadily propagating wave whose wavelength, frequency and mode shape is close to that predicted by linear stability analysis.  
@@ -773,10 +740,12 @@ By carrying out numerical simulation of \eqref{averaged_eq} for large time we ob
  & $H k$
  & $\omega (H/U_0)$ & $ H k$  &  $\omega (H/U_0)$ \\
 \hline
-$ R = 250 $ &      1.35 & 0.535 & 1.25 &  0.505 \\
-$ R = 300 $ &      1.50 & 0.567 & 1.25 &  0.468 \\
-$ R = 400 $ &      1.50 & 0.541 & 1.25 &  0.386 \\
-$ R = 500 $ &	    1.50 & 0.523 & 1.25 &  0.325 \\
+$ R = 250 $ &    1.35 & 0.535 & 1.256 &  0.505 \\
+$ R = 300 $ &    1.50 & 0.567 & 1.256 &  0.468 \\
+$ R = 400 $ &    1.50 & 0.541 & 1.256 &  0.386 \\
+$ R = 500 $ &	  1.50 & 0.523 & 1.256 &  0.325 \\
+$ R = 600 $ &	  1.50 & 0.509 & 1.570 &  0.363 \\
+$ R = 700 $ &     1.65 & 0.538 & 1.570 &  0.311 \\
 
 \hline
 \end{tabular}
@@ -789,7 +758,7 @@ $ R = 500 $ &	    1.50 & 0.523 & 1.25 &  0.325 \\
 \centerline{\includegraphics{LinearStabilityVsCFD_u_phase0} \includegraphics{LinearStabilityVsCFD_u_phase90}}
 \centerline{\includegraphics{LinearStabilityVsCFD_v_phase0} \includegraphics{LinearStabilityVsCFD_v_phase90}}
 \centerline{\includegraphics{LinearStabilityVsCFD_p_phase0} \includegraphics{LinearStabilityVsCFD_p_phase90}}
-\caption{Comparison of velocities and pressure predicted by Linear Stability analysis and by explicitly solving \eqref{averaged_eq}. The comparison are made at $\bar{T}=82$ and two different locations, where velocities are $\pi/2$ out of phase with each other.}
+\caption{Comparison of velocities and pressure predicted by Linear Stability analysis and by explicitly solving \eqref{averaged_eq}. The comparison are made at $\bar{T}=360$ and two different locations, where velocities are $\pi/2$ out of phase with each other. The parameters used are $R=250$, $\Ndg=2$, $h_g/(2H)=0.4$  }
 \label{CFD_vs_LinearStability_AllVariables}
 \end{figure}
 \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -817,6 +786,7 @@ $ R = 500 $ &	    1.50 & 0.523 & 1.25 &  0.325 \\
 \centerline{\includegraphics{LinearStabilityVsCFD_Saturated_u_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_u_phase90}}
 \centerline{\includegraphics{LinearStabilityVsCFD_Saturated_v_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_v_phase90}}
 \centerline{\includegraphics{LinearStabilityVsCFD_Saturated_p_phase0} \includegraphics{LinearStabilityVsCFD_Saturated_p_phase90}}
+\caption{Comparison of velocities and pressure predicted by Linear Stability analysis and deviation of velocity and pressure from it's spatial average by explicitly solving \eqref{averaged_eq}. The comparison are made at $\bar{T}=800$ and two different locations ($x/H=10$ and $x/H=35$ ), where velocities are $\pi/2$ out of phase with each other. The parameters used are $R=250$, $\Ndg=2$, $h_g/(2H)=0.4$ }
 \label{CFDVsLinearStabilitySaturated}
 \end{figure}
 
@@ -824,13 +794,136 @@ $ R = 500 $ &	    1.50 & 0.523 & 1.25 &  0.325 \\
 
 
 
+\chapter{Discussion}
+\section{Role of turbulence Model}
+We have modeled turbulence using a constant eddy viscosity. 
+The simplicity of this model allows us to make progress and capture the essential features of the instability. 
+% without accounting for the rich and detailed characteristics of the turbulence. 
+However, this simplicity in some cases only provides a qualitatively accurate description of the flow. 
+In this subsection, we present an account of the advantages and shortcomings of assuming a constant eddy viscosity to model the turbulence.
+
+As a consequence of the constant eddy viscosity, the boundary layer thickness $\delta$ scales as $H(\ReyNdg)^{-1/3}$.
+Experimental observations show that the boundary layer thickness scales instead as $\Ndg^{-1}$ \cite{Nepf07}.
+Whereas the precise boundary layer thickness is governed by the details of the turbulence model, the existence of this boundary layer for dense vegetation is independent of the turbulence model. 
+We have captured one possible realization of this feature using constant eddy viscosity.
+Experiments have also shown that a model based on mixing length $l$ better approximates the turbulent characteristics of the flow with $l \sim \delta$; \textit{i.e.}, the boundary layer itself establishes eddies to transport momentum. 
+The eddy viscosity corresponding to this model is $\mu \sim \rho U \delta$, and the leading order balance between turbulent momentum transport and vegetation drag is $\mu U/\delta^2 \sim \rho C_N d N_g U^2$.
+Substituting $\mu$ yields $\delta/H \sim \Ndg^{-1}$, in agreement with the experimental observations.
+
+% Replacing the constant eddy viscosity by the scale for it from the mixing length hypothesis also recovers the experimentally observed scaling for boundary layer thickness.
+Within our framework, the mixing length model implies a scale for the eddy viscosity $\mu \sim \rho \ubl \delta$ at grass top, which corresponds to an effective $\Rey \sim U_0H/\ubl \delta$.
+Furthermore, matching the slope of the velocity profile from the boundary layer to the unvegetated flow implies $\ubl/U_0 \sim \delta/H$, and therefore $\Rey \sim (H/\delta)^2$.
+Substituting this relation in $\delta/H \sim (\Rey \Ndg)^{-1/3}$ and solving for $\delta$ yields $\delta/H \sim \Ndg^{-1}$.
+This simple scaling analysis shows that the boundary layer thickness depends on the turbulence model, and indicates that turbulence models based on mixing lengths will yield more realistic scalings for boundary layer thickness.
+At the same time, the qualitative features of the instability are represented by our analysis.
+
+The Mode 1 instability is driven by the intense shear on the scale of the boundary layer.
+The driving mechanism for this instability is similar to that of KH, and relies only on the presence of this shear as presented in the $\bar{U}_{\eta\eta}$ term in equation \eqref{eqn:mode1asymp}. 
+Therefore, we expect Mode 1 instability to be exhibited independent of the turbulence model. 
+We further expect the fastest growing wavenumber to be proportional to $1/\delta$, and the mode to be localized to the boundary layer because these results have a basis in dimensional analysis.
+The threshold parameters for Mode 1, however, may depend on the precise turbulence model used.
+ 
+For the Mode 2 instability, the turbulent momentum transport is found to be irrelevant to leading order.
+In the asymptotic limit of dense grass, \eqref{eqn:mode2asymp} shows that the instability is driven by the interaction of the unvegetated flow with the vegetation drag.
+The influence of the turbulence model is limited to the regularization of the sharp transition in tangential velocity across the grass top.
+Therefore we expect Mode 2 and its features to be preserved even if a different turbulence model is used.
+\section{Comparison with previous models}
+
+% Chen and Jirka (1997), White and Nepf (2007). What are their results and how do they relate to ours? These analyses have investigated instability of hyperbolic tangent profiles using modified versions of Orr Sommerfeld or Rayleigh's equations in the context of shallow water flow instabilities. They have represented the additional drag arising due to vegetation or bottom friction using a parametrization analogous to ours. 
+A modified version of the Orr-Sommerfeld equation was analyzed previously by \cite{Chu91}, \cite{Chen97}, and \cite{White07} in the context of instabilities in depth-averaged shallow water flows, where bottom friction replaces or augments vegetation drag.
+They assumed the steady profile to be a hyperbolic tangent, the drag to be isotropic, and the flow domain to be infinite in $y$.
+{White07} also neglected the eddy viscosity in their stability analysis.
+While a detailed investigation needed to compare the consequence of the different assumptions is outside the scope of this paper, we discuss similarities and differences between their results and ours.
+These investigations only found one unstable mode.
+It is most likely so because the calculations were restricted to a parameter regime where the two modes have not yet been separated from each other, as is the case shown in Fig. \ref{K_Re_sigma_set3} for the lowest $\Ndg$.
+These investigations also found that increasing the drag could further destabilize the flow, which is consistent with our interpretation of the Mode 2 instability mechanism.
+
+The analogous oscillation of terrestrial canopies in wind, known as \textit{Honami} \cite{Inoue56,Raupach96}, is different because the atmospheric boundary layer is much larger than the vegetation height.
+% A crucial difference between the atmospheric and aquatic flow is that the atmospheric flows are essentially unbounded vertically \cite{Vivoni98,Nepf00}. 
+% Another difference is that terrestrial vegetation is much more rigid, whereas aquatic vegetation is buoyant \cite{Vivoni98,Ghisal02}. 
+In the framework of our model, the limit of $\hg/H \ll 1$ while $\delta/\hg$ = constant can be used to represent the hydrodynamic instability for the terrestrial case.
+We find that in this case, the transition from Mode 1 to Mode 2 happens at such a large vegetation density, that Mode 2 is irrelevant. 
+Hence, only the KH-like characteristics are observed in the terrestrial case. 
+
+% We now test the assumption of an undeformable grass bed due to the dominant restoring force of buoyancy, using the criteria that the buoyancy time scale be much shorter than the hydrodynamic time scale $H/U_0$.
+% For a common seagrass, \textit{Zostera Marina}, the relative density difference $\Delta \rho /\rho \approx 0.25$, the volume fraction $V_f \approx 0.1$ and $H=1$ m \citep{Fonseca98}, yielding the buoyancy time scale $\sqrt{\rho H/V_f \Delta \rho g} \approx 2$ s.
+% The hydrodynamic time scale assuming $U_0 \approx 0.1$ m/s is 10 s, and therefore longer than the hydrodynamic time scale.
+% We have neither accounted for the pre-factors appearing in the scaling argument, or considered cases when the time-scale separation is not so evident.
+% Accounting for these factors  can lead to further interesting behavior \citep{Delangre06}.
+
+%\input{content/application}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+
+
+
+%------------------------ APPENDIX ------------------------%
+\appendix
+\chapter{Isotropic Drag model}
+We also performed analysis with isotropic drag ( $\bf{D} = -C|\bu|\bu$ ) in our mathematical model. Assumption of isotropic drag due to presence of obstruction are applicable in scenario such as flow over coral reefs, permeable sediments, flow adjacent to a porous layer etc. With the isotropic drag the evolution of small perturbation $(\tilde{u}, \tilde{v})$ are governed by 
+\begin{equation}
+\begin{split}
+\rho(u_t+U u_x+vU_y) &= -p_x+ {\mu}\nabla^2u-2S\rho C dN_{g}Uu, \\
+\rho(v_t+ Uv_x) &= -p_y+ {\mu}\nabla^2v - S\rho C d N_g Uv, \hspace{0.3cm} \nabla\cdot\bu=0,
+\label{LinearizedNavierStokesSymmetric}
+\end{split} 
+\end{equation}
+which lead to additional of an extra term in the equation  \ref{Orr-somerfield}
+\begin{equation}
+\begin{split}
+\Rey^{-1}\left(D^2 -k^{2} \right)^2\phi = \left[ \left({\sigma}+ikU\right) \left(D^2-k^2\right) -ikU_{yy}\right]\phi + 
+\Ndg D\left(2 S U D \phi\right) - \Ndg U k^2\phi,
+\label{SymmetricOrr-somerfield}
+\end{split}
+\end{equation}
+Comparing equation \eqref{LinearizedNavierStokesSymmetric} with the \eqref{LinearizedNavierStokes}, we notice that to leading order the perturb variables $(\tilde{u},\tilde{v})$ experiences additional drag for flow in vertical direction ($v$ component) as well due to $C d N_g Uv$ term in the vertical component of the momentum equation. Through our numerical simulation we observed that one of the expected effect of this additional drag is to increase the stability of flow as compared to flow through vegetation due to presence of additional drag dissipation. A heat map of $\Re (\sigma)$ as function $R$ and $k$ for different $h_g/H$ and $\Ndg$ is shown in figure \ref{Symmetric_Re_vs_delta}. The smallest $R$ on the neutral curve 
+($\Re (\sigma)=0$) sets the threshold for flow instability. We observe that as $\Ndg$ increases, the unstable region splits into two. Similar to anisotropic drag case we refer to the region with higher $k$ as ``Mode 1'' and one with lower $k$ as ``Mode 2''; however the instability associated with large $k$ gets damped due to this additional drag dissipation and hence Mode 1 doesn't set the threshold for flow instability for large $\Ndg$. We numerically observe that threshold Reynolds number for large $\Ndg$ to be $ R \propto \Ndg$  or $R \propto (\delta/H)^{-3/2}$ ( see figure \ref{Symmetric_Re_vs_delta} ), similar to the case with anisotropic drag ( see figure \ref{Re_vs_delta} Mode 2 asymptote ). An analysis similar to one in section 4.3 can be done here as well to simplify the \ref{SymmetricOrr-somerfield}
+\begin{subequations}
+\begin{align}
+% \begin{split}
+\sigma\left( D^2-k^2\right)\phi = -2{(\Ndg/\Rey)^{1/2}}D^2\phi &+ (\Ndg/R)^{1/2} \phi,  \quad &\text{ for } y<\hg  \label{eqn:mode2asympa} \\
+\left(\sigma+ikU\right) \left(D^2-k^2\right)\phi =  ikU_{yy}\phi &, \quad &\text{ for } y>\hg. \label{eqn:mode2asympb}
+% \end{split}
+\end{align}
+\label{eqn:Symmetricmode2asymp}
+\end{subequations}
+The only remaining parameter in \eqref{eqn:Symmetricmode2asymp} is $\Rey/\Ndg$. The parameter $\Rey/\Ndg$ sets the threshold justifying the numerically observed asymptotic behavior $\Rey \propto \Ndg $ or $ \Rey \propto (\delta/H)^{-3/2}$. For fixed $\Rey/\Ndg$, the mode shape converges in the aforementioned limit, in agreement with the numerical result shown in figure \ref{IsotropicAsymptotic_mode}. The structure of mode in the aforementioned limit is such that $\phi$ is continuous at $y=h_g$, but $\phi_y$ undergoes a rapid transition on the scale of boundary layer thickness $\delta$ 
+( see figure \ref{IsotropicAsymptotic_mode} ).
+
+\begin{figure}
+ \centerline{\includegraphics{IsotropicAsymptoticNoshear}} 
+ \centerline{\includegraphics{IsotropicAsymptoticPhiyNoshear}}
+ \caption{
+Plot of the neutral Mode 2 shape $|\phi|$ in the limit of small $\delta/H$ for $\hg/H=0.2$ in the top panel.
+The approach of mode shapes to each other for these small values of $\delta/H$ indicates that the dense vegetation asymptote is reached. 
+The bottom graphs shows that $\phi_y$ undergoes rapid transition on the scale of boundary layer thickness $\delta$.
+}
+\label{IsotropicAsymptotic_mode}
+\end{figure}
+
+\begin{figure}
+\centerline{ \includegraphics{IsotropicDragAll_imgsc4} }
+\caption{
+$\text{Re}(\sigma)$ and the neutral curve ($\text{Re}(\sigma)$=0) as a function of wavenumber and $\Rey$ for parameters shown in the corresponding panel.  
+As $\Ndg$ increases, the unstable region with higher $k$ value, i.e. the region corresponding to ``Mode 1'' become stable due to increase dissipation.
+}
+\label{K_Re_sigma_set3}
+\end{figure}
+
+\begin{figure}
+ \centerline{\includegraphics{IsotropicDragR_vs_delta}}
+ \centerline{\includegraphics{IsotropicDragDeltaVsK}}
+ \caption{
+Critical Reynolds number ( top ) and the corresponding marginally stable wave number ( bottom ) for different submergence ratio as a function of vegetation density parametrized by the boundary layer thickness. }
+\label{Symmetric_Re_vs_delta}
+\end{figure}
 
 
 %\input{content/conclusion}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-%------------------------ APPENDIX ------------------------%
-\appendix
 \chapter{Matched Asymptotic Solution}
 Here we present an asymptotic solution of equation (3.1) for $N_g \gg 1$, which should be helpful in further understanding of boundary layer near the grass top. For simplicity of calculation in this particular calculation we assume the grass to extend from $y=0$ to $y=H$, i. e. a submergence ratio is 0.5. 
 Using $ U_0 = (-dP/dx)H^2/\mu$ as velocity scale, $H$ as length scale, we rescale velocity as $U= U_0 \bar{U}$ and $y = H \bar{y}$. Equation (3.1) is then transformed to  
