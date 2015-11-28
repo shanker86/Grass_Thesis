@@ -305,7 +305,9 @@ On the top surface, a rigid lid condition ( no shear and no normal velocity ) or
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Linear stability analysis}
-The usual response of submerged grass to steady current is to remain bend in some fixed configration. However above certain flow velocity the grass beds shows coherent large amplitude oscillation as well, such response of time dependent large amplitude oscillation exhibited by sea grass under the influence of otherwise steady steady current is thought to be understood as result of hydrodynamic instability. In order to understand nature of the flow instability associated with monami, we first calculate the fully developed steady solution $\bu = U(y)\boldsymbol{\hat{x}}$ of ~\eqref{averaged_eq3} driven by constant pressure gradient $dP/dx$, and use it to non-dimensionlize the mathematical model. The momentum balance \eqref{averaged_eq3} for $U(y)$ simplifies to
+The usual response of submerged grass to steady current is to remain bend in some fixed configuration. However above certain flow velocity the grass beds shows coherent large amplitude oscillation as well, such response of time dependent large amplitude oscillation exhibited by sea grass under the influence of otherwise steady steady current is thought to be understood as result of hydrodynamic instability. 
+\section{Base velocity profile}
+In order to understand nature of the flow instability associated with monami, we first calculate the fully developed steady solution $\bu = U(y)\boldsymbol{\hat{x}}$ of ~\eqref{averaged_eq3} driven by constant pressure gradient $dP/dx$, and use it to non-dimensionalize the mathematical model. The momentum balance \eqref{averaged_eq3} for $U(y)$ simplifies to
 \begin{equation}
 \begin{split}
  -&\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U| =0\\
@@ -375,7 +377,7 @@ Collapse of velocity profile near the grass tip over boundary layer thickness $\
 }
 \label{base_collapse}
 \end{figure}
-
+\section{Governing equation for flow instability}
 Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{averaged_eq} and expand to linear order to investigate the evolution of small perturbations $(\tilde{u}, \tilde{v})$, which obey
 \begin{equation}
 \begin{split}
@@ -397,7 +399,7 @@ the form $\left(u,v,\psi \right)= \left(\hat u(y), \hat v(y), \phi(y) \right)e^{
 \end{equation}
 where $D=d/dy$, and subject to the boundary conditions $\phi = D^2\phi = 0$ at $y=0$ and $y=2$. 
 The growth rate $\sigma$ for a given wave number $k$ appears as an eigenvalue that allows a non-trivial solution $\phi$ of  \eqref{Orr-somerfield}.
-\section{Numerical Method}
+\subsection{Numerical Method}
   In order to solve \eqref{Orr-somerfield}, we used finite difference method with $N$ equally spaced grid points $(y_i = i\Delta y, \Delta y = \frac{2}{N})$, and used second order approximation for various terms in \eqref{Orr-somerfield} at these grid points. We used following approximation for evaluating various derivatives appearing in \eqref{Orr-somerfield}
   \begin{equation}
   \begin{align}
@@ -835,8 +837,8 @@ Therefore we expect Mode 2 and its features to be preserved even if a different 
 % Chen and Jirka (1997), White and Nepf (2007). What are their results and how do they relate to ours? These analyses have investigated instability of hyperbolic tangent profiles using modified versions of Orr Sommerfeld or Rayleigh's equations in the context of shallow water flow instabilities. They have represented the additional drag arising due to vegetation or bottom friction using a parametrization analogous to ours. 
 A modified version of the Orr-Sommerfeld equation was analyzed previously by \cite{Chu91}, \cite{Chen97}, and \cite{White07} in the context of instabilities in depth-averaged shallow water flows, where bottom friction replaces or augments vegetation drag.
 They assumed the steady profile to be a hyperbolic tangent, the drag to be isotropic, and the flow domain to be infinite in $y$.
-{White07} also neglected the eddy viscosity in their stability analysis.
-While a detailed investigation needed to compare the consequence of the different assumptions is outside the scope of this paper, we discuss similarities and differences between their results and ours.
+White and Nepf \cite{White07} also neglected the eddy viscosity in their stability analysis.
+While a detailed investigation needed to compare the consequence of the different assumptions is not done in this work, we discuss similarities and differences between their results and ours.
 These investigations only found one unstable mode.
 It is most likely so because the calculations were restricted to a parameter regime where the two modes have not yet been separated from each other, as is the case shown in Fig. \ref{K_Re_sigma_set3} for the lowest $\Ndg$.
 These investigations also found that increasing the drag could further destabilize the flow, which is consistent with our interpretation of the Mode 2 instability mechanism.
@@ -912,7 +914,7 @@ The bottom graphs shows that $\phi_y$ undergoes rapid transition on the scale of
 $\text{Re}(\sigma)$ and the neutral curve ($\text{Re}(\sigma)$=0) as a function of wavenumber and $\Rey$ for parameters shown in the corresponding panel.  
 As $\Ndg$ increases, the unstable region with higher $k$ value, i.e. the region corresponding to ``Mode 1'' become stable due to increase dissipation.
 }
-\label{K_Re_sigma_set3}
+\label{IsotropicK_Re_sigma_set3}
 \end{figure}
 
 \begin{figure}
@@ -927,7 +929,7 @@ Critical Reynolds number ( top ) and the corresponding marginally stable wave nu
 %\input{content/conclusion}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-\chapter{Matched Asymptotic Solution}
+\chapter{Matched asymptotic solution of base profile}
 Here we present an asymptotic solution of equation (3.1) for $N_g \gg 1$, which should be helpful in further understanding of boundary layer near the grass top. For simplicity of calculation in this particular calculation we assume the grass to extend from $y=0$ to $y=H$, i. e. a submergence ratio is 0.5. 
 Using $ U_0 = (-dP/dx)H^2/\mu$ as velocity scale, $H$ as length scale, we rescale velocity as $U= U_0 \bar{U}$ and $y = H \bar{y}$. Equation (3.1) is then transformed to  
 \begin{equation}
@@ -1036,7 +1038,7 @@ The boundary layer length scale may be derived from examining the scale of $y$ f
 % \end{equation}
 % near the grass tip. 
 We have employed one of the many possible methods to understand the structure of the solution of (3.1); other methods can also be used to reach the same conclusions.
-For a general treatment of the topic, we refer the referee to the book by \cite{Hinch1991}. % (Perturbation Methods by E.J. Hinch, Cambridge Texts in Applied Mathematics ).
+For a general treatment of the topic, we refer the book by \cite{Hinch1991}. % (Perturbation Methods by E.J. Hinch, Cambridge Texts in Applied Mathematics ).
 
 %\input{content/appendix/app1}
 \clearpage{\pagestyle{empty}\cleardoublepage}
