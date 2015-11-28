@@ -157,7 +157,7 @@ Hydrodynamic instability leading to \textit{Monami}
 
 \chapter{Introduction}
 \section{Motivation}
-Seagrasses are submerged flowering plants found in shallow marine waters, mostly in the littoral zones of freshwater and in large expanses of low lying coastal shore, they occupy less than $0.05\%$ of the ocean area \cite{green2003world} but contribute directly to about $15\%$ of the total biomass production in the ocean \cite{duarte1999}. Seagrasses plays crucial role in protecting sea shores. The extensive root system in seagrasses, which extends both vertically and horizontally, helps stabilize the sea bottom in a manner similar to the way land grasses prevent soil erosion. With no seagrasses to diminish the force of the currents along the bottom, numerous beaches, businesses, and homes can be subject to greater damage from storms.
+Seagrasses are submerged flowering plants found in shallow marine waters, mostly in the littoral zones of freshwater and in large expanses of low lying coastal shore, they occupy less than $0.05\%$ of the ocean area \cite{green2003world} but contribute directly to about $15\%$ of the total biomass production in the ocean \cite{duarte1999}. Seagrasses plays crucial role in protecting sea shores. The extensive root system in seagrasses, which extends both vertically and horizontally, helps stabilize the sea bottom in a manner similar to the way land grasses prevent soil erosion. In the absence of seagrass numerous beaches, businesses, and homes can be subject to greater damage from storms.
 %ocean bottom areas which are mostly devoid of seagrass are vulnerable to intense wave action from currents and storms. 
 
 Seagrasses provide food, shelter, and essential nursery areas to commercial and recreational fishery species and to countless invertebrates living in seagrass communities.
@@ -216,23 +216,20 @@ Given the range of length scales in the canopy (leaf thickness $<$ 1mm, leaf wid
 Because the leaves are wide but thin , the volume fraction of vegetation is less than $10\%$ \cite{chandler96} in the densest of seagrass canopies, and dominant interaction with the surrounding water is by exerting a drag on the flow. Hence to leading order, we ignore the space occupied by the grass in the fluid mass and momentum balance. In our model vegetation is represented as a continuum field $h(x,t)$. 
 
 %Further, lab scale experiments have shown that flow instability and resulting flow structure leading to monami are present even when the flexible grass is replaced with rigid dowels \cite{Ghisal02, Nepf06}. Therefore to develop essential mathematical model we assume grass to be rigid and oriented vertically (along y direction) on average. Since the flow structure leading to monami is dominantly 2 dimension, we assume a two dimensional model for simplicity of calculation. In our mathematical model vegetation is assumed to be sufficiently dense so that drag exerted by the grass can be modeled as a continuum field. 
-The governing equation of flow in and above the grass can be represented by the fluid continuity equation incorporating the mass conservation and fluid fluid momentum equation, the equation for incompressible fluid can be expresses as
+The governing equation of flow in and above the grass can be represented by the fluid continuity equation incorporating the mass conservation and fluid momentum equation, the equation for incompressible fluid can be expresses as
 \begin{equation}\
 \begin{split}
   \grad .{\bu}&=0 \\
- \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p} +\rho \bf{g}  +\mu \grad^2\bu
+ \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p} +\mu \grad^2\bu
 \end{split}
 \label{NavierStokes}
 \end{equation}
-where $\bu$ is velocity field, $\mu$ is molecular viscosity of fluid , $\rho$ is fluid density, $p$ is the pressure field and $\bf{g}$ is the body force due to grass bed orientation. The body force $\bf{g}$ can be defined as 
-\[{\bf{g}} = \left(g \sin{\theta},0, g \cos{\theta} \right) \]
-where $g$ is acceleration due to gravity and $\theta$ is bed angle. For most grass beds, wetlands and open channel flow in presence of grass, the angle $\theta$ is very small \cite{Garcia1996}.
-The typical Reynolds number for flow in presence of grass is $O(1000)$
-Here we present methods for averaging the flow equations in presence of vegetation. Following Pedras $\&$ de Lemos \cite{Pedras00} we first average over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuation time, then perform spatial averaging. Denoting 
-overbar to represent time averaged properties and the angel brackets to denote spatial averaged properties, for any fluid property $\phi$ such as velocity, pressure etc.
+where $\bu$ is velocity field, $\mu$ is molecular viscosity of fluid , $\rho$ is fluid density and $p$ is the pressure field.
+For a typical flow in vegetation The typical Reynolds number for flow on the scale of leaf is $O(1000)$, hence typical flow in presence of vegetation is a turbulent flow. In order to obtain equations for mean flow we use analysis similar to Pedras $\&$ de Lemos \cite{Pedras00}, we first average the flow over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuation time, then perform spatial averaging. Denoting 
+overbar to represent the time averaged properties and the angel brackets to denote the spatially averaged properties, for any quantity of interest, represented here by $\phi$ such as velocity, pressure etc.
   \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy \]
   \[\phi = \bar{\phi}+\phi^{'} \hspace{1.cm}  \bar{\phi} = \langle \bar{\phi} \rangle \ +\phi^{''} \]
- Upon performing temporal averaging of Navier-Stokes and fluid continuity equation we arrive the following equations for fluid continuity and momentum balance.
+ where $\bar{\phi}$ denotes temporal average, $<\bar{\phi}>$ denotes temporally and spatially averaged quantity, $\phi^{'}$ denotes temporal fluctuation and $\phi^{''}$ denotes spatial fluctuation. Upon performing temporal averaging of Navier-Stokes and fluid continuity equation we arrive the following equations for fluid continuity and momentum balance.
  \begin{equation}
  \begin{split}
  \frac{\partial \bar{u_i} }{\partial x_i} &=0 \\
@@ -246,24 +243,23 @@ overbar to represent time averaged properties and the angel brackets to denote s
  \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} + \mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial         x_j^2} + \frac{\partial \langle \bar{\tau_{ij}} \rangle }{\partial x_j} -D_i
  \end{split}
  \end{equation}
- where $\rho$ is fluid density, $\mu$ is molecular viscosity and 
- $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stress tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to temporal fluctuation and dispersive stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctuation. The drag force $D_i(x,y) = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle $ is resistance due to vegetation, the sum of form and viscous drag over the averaging scale, which is zero above the vegetation i.e.  when $y>h(x,t)$. 
+ where $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stress tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to temporal fluctuation and dispersive stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctuation. The drag force $D_i(x,y) = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle $ is resistance due to vegetation, the sum of form and viscous drag over the averaging scale, which is zero above the vegetation i.e. $D_i = 0 $ for $y>h(x,t)$. 
  %\begin{equation}
  % D_i = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle
  %\end{equation}
  
- Both molecular stress dispersive stress ($ \mu\ \del u_i / \del x_j $) and dispersive stress($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $). The formar is usual assumption in a turbulent flow such as flow in vegetation and the latter can be understood by observing that
- lateral dimensions of canopy elements are much smaller than the canopy height so that the correlation between spatial deviation of both components of velocity on horizontal plane is small \cite{Raupach94,Raupach96}. With this assumption the equation further simplifies into.
+ Both molecular stress dispersive stress ($ \mu\ \del u_i / \del x_j $) and dispersive stress($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $). The formar is usual assumption in a turbulent flow such as flow in vegetation and the latter can be understood by observing that the
+ lateral dimensions of canopy elements are much smaller than the canopy height so that the correlation between spatial deviation of both components of velocity on horizontal plane is small \cite{Raupach94,Raupach96}, with this assumption the equation can be further simplified into.
  \begin{equation}\label{averaged_eq2}
   \begin{split}
   \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
  \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} -\rho \frac{\partial \langle \bar{u_i^{'}u_j^{'}} \rangle }{\partial x_j} -D_i
  \end{split}
 \end{equation}
-We further hypothesized that Reynolds stress can be estimated by using an eddy viscosity i.e. 
+In this work, we further hypothesized that the Reynolds stress can be estimated by using an eddy viscosity i.e. 
 \[ -\rho \langle u_i^{'} u_j^{'} \rangle = \mu \left(\frac{\del \bar{u_i} }{\del x_j} + \frac{\del \bar {u_j} }{\del x_i}  \right)\]
 In a real grass canopy, the measured value of eddy viscosity is found to vary with depth in the water column \cite{Nepf04}. However, in this work, inorder to develop essential mathematical model we have used a constant representative value of eddy viscotiy thoughout the water column.
-From now-onwards $\mu$ stands for eddy viscosity rather than molecular viscosity, with this simplification equation \ref{averaged_eq} further simplifies into
+From now-onwards, $\mu$ stands for eddy viscosity rather than molecular viscosity, with this simplification equation \ref{averaged_eq} further simplifies into
  \begin{equation}\label{averaged_eq3}
   \begin{split}
   \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
@@ -271,8 +267,7 @@ From now-onwards $\mu$ stands for eddy viscosity rather than molecular viscosity
  %\rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|
  \end{split}
 \end{equation}
-Which is same as Navier-Stokes equation with molecular viscosity replaced by a constant eddy viscosity, from now-onwards we will drop angle bracket and over bar 
-for notational simplicity.
+Which is similar to Navier-Stokes equation with molecular viscosity replaced by a constant eddy viscosity and an extra drag term due to presence of vegetation; from now-onwards we will drop angle bracket and over bar for notational simplicity.
 \begin{equation}\label{averaged_eq}
 \begin{split}
   \grad .{\bu}&=0 \\
@@ -283,7 +278,9 @@ When the Reynolds number of the flow on the microstructure and molecular viscosi
 \begin{equation}
  \bu_N = \bu_r.\bn,\hspace{0.5cm} \bu_T = \bu_r.\bt,\hspace{.5cm} \mathbf{D} = -\rho d(x,y)\left( C_N \bu_N |\bu_N|\bn + C_T \bu_T |\bu_T| \bt \right)
 \end{equation} 
-where $C_N$ and $C_T$ are drag coefficient in the normal and tangential directions respectively, $N_g$ is the grass number density, $d(x,y)$ is average grass diameter at location specified by co-ordinates $(x,y)$, $\bt$ is average unit vector tangent to the grass element at $(x,y)$ and $\bn$ is average unit vector normal to the grass blade at $(x,y)$. The orientation of grass blade can be obtained by solving force and torque balance equation together with a constitutive relation relating bending moment $M$ to the curvature $\kappa$
+where $C_N$ and $C_T$ are drag coefficient in the normal and tangential directions respectively, $N_g$ is the grass number density, $d(x,y)$ is average grass diameter at location specified by co-ordinates $(x,y)$, $\bt$ is average unit vector tangent to the grass element at $(x,y)$ and $\bn$ is average unit vector normal to the grass blade at $(x,y)$. In a real grass canopy $C_T \ll C_N$, so we for simplicity we take $C_T=0$ in this analysis.
+
+The orientation of grass blade can be obtained by solving force and torque balance equation together with a constitutive relation relating bending moment $M$ to the curvature $\kappa$
 \begin{figure}
  \centerline{\includegraphics[width=2.8cm, height = 2.8cm]{Grass_mod1}\hspace{2.5cm} \includegraphics[width=3.cm,height=3.cm]{Grass_mod2}}
  \caption{Schematic of mechanics of individual grass blade deformation}
@@ -299,8 +296,12 @@ Where $s$ is the arc-length along the grass blade, $\mathbf{f_{buoy}}$ is the fo
 \end{equation}
 The equation \eqref{orientation_eq} together with the equation \eqref{averaged_eq} can be solved subject to appropriate boundary condition to predict flow structure and grass orientation.
 
-Although {\monami} is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to flow instability leading to {\monami}. Since the instability and resulting flow structures leading to monami persist even when the flexible grass mimics are replaced with the rigid dowels \cite{Ghisal02,Nepf06}. Therefore, to develop essential mathematical model, we assume grass blade to be rigid on average oriented vertically.
-Boundary condition for \eqref{averaged_eq} on the bed include no-shear, and a specified number density of grass. The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface. The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure ~\ref{basicflow} ). 
+Although {\monami} is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to flow instability leading to {\monami}. Since the instability and resulting flow structures leading to monami persist even when the flexible grass mimics are replaced with the rigid dowels \cite{Ghisal02,Nepf06}. Therefore, to develop essential mathematical model, we assume grass blade to be rigid and on average oriented vertically.
+
+Boundary condition for \eqref{averaged_eq} on the bed include no-shear ( $u_y=0$ ) and no normal velocity ($v=0$) on the both bottom surface and top surface.
+In real flow the true boundary condition at the bottom surface is no slip velocity and no normal velocity, however the boundary layer formed due to no slip condition is so thin ($\approx 0.5 cm$) that it's hardly visible in experiments as can be seen from the experimental data of \cite{Nepf04} in Figure \ref{basicflow}. Due to presence of dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04} and hence the bottom boundary condition can be approximated by no shear ($u_y(0)=0$) and no normal flow ($v(0)=0$) condition.
+On the top surface, a rigid lid condition ( no shear and no normal velocity ) or free surface is suitable. In order to model free interface we have used no shear at top as well. Since changes in water surface elevation due to presence of \monami  is small compared to the depth of water channel, we can approximate the top surface by no normal flow ($v(2H)=0$) as well.  %The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface.
+ The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure ~\ref{basicflow} ). 
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Linear stability analysis}
@@ -313,8 +314,7 @@ The usual response of submerged grass to steady current is to remain bend in som
 \label{base_equ}
 \end{split}
 \end{equation}
-Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$. In real flow the true boundary condition at the bottom is no slip velocity, however the boundary layer formed due to no slip condition is so thin ($\approx 0.5 cm$) that it's hardly visible in experiments as can be seen from the experimental data of \ref{Nepf04} in Figure ~\ref{basicflow}. Due to presence of dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04 } and hence the bottom boundary condition can be approximated by no shear $U'(0)=0$ condition.
-On the top surface, a rigid lid condition ( no shear and no normal velocity ) or free surface is suitable. Since changes in water surface elevation due to presence of \monami  is small compared to the depth of water channel, we can approximate the top surface by no shear condition ($ U'(2H)=0$ ) as well.
+Eq. \eqref{base_equ} is solved subject to no shear at the boundaries, i.e., $U'(0) = U'(2H) = 0$.
 A comparison of the steady flow profile from the solution of ~\eqref{base_equ} with experimental measurements is shown in Fig ~\ref{basicflow}.
 \begin{figure}
 \centerline{\includegraphics[scale=.99]{Grass_Base_Nepf} }
@@ -331,9 +331,9 @@ Within the vegetation, it is approximately uniform with $ U(y) \approx U_g = \sq
 Outside the vegetation, the velocity has a simple parabolic profile similar to a Poissueille profile, arising from the balance between pressure and viscous forces together with the free shear condition at the top surface. 
 At the grass top, continuity of shear stresses results in a boundary layer of thickness $\delta$ - `` one where shear does not arise from boundary conditions''. Denoting $\ubl$ to be the velocity scale in the boundary layer, and $U_0 = {(-dP/dx)~H^2}/{\mu}$ the velocity scale in the unvegetated region, the balance between viscous forces and vegetation drag with in grass implies $(\mu \ubl/\delta^2 \sim \rho C_N d N_g \ubl^2)$, and the continuity of shear stress across the grass top implies $(\ubl/\delta \sim U_0/H)$.
 Solving for $\delta$ and $\ubl$ yields $\delta/H \sim \ubl/U_0 \sim (\Rey \Ndg )^{-1/3}$, where $\Ndg = \left(C_N d H N_g\right)$ is the vegetation frontal area per bed area, and $\Rey=\rho U_0 H/\mu$ is the Reynolds number of the flow. 
-A numerical estimate of $\delta$ (estimated as $U/U_y$ at $y=\hg$) is compared with this prediction in Fig. ~\ref{basicflow} (inset).
+A numerical estimate of $\delta$ (estimated as $U/U_y$ at $y=\hg$) is compared with this prediction in figure \ref{Uy_base} (right).
 
-We can also understand the scales for $U_{bl}$ and boundary layer thickness $\delta$ by integrating equation \eqref{basicflow} from $h_g-m\delta$ to $2H$, where $m ~ O(1)$.
+We can also understand the scales for $U_{bl}$ and boundary layer thickness $\delta$ by integrating equation \eqref{basicflow} from $h_g-m\delta$ to $2H$, where $m \sim O(1)$.
 \begin{equation}
  \int_{h_g-m\delta}^{2H} \left( -\frac{dP}{dx}+\mu U''(y) -S(y) \rho C_N d N_gU |U|\right)dy = 0 
 \end{equation}
@@ -356,7 +356,7 @@ In above equation the first term ($ -\frac{dP}{dx}(2H-h_g)$) is the total shear 
 where $\beta$ depends only on submergence ratio. The numerical estimate of $\delta$ (estimated as $U/U_y$ at y = $h_g$) for the experimental data of \cite{Nepf04} is shown in Figure \ref{Uy_base} (left), we have also shown the comparison of numerical estimate of $\delta$ with the prediction of \eqref{delta_asymp} on the right panel in figure ~\ref{Uy_base}.
 The prediction of \eqref{delta_asymp} with the solution of \eqref{base_equ} are also shown in Figure ~\ref{base_collapse}. 
 
-We identify the boundary layer to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
+We identify the boundary layer near the grass tip to be analogous to the shear layer \cite{Ghisal02,Nepf04} in the previous explanation of \monami.
 The dependence of $\delta$ on $N_g$ gives us a way to systematically investigate the effect of the shear layer thickness on the instability mechanism.
 Figure ~\ref{Uy_base} also shows that the asymptotic regime of a thin boundary layer is expected to hold for $\ReyNdg \gtrsim 100$. 
 In this notation, $U_g/U_0 = (\Rey \Ndg)^{-1/2}$ (used later in deriving \eqref{eqn:mode2asymp}). 
@@ -376,7 +376,7 @@ Collapse of velocity profile near the grass tip over boundary layer thickness $\
 \label{base_collapse}
 \end{figure}
 
-Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{navier-stokes} and expand to linear order to investigate the evolution of small perturbations $(\tilde{u}, \tilde{v})$, which obey
+Next we substitute $\bu = (U+\tilde{u}, \tilde{v})$, $p=P+\tilde{p}$ in ~\eqref{averaged_eq} and expand to linear order to investigate the evolution of small perturbations $(\tilde{u}, \tilde{v})$, which obey
 \begin{equation}
 \begin{split}
 \rho(u_t+U u_x+vU_y) &= -p_x+ {\mu}\nabla^2u-2S\rho C_{N}dN_{g}Uu, \\
@@ -398,7 +398,7 @@ the form $\left(u,v,\psi \right)= \left(\hat u(y), \hat v(y), \phi(y) \right)e^{
 where $D=d/dy$, and subject to the boundary conditions $\phi = D^2\phi = 0$ at $y=0$ and $y=2$. 
 The growth rate $\sigma$ for a given wave number $k$ appears as an eigenvalue that allows a non-trivial solution $\phi$ of  \eqref{Orr-somerfield}.
 \section{Numerical Method}
-  In order to solve \eqref{Orr-somerfield}, we used finite difference with $N$ equally spaced grid points $(y_i = i\Delta y, \Delta y = \frac{2}{N})$, and used second order approximation for various terms in \eqref{Orr-somerfield} at these grid points. We used following approximation for evaluating various derivatives appearing in \eqref{Orr-somerfield}
+  In order to solve \eqref{Orr-somerfield}, we used finite difference method with $N$ equally spaced grid points $(y_i = i\Delta y, \Delta y = \frac{2}{N})$, and used second order approximation for various terms in \eqref{Orr-somerfield} at these grid points. We used following approximation for evaluating various derivatives appearing in \eqref{Orr-somerfield}
   \begin{equation}
   \begin{align}
     \left.{ D^4\phi} \right|_i &= \frac{ \phi_{i+2}-4\phi_{i+1}+6\phi_{i}-4\phi_{i-1}+\phi_{i-2} }{\Delta y^4} - \frac{\Delta y^2}{6} \left. \frac{\del^6 \phi}{\del y^6} \right |_i \\
@@ -406,9 +406,9 @@ The growth rate $\sigma$ for a given wave number $k$ appears as an eigenvalue th
     \left. D\phi \right|_i &=  \frac{\phi_{i+1} -\phi_{i-1}}{2\Delta y} - \left. \frac{\Delta y^2}{6} \frac{\del^3 \phi}{\del x^3} \right|_i \\
     \end{align}
   \end{equation}
-The boundary conditions at the top and bottom surface are approximated by $\phi_0 = 0$,  $\phi_{N+1} = 0$ to satisfy $\phi=0$ at the top and bottom surface.
-The zero shear condition at the top and bottom surface ($D^2\phi=0$) are expressed by $\phi_{-1} = -\phi{1}$ and $\phi_{N+1} = -\phi_{N}$. The last term in \eqref{Orr-somerfield} give rise to a dirac-delta term $2\Ndg U_g D\phi_g \delta(y-h_g)$, where $U_g$ is velocity the grass tip and $\phi_g$ is value of $\phi$ at the grass tip. We approximate the term with dirac-delta as $2\Ndg U_g D\phi_{g} \frac{1}{\Delta x}$.
-The base velocity profile at these grid points are evaluated by solving \eqref{base_equ}. Using these approximation we can rearrange terms in \eqref{Orr-somerfield} 
+The boundary conditions at the top and bottom surface are approximated by $\phi_0 = 0$,  $\phi_{N} = 0$ to satisfy $\phi=0$ at the top and bottom surface.
+The zero shear condition at the top and bottom surface ($D^2\phi=0$) are expressed by $\phi_{-1} = -\phi_{1}$ and $\phi_{N+1} = -\phi_{N-1}$. The discontinuity of $S(y)$ across the grass tip give rise to the dirac-delta term $2\Ndg U_g D\phi_g \delta(y-h_g)$ in the \ref{Orr-somerfield} equation, where $U_g$ is velocity at the grass tip and $\phi_g$ is value of $\phi$ at the grass tip. We approximate the term with dirac-delta as $2\Ndg U_g D\phi_{g} \frac{1}{\Delta x}$.
+The base velocity profile $U(y)$ at these grid points are evaluated by solving \eqref{base_equ}. Using these approximation we can rearrange terms in \eqref{Orr-somerfield} 
 \begin{equation}
 \begin{split}
 A\phi &= \sigma B \phi\\
@@ -417,10 +417,12 @@ A &= \Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi + ik U
 B &= {\sigma} \left(D^2-k^2\right) \phi
 \end{split}
 \end{equation}
-where the operator $A$ and $B$ are approximated at the grid points using finite difference method. This results in solving finite dimensional generalized eigen-value problem, whose solution provide growth rate $\sigma$ and eigen mode $\phi$ for a perturbation of wavenumber $k$ to the base velocity profile $U(y)$.  
+where the operator $A$ and $B$ are approximated at the grid points using finite difference method. This results in solving finite dimensional generalized eigen-value problem, whose solution provide growth rate $\sigma$ and eigen mode $\phi$ for a perturbation of wavenumber $k$ to the base velocity profile $U(y)$. A plot of $\Re(\sigma)$ as a function of wavenumber $k$ for a base profile arising from $R=500$, $\Ndg=2$ and $h_g/(2H)=0.4$ is shown in figure \ref{GrowthRateVsK} 
+
 \begin{figure}
  \centerline{\includegraphics{GrowthrateVsK}}
  \caption{Growth rate of perturbation ($\sigma_r$) to solution of \eqref{base_equ} as predicted by the solution of \eqref{Orr-somerfield}. The  Reynolds number, grass number density and submergence ratios are $R=500$, $\Ndg=2$ and $h_{grass}/(2H) = 0.4$ respectively }
+ \label{GrowthRateVsK}
 \end{figure}
 
 
@@ -521,6 +523,8 @@ In order to estimate the $\Rey$ for these experiments, a representative value of
 \end{figure}
 \begin{figure}
  \includegraphics{Ikeda_zero_shear_match}
+ \caption{ Comparison of experimental velocity profile of lab scale experiments with the solution of \eqref{base_equ} for \textit{Run 1 } experimental observation of \cite{Ikeda96}. The graph with solid line represents experimental data and the dashed line represent the estimated velocity profile from the solution of \eqref{base_equ}    }
+ \label{IkedaMatching}
 \end{figure}
 
 
@@ -655,8 +659,8 @@ Therefore, we conclude that Mode 2 is distinct from the KH instability, and owes
 \chapter{Nonlinear Solution of Initial value Problem}
 
 
-In order to verify the growth rate for a perturbation of wavenumber $k$ as predicted by \eqref{Orr-somerfield}, we explicitly solved  
-\eqref{averaged_eq} with finite difference method on a staggered grid using {\bf{MAC}} scheme. On this staggered grid pressure variables are defined at the center of the cell, the x-component of velocity $u$ is defined on the center of vertical faces and the vertical velocity $v$ is defined,as shown in the Figure \ref{staggered}
+We explicitly solved  
+\eqref{averaged_eq} with finite difference method on a staggered grid using {\bf{MAC}} (marker and cell) scheme. On this staggered grid pressure variables are defined at the center of the cell, the x-component of velocity $u$ is defined on the center of vertical faces and the vertical velocity $v$ is defined,as shown in the Figure \ref{staggered}
 In this method, each time step is divided into two substeps. In the first step we ignore pressure and solve convection and diffusion equation.
 \begin{figure}
 \centerline{\includegraphics{StaggardGrid}}
@@ -664,13 +668,13 @@ In this method, each time step is divided into two substeps. In the first step w
 \label{staggered}
 \end{figure}
 \begin{equation}
-\frac{\tilde{\bu}^{n+1}-\bu^{n}}{\Delta t}+(\bu^n \cdot \grad )\bu^n - \frac{1}{R} \grad^2 \bu^n
+\frac{\tilde{\bu}^{n+1}-\bu^{n}}{\Delta t}+(\bu^n \cdot \grad )\bu^n - \frac{1}{R} \grad^2 \bu^n -\Ndg (u^2)^n\bx
 \label{TransportEq}
 \end{equation}
 Where $\Delta t$ is the size of time discretization, n denotes time label and $R$ is the Reynolds number. In the second step, we add pressure gradient operator and impose the incompressibility of flow.
 \begin{equation}
 \begin{split}
- \frac{\bu^{n+1}-\tilde{\bu^{n+1}}}{\Delta t} +\grad P &= 0\\
+ \frac{\bu^{n+1}-\tilde{\bu^{n+1}}}{\Delta t} +\grad P^{n+1} &= 0\\
  \grad \cdot \bu^{n+1} = 0
  \label{IncompressibleCondEq}
  \end{split}
@@ -725,11 +729,10 @@ In the regime when $||u-U_0|| \ll ||U_0||$, we also expect that the profiles of 
 \end{equation}
 Where $\theta$ is a constant phase between $\tilde{u}(0,y,t)$ and $\Re(\phi_y(k,y) e^{\sigma t})$. A comparison between initial evolution of perturb variables $(\tilde{u}, \tilde{v}, \tilde{p})$ with a random perturbation to the base flow $U_0(y)$ arising from the solution of \eqref{averaged_eq} with the prediction based  on the dominant eigen-mode $\phi(k,y)$ is shown in Figure \ref{CFD_vs_LinearStability_AllVariables}; which shows expected agreement between prediction based on the dominant eigen mode analysis and the prediction based on the full numerical simulation of \eqref{averaged_eq}.
 
-By carrying out numerical simulation of \eqref{averaged_eq} for large time we observe that initially the amplitude of perturbation variable grow with the rate predicted by linear stability analysis and then saturates to constant value (  See Figure \ref{CFD_vs_LinearStabilityGrowthRate} ). After the perturbation saturates to an approximately constant value, the flow can be described as a steadily propagating wave (see figure \ref{VorticityColor} ). The frequency and wavelength of the wave arising from the flow instability can be easily calculated by observing the the vortex passage frequency near the grass tip and the vortex pattern over the flow domain (see figure \ref{TimeVsVorticity} and figure \ref{XVsVorticity} ). If the Reynolds number is close to the critical value we expect the frequency and wavelength of the wave arising due to flow instability to be close to the one predicted by linear stability analysis, a comparison between prediction of wavelength and frequency based on the solution of \eqref{
-Orr-somerfield} and \eqref{averaged_eq} is shown in table \ref{tab:LinearStabilityVsCFD}. A comparison between $u(x,y,t)-<u(y,t)>$ and 
+By carrying out numerical simulation of \eqref{averaged_eq} for large time we observe that initially the amplitude of perturbation variable grow with the rate predicted by linear stability analysis and then saturates to constant value (  See Figure \ref{CFD_vs_LinearStabilityGrowthRate} ). After the perturbation saturates to an approximately constant value, the flow can be described as a steadily propagating wave (see figure \ref{VorticityColor} ). The frequency and wavelength of the wave arising from the flow instability can be easily calculated by observing the the vortex passage frequency near the grass tip and the vortex pattern over the flow domain (see figure \ref{TimeVsVorticity} and figure \ref{XVsVorticity} ). If the Reynolds number is close to the critical value we expect the frequency and wavelength of the wave arising due to flow instability to be close to the one predicted by linear stability analysis, a comparison between prediction of wavelength and frequency based on the solution of \eqref{Orr-somerfield} and \eqref{averaged_eq} is shown in table \ref{tab:LinearStabilityVsCFD}. A comparison between $u(x,y,t)-<u(y,t)>$ and 
  $\Re\left(\phi_y(k,y) e^{i\left(kx+\sigma_i t+ \theta\right)} g(t) \right)$  and between $v(x,y,t)-<v(y,t)>$ and $\Re\left(\phi(k,y) e^{i\left(kx+\sigma_i t+ \theta\right)} g(t) \right)$ for Reynolds number close to its critical value is shown in figure \ref{CFDVsLinearStabilitySaturated}. Where $u(x,y,t)$ and $v(x,y,t)$ are solution of equation \eqref{averaged_eq}, the $< >$ denotes horizontally averaged variables i.e.
  \[<u(y,t)> = \frac{1}{L}\int_{0}^{L} u(x,y,t) dx\]
- The $\sigma_i$ is the imaginary part of the eigenvalue predicted by the solution of equation \ref{Orr-somerfield} corresponding to the maximum growth rate $(\Re(\sigma))$. The $\phi(k,y)$ and $\phi_y(k,y)$ are the dominant eigen mode and it's derivative corresponding to $k$ with the highest growth rate. Similar comparison for pressure is also shown in figure \ref{CFDVsLinearStabilitySaturated}. From the agreement between the explicit numerical calculation and the prediction based on the solution of Orr–Sommerfeld equation \ref{Orr-somerfield}, we can infer that for Reynolds number $R$ close to the critical Reynolds number, the flow in the saturation region ( for $T(U_0/H)>600$ ) can be described as steadily propagating wave whose wavelength, frequency and mode shape is close to that predicted by linear stability analysis.  
+ The $\sigma_i$ is the imaginary part of the eigenvalue predicted by the solution of equation \ref{Orr-somerfield} corresponding to the maximum growth rate $(\Re(\sigma))$. The $\phi(k,y)$ and $\phi_y(k,y)$ are the dominant eigen mode and it's derivative corresponding to $k$ with the highest growth rate and $g(t)$ is amplitude of $u$ and $v$. Similar comparison for pressure is also shown in figure \ref{CFDVsLinearStabilitySaturated}. From the agreement between the explicit numerical calculation and the prediction based on the solution of Orr–Sommerfeld equation \ref{Orr-somerfield}, we can infer that for Reynolds number $R$ close to the critical Reynolds number, the flow in the saturation region ( for $T(U_0/H)>600$ ) can be described as steadily propagating wave whose wavelength, frequency and mode shape is close to that predicted by linear stability analysis.  
 \begin{centering} 
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|}
