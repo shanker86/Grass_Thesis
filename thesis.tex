@@ -116,8 +116,7 @@ Hydrodynamic instability leading to \textit{Monami}
 \end{signature}
 
 \begin{vita}
-  %\input{content/vita}
-  %xzczxl;csd ;vdfsvl;sd
+  Ravi Shanker Singh was born on 5th May 1986 in a village of Gorakhpur district, Uttar Pradesh, India. He graduated from Banaras Hindu University with Bachelor's degree in Physics major in year 2006. He graduated with master's degree from Indian Institute of Technology-Bombay in 2008.
 \end{vita}
 
 \begin{acknowledgments}
@@ -212,7 +211,7 @@ infaunal prey organisms. Seagrass leaves provide a place of anchor for seaweeds 
 Seagrasses help trap fine sediments and particles that are suspended in the water column, which increases water clarity. When a sea floor area lacks seagrass communities, the sediments are more frequently stirred by wind and waves, decreasing water clarity, affecting marine animal behavior, and generally decreasing the recreational quality of coastal areas. Seagrasses are also known to sequester $C O_2$\cite{duarte2005}, mix and recycle the nutrients necessary for life of its inhabitants they also work to filter nutrients that come from land-based industrial discharge and stormwater runoff before these nutrients are washed out to sea and to other sensitive habitats such as coral reefs.
 %However these ecosystems are disappearing at an alarming rate (average $7\%$ since 1990).
 
-The primary requirement for active marine eco-systems are presence of sunlight and a mechanism to mix and transport the nutrients. Since sunlight can penetrate only near the surface of water, the sea-shores are ideal place for rich marine ecology. One of the other important factor in proliferating the marine ecology near the ocean shores is the presence of regular wave and tides which constantly stir the region, a mechanism which is not present in the lakes. Despite shallow average depth of lakes (e.g. average depth of Lake Erie is 18.6m and that of lake Chand is 4 m) with plenty of sunlight, lakes are not able to support a rich ecology as compared to the coastal shore due to absence of tidal mixing. The coastal oceans are about 10 times as productive as the lakes\cite{nixon1988}. Along with marshes and mangroves, seagrasses meadows rank highest in terms of biomass production.
+The primary requirement for active marine eco-systems are presence of sunlight and a mechanism to mix and transport the nutrients. Since sunlight can penetrate only near the surface of water, the sea-shores are ideal place for rich marine ecology. One of the other important factor in proliferating the marine ecology near the ocean shores is the presence of regular wave and tides which constantly stir the region, a mechanism which is not present in the lakes. Despite shallow average depth of lakes (e.g. average depth of Lake Erie is 18.6m and that of lake Chad is 4 m) with plenty of sunlight, lakes are not able to support a rich ecology as compared to the coastal shore due to absence of tidal mixing. The coastal oceans are about 10 times as productive as the lakes\cite{nixon1988}. Along with marshes and mangroves, seagrasses meadows rank highest in terms of biomass production.
 \newline
 %\newline
 The ability of seagrass meadows to engineer the habitat for effective ecosystems is directly related to its ability to influence hydrodynamic processes. This requires balance between
@@ -249,7 +248,7 @@ tangent in the horizontal direction and the flow domain to be infinite.
 These drawbacks of existing theory suggest that both the flow through submerged vegetation as well the flow around emerged patches requires further investigation for better understanding of phenomenon.
 \section{Our Approach}
 In this study, we developed a mathematical model for the linear stability incorporating presence of grass through a drag field in the momentum equation of fluid. Although monami is manifested in the motion of grass, the drag exerted by the vegetation on the flow is central to the hypothesized instability. A linear stability analysis of this model shows that a competition between destabilizing effect of shear and stabilizing effect of drag dissipation leads to a critical flow condition characterized by Reynolds number above which flow becomes unstable leading to \textit{Monami}. Our linear stability analysis predicts existence of two different modes of instability which we termed as Mode 1 and Mode 2. Mode 1 is found to be instability localized on the length scale of shear layer formed near the canopy top whereas Mode-2 is represent the flow instability on the scale of full water column. We found that Mode 1 shares many of characteristics of Kelvin-Helmholtz instability such as instability on the scale of 
-shear layer thickness but is found to have significant differences as well. The prediction of critical Reynolds number and waving frequency associated with \textit{Monami} is found to compare well the experimental observations. We have also performed full numerical simulation of the mathematical model \ref{averaged_eq}, and compared the prediction of the linear stability analysis such as with the solution of \ref{averaged_eq} in section ---. Linear stability analysis for flow around emergent vegetation has also been carried out in section ----. Results from our analysis can also be applicable to many other related scenario such as flow over coral reefs, permeable sediments, flow through urban environments and therefore is expected to have wider impact. 
+shear layer thickness but is found to have significant differences as well. The prediction of critical Reynolds number and waving frequency associated with \textit{Monami} is found to compare well the experimental observations. We have also performed full numerical simulation of the mathematical model \eqref{averaged_eq}, and compared the prediction of the linear stability analysis such as growth rate, wavelength and the resultant frequency of dominant mode with the solution of \eqref{averaged_eq} in section 4.2 . Linear stability analysis for flow around emergent vegetation has also been carried out in chapter 5. Results from our analysis can also be applicable to many other related scenario such as flow over coral reefs, permeable sediments, flow through urban environments and therefore is expected to have wider impact. 
 
 %\input{content/intro}
 \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -947,54 +946,49 @@ Critical Reynolds number ( top ) and the corresponding marginally stable wave nu
 
 \chapter{Discussion}
 \section{Role of turbulence Model}
-We have modeled turbulence using a constant eddy viscosity. 
-The simplicity of this model allows us to make progress and capture the essential features of the instability. 
+In our mathematical model we have used constant eddy viscosity, with this simile assumption about eddy viscosity we are able to capture essential feature of flow instability. However, in a real flow the eddy viscosity vary with position, so this simple assumption about eddy viscosity only provide qualitatively accurate description of flow. 
+%of We have modeled turbulence using a constant eddy viscosity. 
+%The simplicity of this model allows us to make progress and capture the essential features of the instability. 
 % without accounting for the rich and detailed characteristics of the turbulence. 
-However, this simplicity in some cases only provides a qualitatively accurate description of the flow. 
+%However, this simplicity in some cases only provides a qualitatively accurate description of the flow. 
 In this subsection, we present an account of the advantages and shortcomings of assuming a constant eddy viscosity to model the turbulence.
 
-As a consequence of the constant eddy viscosity, the boundary layer thickness $\delta$ scales as $H(\ReyNdg)^{-1/3}$.
-Experimental observations show that the boundary layer thickness scales instead as $\Ndg^{-1}$ \cite{Nepf07}.
-Whereas the precise boundary layer thickness is governed by the details of the turbulence model, the existence of this boundary layer for dense vegetation is independent of the turbulence model. 
-We have captured one possible realization of this feature using constant eddy viscosity.
-Experiments have also shown that a model based on mixing length $l$ better approximates the turbulent characteristics of the flow with $l \sim \delta$; \textit{i.e.}, the boundary layer itself establishes eddies to transport momentum. 
-The eddy viscosity corresponding to this model is $\mu \sim \rho U \delta$, and the leading order balance between turbulent momentum transport and vegetation drag is $\mu U/\delta^2 \sim \rho C_N d N_g U^2$.
-Substituting $\mu$ yields $\delta/H \sim \Ndg^{-1}$, in agreement with the experimental observations.
+One of consequence of the using constant eddy viscosity is the the boundary layer thickness $\delta$ scales as $H(\ReyNdg)^{-1/3}$; however,
+lab scale experimental observations carried by Nepf \cite{Nepf07} show that the boundary layer thickness scales instead as $\Ndg^{-1}$ \cite{Nepf07}.
+Since the scaling of boundary layer arrive due to balance of viscous stress and drag force in the boundary layer, the precise nature of scaling is dependent on the precise nature of eddy viscosity used in the model. Whereas the precise scaling of boundary layer thickness is governed by the details of the turbulence model, the existence of this boundary layer for dense vegetation is independent of the turbulence model. In this analysis we have captured one possible realization of this feature using constant eddy viscosity.
+Experiments have also shown that a model based on constant mixing length $l$ better approximates the turbulent characteristics of the flow with $l \sim \delta$ \cite{White06,Nepf07}; \textit{i.e.}, assuming that the boundary layer itself establishes eddies to transport momentum. 
+The eddy viscosity corresponding to this model can be approximated as $\mu \sim \rho U \delta$, and the dominant balance between turbulent momentum transport and vegetation drag in the boundary layer is  $\mu U/\delta^2 \sim \rho C_N d N_g U^2$.
+Substituting $\mu$ and solving for $\delta$ yields $\delta/H \sim \Ndg^{-1}$ which is in agreement with the experimental observations.
 
 % Replacing the constant eddy viscosity by the scale for it from the mixing length hypothesis also recovers the experimentally observed scaling for boundary layer thickness.
-Within our framework, the mixing length model implies a scale for the eddy viscosity $\mu \sim \rho \ubl \delta$ at grass top, which corresponds to an effective $\Rey \sim U_0H/\ubl \delta$.
-Furthermore, matching the slope of the velocity profile from the boundary layer to the unvegetated flow implies $\ubl/U_0 \sim \delta/H$, and therefore $\Rey \sim (H/\delta)^2$.
-Substituting this relation in $\delta/H \sim (\Rey \Ndg)^{-1/3}$ and solving for $\delta$ yields $\delta/H \sim \Ndg^{-1}$.
-This simple scaling analysis shows that the boundary layer thickness depends on the turbulence model, and indicates that turbulence models based on mixing lengths will yield more realistic scalings for boundary layer thickness.
-At the same time, the qualitative features of the instability are represented by our analysis.
+The scaling of experimentally observed boundary layer thickness $\delta \propto \Ndg^{-1}$ can also be understood with in the framework of our model. 
+The mixing length model implies that near the grass tip, eddy viscosity scales as $\mu \sim \rho \ubl \delta$, which in turn corresponds to an effective $\Rey \sim U_0H/\ubl \delta$ in the boundary layer. Furthermore, continuity of shear stress at the grass top implies $\ubl/U_0 \sim \delta/H$, and therefore $\Rey \sim (H/\delta)^2$. Substituting this relation in the scaling predicted by our model, i.e. $\delta/H \sim (\Rey \Ndg)^{-1/3}$ and solving for $\delta$ yields $\delta/H \sim \Ndg^{-1}$, which is consistent with the experimental observation. This simple scaling analysis shows that the boundary layer thickness depends on the turbulence model, and indicates that turbulence models based on mixing lengths will yield more realistic scalings for boundary layer thickness. At the same time, the qualitative features of the instability are represented by our analysis.
 
-The Mode 1 instability is driven by the intense shear on the scale of the boundary layer.
-The driving mechanism for this instability is similar to that of KH, and relies only on the presence of this shear as presented in the $\bar{U}_{\eta\eta}$ term in equation \eqref{eqn:mode1asymp}. 
-Therefore, we expect Mode 1 instability to be exhibited independent of the turbulence model. 
-We further expect the fastest growing wavenumber to be proportional to $1/\delta$, and the mode to be localized to the boundary layer because these results have a basis in dimensional analysis.
-The threshold parameters for Mode 1, however, may depend on the precise turbulence model used.
+We observe that the Mode 1 instability is driven by the intense shear on the scale of the boundary layer.
+The driving mechanism for this instability is found to be similar to the KH, and relies only on the presence of this shear as presented in the $\bar{U}_{\eta\eta}$ term in equation \eqref{eqn:mode1asymp}. Since, the existence of boundary layer near the grass tip in independent of the turbulence model used, we expect Mode 1 instability to be exhibited irrespective the exact turbulence modeling used in analysis. We further expect that the fastest growing wavenumber to be proportional to $1/\delta$, and the mode to be localized to the boundary layer, irrespective of the turbulence model, because these results have a basis in dimensional analysis. However, the exact scaling of critical parameters such as threshold $\Rey$ for flow instability may depend on the precise turbulence model used.
+
  
-For the Mode 2 instability, the turbulent momentum transport is found to be irrelevant to leading order.
-In the asymptotic limit of dense grass, \eqref{eqn:mode2asymp} shows that the instability is driven by the interaction of the unvegetated flow with the vegetation drag.
-The influence of the turbulence model is limited to the regularization of the sharp transition in tangential velocity across the grass top.
+For the Mode 2 instability we have found that the to leading order turbulent momentum transport is irrelevant.
+In the asymptotic limit of dense grass, \eqref{eqn:mode2asymp} shows that the instability is driven by the interaction of the unvegetated flow with the vegetation drag. The influence of the turbulence model is limited in only regularizing the sharp transition in tangential velocity across the grass top.
 Therefore we expect Mode 2 and its features to be preserved even if a different turbulence model is used.
-\section{Comparison with previous models}
 
-% Chen and Jirka (1997), White and Nepf (2007). What are their results and how do they relate to ours? These analyses have investigated instability of hyperbolic tangent profiles using modified versions of Orr Sommerfeld or Rayleigh's equations in the context of shallow water flow instabilities. They have represented the additional drag arising due to vegetation or bottom friction using a parametrization analogous to ours. 
-A modified version of the Orr-Sommerfeld equation was analyzed previously by \cite{Chu91}, \cite{Chen97}, and \cite{White07} in the context of instabilities in depth-averaged shallow water flows, where bottom friction replaces or augments vegetation drag.
-They assumed the steady profile to be a hyperbolic tangent, the drag to be isotropic, and the flow domain to be infinite in $y$.
-White and Nepf \cite{White07} also neglected the eddy viscosity in their stability analysis.
-While a detailed investigation needed to compare the consequence of the different assumptions is not done in this work, we discuss similarities and differences between their results and ours.
-These investigations only found one unstable mode.
-It is most likely so because the calculations were restricted to a parameter regime where the two modes have not yet been separated from each other, as is the case shown in Fig. \ref{K_Re_sigma_set3} for the lowest $\Ndg$.
-These investigations also found that increasing the drag could further destabilize the flow, which is consistent with our interpretation of the Mode 2 instability mechanism.
 
-The analogous oscillation of terrestrial canopies in wind, known as \textit{Honami} \cite{Inoue56,Raupach96}, is different because the atmospheric boundary layer is much larger than the vegetation height.
-% A crucial difference between the atmospheric and aquatic flow is that the atmospheric flows are essentially unbounded vertically \cite{Vivoni98,Nepf00}. 
-% Another difference is that terrestrial vegetation is much more rigid, whereas aquatic vegetation is buoyant \cite{Vivoni98,Ghisal02}. 
-In the framework of our model, the limit of $\hg/H \ll 1$ while $\delta/\hg$ = constant can be used to represent the hydrodynamic instability for the terrestrial case.
-We find that in this case, the transition from Mode 1 to Mode 2 happens at such a large vegetation density, that Mode 2 is irrelevant. 
-Hence, only the KH-like characteristics are observed in the terrestrial case. 
+%\section{Comparison with previous models}
+ 
+%A modified version of the Orr-Sommerfeld equation was analyzed previously by \cite{Chu91}, \cite{Chen97}, and \cite{White07} in the context of instabilities in depth-averaged shallow water flows, where bottom friction replaces or augments vegetation drag.
+%They assumed the steady profile to be a hyperbolic tangent, the drag to be isotropic, and the flow domain to be infinite in $y$.
+%White and Nepf \cite{White07} also neglected the eddy viscosity in their stability analysis.
+%While a detailed investigation needed to compare the consequence of the different assumptions is not done in this work, we discuss similarities and differences between their results and ours.
+%These investigations only found one unstable mode.
+%It is most likely so because the calculations were restricted to a parameter regime where the two modes have not yet been separated from each other, as is the case shown in Fig. \ref{K_Re_sigma_set3} for the lowest $\Ndg$.
+%These investigations also found that increasing the drag could further destabilize the flow, which is consistent with our interpretation of the Mode 2 instability mechanism.
+
+%The analogous oscillation of terrestrial canopies in wind, known as \textit{Honami} \cite{Inoue56,Raupach96}, is different because the atmospheric boundary layer is much larger than the vegetation height.
+%% A crucial difference between the atmospheric and aquatic flow is that the atmospheric flows are essentially unbounded vertically \cite{Vivoni98,Nepf00}. 
+%% Another difference is that terrestrial vegetation is much more rigid, whereas aquatic vegetation is buoyant \cite{Vivoni98,Ghisal02}. 
+%In the framework of our model, the limit of $\hg/H \ll 1$ while $\delta/\hg$ = constant can be used to represent the hydrodynamic instability for the terrestrial case.
+%We find that in this case, the transition from Mode 1 to Mode 2 happens at such a large vegetation density, that Mode 2 is irrelevant. 
+%Hence, only the KH-like characteristics are observed in the terrestrial case. 
 
 % We now test the assumption of an undeformable grass bed due to the dominant restoring force of buoyancy, using the criteria that the buoyancy time scale be much shorter than the hydrodynamic time scale $H/U_0$.
 % For a common seagrass, \textit{Zostera Marina}, the relative density difference $\Delta \rho /\rho \approx 0.25$, the volume fraction $V_f \approx 0.1$ and $H=1$ m \citep{Fonseca98}, yielding the buoyancy time scale $\sqrt{\rho H/V_f \Delta \rho g} \approx 2$ s.
