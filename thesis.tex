@@ -261,28 +261,28 @@ Because the leaves are wide but thin , the volume fraction of vegetation is less
 The governing equation of flow in and above the grass can be represented by the fluid continuity equation incorporating the mass conservation and fluid momentum equation, the equation for incompressible fluid can be expresses as
 \begin{equation}\
 \begin{split}
-  \grad .{\bu}&=0 \\
- \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p} +\mu \grad^2\bu
+  \grad .{\bu}&=0, \\
+ \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p} +\mu \grad^2\bu ,
 \end{split}
 \label{NavierStokes}
 \end{equation}
 where $\bu$ is velocity field, $\mu$ is molecular viscosity of fluid , $\rho$ is fluid density and $p$ is the pressure field.
 For a typical flow in vegetation The typical Reynolds number for flow on the scale of leaf is $O(1000)$, hence typical flow in presence of vegetation is a turbulent flow. In order to obtain equations for mean flow we use analysis similar to Pedras $\&$ de Lemos \cite{Pedras00}, we first average the flow over a time interval $\tau$ which is longer than the vegetation scale velocity fluctuation time, then perform spatial averaging. Denoting 
 overbar to represent the time averaged properties and the angel brackets to denote the spatially averaged properties, for any quantity of interest, represented here by $\phi$ such as velocity, pressure etc.
-  \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy \]
-  \[\phi = \bar{\phi}+\phi^{'} \hspace{1.cm}  \bar{\phi} = \langle \bar{\phi} \rangle \ +\phi^{''} \]
+  \[ \bar{\phi}(x,y,z,t) = \frac{1}{\tau} \int_{t}^{t+\tau} \phi  \, dt, \hspace{1.cm}  \langle \bar{\phi}\rangle = \frac{1}{A} \int_{A} \bar{\phi}  \,dx \,dy, \]
+  \[\phi = \bar{\phi}+\phi^{'}, \hspace{1.cm}  \bar{\phi} = \langle \bar{\phi} \rangle \ +\phi^{''}, \]
  where $\bar{\phi}$ denotes temporal average, $<\bar{\phi}>$ denotes temporally and spatially averaged quantity, $\phi^{'}$ denotes temporal fluctuation and $\phi^{''}$ denotes spatial fluctuation. Upon performing temporal averaging of Navier-Stokes and fluid continuity equation we arrive the following equations for fluid continuity and momentum balance.
  \begin{equation}
  \begin{split}
- \frac{\partial \bar{u_i} }{\partial x_i} &=0 \\
- \rho \left[ \frac{\partial  \overline{u_i}  }{\partial t}+  \overline{u_j}  \frac{\partial  \overline{u_i} }{\partial x_j} \right ] &= -\frac{\partial  \bar{p}   }{\partial x_i} + \mu \frac{\partial^2  \overline{u_i}  }{\partial x_j^2} - \rho \frac{\partial  \overline { u_i^{'} u_j^{'} }  }{\partial x_j} 
+ \frac{\partial \bar{u_i} }{\partial x_i} &=0, \\
+ \rho \left[ \frac{\partial  \overline{u_i}  }{\partial t}+  \overline{u_j}  \frac{\partial  \overline{u_i} }{\partial x_j} \right ] &= -\frac{\partial  \bar{p}   }{\partial x_i} + \mu \frac{\partial^2  \overline{u_i}  }{\partial x_j^2} - \rho \frac{\partial  \overline { u_i^{'} u_j^{'} }  }{\partial x_j}, 
  \end{split}
  \end{equation}
  and further spatial averaging gives
   \begin{equation}\label{averaged_eq}
   \begin{split}
-  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
- \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} + \mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial         x_j^2} + \frac{\partial \langle \bar{\tau_{ij}} \rangle }{\partial x_j} -D_i
+  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0, \\
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} + \mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial         x_j^2} + \frac{\partial \langle \bar{\tau_{ij}} \rangle }{\partial x_j} -D_i,
  \end{split}
  \end{equation}
  where $\tau_{ij}=-\rho \langle \overline{u_i^{'} u_j^{'}} \rangle  -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle  $ is macroscopic shear stress tensor, which consists of Reynolds stresses ($ -\rho \langle \overline {u_i^{'} u_j^{'}} \rangle $) due to temporal fluctuation and dispersive stresses ($ -\rho \langle{ \overline{u_i}^{''} \overline{u_j}^{''} } \rangle $) due to spatial fluctuation. The drag force $D_i(x,y) = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle $ is resistance due to vegetation, the sum of form and viscous drag over the averaging scale, which is zero above the vegetation i.e. $D_i = 0 $ for $y>h(x,t)$. 
@@ -294,31 +294,31 @@ overbar to represent the time averaged properties and the angel brackets to deno
  lateral dimensions of canopy elements are much smaller than the canopy height so that the correlation between spatial deviation of both components of velocity on horizontal plane is small \cite{Raupach94,Raupach96}, with this assumption the equation can be further simplified into.
  \begin{equation}\label{averaged_eq2}
   \begin{split}
-  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
- \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} -\rho \frac{\partial \langle \bar{u_i^{'}u_j^{'}} \rangle }{\partial x_j} -D_i
+  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 ,\\
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} -\rho \frac{\partial \langle \bar{u_i^{'}u_j^{'}} \rangle }{\partial x_j} -D_i .
  \end{split}
 \end{equation}
 In this work, we further hypothesized that the Reynolds stress can be estimated by using an eddy viscosity i.e. 
-\[ -\rho \langle u_i^{'} u_j^{'} \rangle = \mu \left(\frac{\del \bar{u_i} }{\del x_j} + \frac{\del \bar {u_j} }{\del x_i}  \right)\]
+\[ -\rho \langle u_i^{'} u_j^{'} \rangle = \mu \left(\frac{\del \bar{u_i} }{\del x_j} + \frac{\del \bar {u_j} }{\del x_i}  \right) .\]
 In a real grass canopy, the measured value of eddy viscosity is found to vary with depth in the water column \cite{Nepf04}. However, in this work, inorder to develop essential mathematical model we have used a constant representative value of eddy viscotiy thoughout the water column.
 From now-onwards, $\mu$ stands for eddy viscosity rather than molecular viscosity, with this simplification equation \ref{averaged_eq} further simplifies into
  \begin{equation}\label{averaged_eq3}
   \begin{split}
-  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0 \\
- \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} +\mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial x_j^2} - D_i
+  \frac{\partial \langle \bar{u_i} \rangle}{\partial x_i}&=0, \\
+ \rho \left[ \frac{\partial \langle \overline{u_i} \rangle }{\partial t}+ \langle \overline{u_j} \rangle \frac{\partial \langle \bar{u_i} \rangle}{\partial x_j} \right ] &= -\frac{\partial \langle \bar{p} \rangle  }{\partial x_i} +\mu \frac{\partial^2 \langle \bar{u_i} \rangle }{\partial x_j^2} - D_i .
  %\rho C_N d N_g \langle \overline{u_i}\rangle |\langle \overline{u_i} \rangle|
  \end{split}
 \end{equation}
 Which is similar to Navier-Stokes equation with molecular viscosity replaced by a constant eddy viscosity and an extra drag term due to presence of vegetation; from now-onwards we will drop angle bracket and over bar for notational simplicity.
 \begin{equation}\label{averaged_eq}
 \begin{split}
-  \grad .{\bu}&=0 \\
- \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p}  +\mu \grad^2\bu - \mathbf{D}
+  \grad .{\bu}&=0, \\
+ \rho \left[ \frac{\partial {\bu}  }{\partial t}+  {\bu} . \grad \bu  \right ] &= - \grad{p}  +\mu \grad^2\bu - \mathbf{D} .
 \end{split}
 \end{equation}
 When the Reynolds number of the flow on the microstructure and molecular viscosity is small, the drag force $\mathbf{D}$ can be modeled according to Darcy's law $\mathbf{D} \propto \bu$. While there is no generic way to model the drag force when Reynolds number on microstructure is large ( O(100-1000) ), general principal of high-Reynolds number flows guide us towards a phenomenological model for drag. Firstly in this range of Reynolds number, the flow separate from grass blade forming a wake , and therefore it is reasonable to expect the drag to scale with dynamic pressure $\rho \bu_r^2$, where $\bu_r$ is the relative velocity between the fluid and the grass blade. Moreover, we assume that the drag is anisotropic; flow across the grass blade experiences more drag than the flow along the glass blade. Mathematically, the drag law uses projection of relative velocity along the blade and normal to the blade as.
 \begin{equation}
- \bu_N = \bu_r.\bn,\hspace{0.5cm} \bu_T = \bu_r.\bt,\hspace{.5cm} \mathbf{D} = -\rho d(x,y)\left( C_N \bu_N |\bu_N|\bn + C_T \bu_T |\bu_T| \bt \right)
+ \bu_N = \bu_r.\bn,\hspace{0.5cm} \bu_T = \bu_r.\bt,\hspace{.5cm} \mathbf{D} = -\rho d(x,y)\left( C_N \bu_N |\bu_N|\bn + C_T \bu_T |\bu_T| \bt \right),
 \end{equation} 
 where $C_N$ and $C_T$ are drag coefficient in the normal and tangential directions respectively, $N_g$ is the grass number density, $d(x,y)$ is average grass diameter at location specified by co-ordinates $(x,y)$, $\bt$ is average unit vector tangent to the grass element at $(x,y)$ and $\bn$ is average unit vector normal to the grass blade at $(x,y)$. In a real grass canopy $C_T \ll C_N$, to develop essential mathematical model we take $C_T=0$ in this analysis. So
 \begin{equation}
