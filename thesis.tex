@@ -110,9 +110,9 @@ Hydrodynamic instability leading to \textit{Monami}
 \copyrightpage
 
 \begin{signature}
-  \director{Shreyas Mandre, Ph.D., Advisor}
-  \reader{J. Tang, Ph.D., Reader}
-  \reader{Tom Powers, Ph.D., Reader}
+  \director{Professor Shreyas Mandre, Ph.D., Advisor}
+  \reader{Professor Jay Tang, Ph.D., Reader}
+  \reader{Professor  Thomas Powers, Ph.D., Reader}
 \end{signature}
 
 \begin{vita}
@@ -290,7 +290,7 @@ overbar to represent the time averaged properties and the angel brackets to deno
  % D_i = \langle \frac{\partial \overline{p}^{''}}{\partial x_i} \rangle - \langle \mu \frac{\partial^2 \bar{u_i}^{''} }{\partial x_j^2} \rangle
  %\end{equation}
  
- Both molecular stress dispersive stress ($ \mu\ \del u_i / \del x_j $) and dispersive stress($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $). The formar is usual assumption in a turbulent flow such as flow in vegetation and the latter can be understood by observing that the
+ Both molecular stress dispersive stress ($ \mu\ \del u_i / \del x_j $) and dispersive stress($-\rho \langle \bar{u_i}^{''} \bar{u_j}^{''} \rangle $) are negligible compared to Reynolds stress ($-\rho \langle\bar{ u_i^{'} u_j^{'} } \rangle $). The former is usual assumption in analysis of a turbulent flow such as flow in vegetation and the latter can be understood by observing that the
  lateral dimensions of canopy elements are much smaller than the canopy height so that the correlation between spatial deviation of both components of velocity on horizontal plane is small \cite{Raupach94,Raupach96}, with this assumption the equation can be further simplified into.
  \begin{equation}\label{averaged_eq2}
   \begin{split}
@@ -324,7 +324,7 @@ where $C_N$ and $C_T$ are drag coefficient in the normal and tangential directio
 \begin{equation}
  \mathbf{D} = -\rho d(x,y) C_N \bu_N |\bu_N| \bn, \hspace{.5cm} \text{for the flow through submerged grass bed}
 \end{equation}
-In the case of flow around emergent vegetation both the dominant component of the flow is in the horizontal direction and hence across the vegetation, which suggest that the flow around emergent vegetation experiences isotropic drag, i.e,
+In the case of flow around emergent vegetation both the dominant component of the flow is in the horizontal direction and hence across the vegetation, which suggest that vegetation drag in case of flow around emergent vegetation can be modeled by an isotropic drag, i.e,
 \begin{equation}
  \mathbf{D} = -\rho d(x,y) C \bu |\bu| , \hspace{.5cm} \text{for the flow around emergent vegetation,}
 \end{equation}
@@ -348,7 +348,7 @@ where $C$ is the drag coefficient for flow around emergent vegetation.
 
 Boundary condition for \eqref{averaged_eq} on the bed include no-shear ( $u_y=0$ ) and no normal velocity ($v=0$) on the both bottom surface and top surface.
 In real flow the true boundary condition at the bottom surface is no slip velocity and no normal velocity, however the boundary layer formed due to no slip condition is so thin ($\approx 0.5 cm$) that it's hardly visible in experiments as can be seen from the experimental data of \cite{Nepf04} in Figure \ref{basicflow}. Due to presence of dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag \cite{Nepf04} and hence the bottom boundary condition can be approximated by no shear ($u_y(0)=0$) and no normal flow ($v(0)=0$) condition.
-On the top surface, a rigid lid condition ( no shear and no normal velocity ) or free surface is suitable. In order to model free interface we have used no shear at top as well. Since changes in water surface elevation due to presence of \monami  is small compared to the depth of water channel, we can approximate the top surface by no normal flow ($v(2H)=0$) as well.  %The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface.
+On the top surface, a rigid lid condition ( no shear and no normal velocity ) or free surface is suitable. In order to model free interface we have used no shear at top as well. Since changes in water surface elevation due to presence of {\monami}  is small compared to the depth of water channel, we can approximate the top surface by no normal flow ($v(2H)=0$) as well.  %The no shear condition arises because, for dense vegetation the shear stress exerted by the bottom surface is expected to be negligible compared to the vegetation drag. On the top surface, a rigid-lid condition (no shear and no normal velocity) or a free surface condition is suitable. In this analysis we have used rigid-lid condition on the top surface.
  %The prediction of mean velocity made based on these condition agrees well with the experiments (e.g see Figure ~\ref{basicflow} ). 
 %\input{content/tools}
 \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -462,10 +462,10 @@ The zero shear condition at the top and bottom surface ($D^2\phi=0$) are express
 The base velocity profile $U(y)$ at these grid points are evaluated by solving \eqref{base_equ}. Using these approximation we can rearrange terms in \eqref{Orr-somerfield} 
 \begin{equation}
 \begin{split}
-A\phi &= \sigma B \phi\\
-A &= \Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi + ik U_{yy}\phi -\Ndg D\left(2 S U D \phi\right)\\
+A\phi &= \sigma B \phi,\\
+A &= \Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi + ik U_{yy}\phi -\Ndg D\left(2 S U D \phi\right),\\
 %\Rey^{-1}\left(D^2 -k^{2} \right)^2\phi-ikU \left(D^2-k^2\right)\phi +5 ik U_{yy}\phi &-\Ndg D\left(2 S U D \phi\right)  =\\
-B &= {\sigma} \left(D^2-k^2\right) \phi
+B &= {\sigma} \left(D^2-k^2\right) \phi,
 \end{split}
 \end{equation}
 where the operator $A$ and $B$ are approximated at the grid points using finite difference method. This results in a finite dimensional generalized eigen-value problem, whose solution provide growth rate $\sigma$ and eigen mode $\phi$ for a perturbation of wavenumber $k$ to the base velocity profile $U(y)$. A plot of $\Re(\sigma)$ as a function of wavenumber $k$ for a base profile arising from $R=500$, $\Ndg=2$ and $h_g/(2H)=0.4$ is shown in figure \ref{GrowthRateVsK} 
